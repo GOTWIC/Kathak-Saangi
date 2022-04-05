@@ -1,0 +1,665 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		470736B826E84C3D00339E9C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470736B726E84C3D00339E9C /* Info.swift */; };
+		471B4B1026DAF0A4003763D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471B4B0726DAF0A3003763D1 /* Extensions.swift */; };
+		471B4B1326DAF0A4003763D1 /* Kramalaya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471B4B0A26DAF0A4003763D1 /* Kramalaya.swift */; };
+		471B4B1826DAF366003763D1 /* AudioList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471B4B1726DAF366003763D1 /* AudioList.swift */; };
+		472B202326EC240E006190BC /* 120 BPM Lehra Single.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 472B202026EC240E006190BC /* 120 BPM Lehra Single.mp3 */; };
+		472B202426EC240E006190BC /* 65 BPM Lehra Single.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 472B202126EC240E006190BC /* 65 BPM Lehra Single.mp3 */; };
+		472B202526EC240E006190BC /* 176 BPM Lehra Single.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 472B202226EC240E006190BC /* 176 BPM Lehra Single.mp3 */; };
+		474C19DC26DAEF17005C57EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19DB26DAEF17005C57EF /* AppDelegate.swift */; };
+		474C19DE26DAEF17005C57EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19DD26DAEF17005C57EF /* SceneDelegate.swift */; };
+		474C19E226DAEF20005C57EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474C19E126DAEF20005C57EF /* Assets.xcassets */; };
+		474C19E526DAEF20005C57EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474C19E426DAEF20005C57EF /* Preview Assets.xcassets */; };
+		474C19F326DAEF20005C57EF /* Tabla_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19F226DAEF20005C57EF /* Tabla_AppTests.swift */; };
+		474C19FE26DAEF20005C57EF /* Tabla_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19FD26DAEF20005C57EF /* Tabla_AppUITests.swift */; };
+		475FCBCF26DBDDFF009788FD /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCBCE26DBDDFF009788FD /* VideoList.swift */; };
+		4795DB1F26E30F89005BF487 /* Lehra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795DB1E26E30F89005BF487 /* Lehra.swift */; };
+		4795DB2526E55D20005BF487 /* Riyaz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795DB2426E55D20005BF487 /* Riyaz.swift */; };
+		4795DB2726E55F08005BF487 /* Tehai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795DB2626E55F08005BF487 /* Tehai.swift */; };
+		4795DB2926E56106005BF487 /* Gurus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795DB2826E56106005BF487 /* Gurus.swift */; };
+		47AF06F6270BD569003794A8 /* Parhanth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF06F5270BD569003794A8 /* Parhanth.swift */; };
+		47BB782126EABF2C00DFFEA2 /* Dasa Prana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */; };
+		47F775DE26E1630D000DF730 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F775DD26E1630D000DF730 /* ItemList.swift */; };
+		73350E2826E78DC000DF726A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73350E2726E78DC000DF726A /* ContentView.swift */; };
+		7362B92926E590900065DBFB /* Ladi and Upaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362B92826E590900065DBFB /* Ladi and Upaj.swift */; };
+		7362B92B26E592480065DBFB /* Octopad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362B92A26E592480065DBFB /* Octopad.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		474C19EF26DAEF20005C57EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 474C19D026DAEF17005C57EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 474C19D726DAEF17005C57EF;
+			remoteInfo = "Tabla App";
+		};
+		474C19FA26DAEF20005C57EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 474C19D026DAEF17005C57EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 474C19D726DAEF17005C57EF;
+			remoteInfo = "Tabla App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		470736B726E84C3D00339E9C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		471B4B0726DAF0A3003763D1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		471B4B0A26DAF0A4003763D1 /* Kramalaya.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kramalaya.swift; sourceTree = "<group>"; };
+		471B4B1726DAF366003763D1 /* AudioList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioList.swift; sourceTree = "<group>"; };
+		472B202026EC240E006190BC /* 120 BPM Lehra Single.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "120 BPM Lehra Single.mp3"; sourceTree = "<group>"; };
+		472B202126EC240E006190BC /* 65 BPM Lehra Single.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "65 BPM Lehra Single.mp3"; sourceTree = "<group>"; };
+		472B202226EC240E006190BC /* 176 BPM Lehra Single.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "176 BPM Lehra Single.mp3"; sourceTree = "<group>"; };
+		474C19D826DAEF17005C57EF /* Tabla App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tabla App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		474C19DB26DAEF17005C57EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		474C19DD26DAEF17005C57EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		474C19E126DAEF20005C57EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		474C19E426DAEF20005C57EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		474C19EE26DAEF20005C57EF /* Tabla AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabla AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		474C19F226DAEF20005C57EF /* Tabla_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabla_AppTests.swift; sourceTree = "<group>"; };
+		474C19F426DAEF20005C57EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		474C19F926DAEF20005C57EF /* Tabla AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabla AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		474C19FD26DAEF20005C57EF /* Tabla_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabla_AppUITests.swift; sourceTree = "<group>"; };
+		474C19FF26DAEF20005C57EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		475FCBCE26DBDDFF009788FD /* VideoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
+		478F557026DC481A00B45132 /* samarkan.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = samarkan.TTF; sourceTree = "<group>"; };
+		4795DB1E26E30F89005BF487 /* Lehra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lehra.swift; sourceTree = "<group>"; };
+		4795DB2426E55D20005BF487 /* Riyaz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riyaz.swift; sourceTree = "<group>"; };
+		4795DB2626E55F08005BF487 /* Tehai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tehai.swift; sourceTree = "<group>"; };
+		4795DB2826E56106005BF487 /* Gurus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gurus.swift; sourceTree = "<group>"; };
+		47AF06F5270BD569003794A8 /* Parhanth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parhanth.swift; sourceTree = "<group>"; };
+		47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dasa Prana.swift"; sourceTree = "<group>"; };
+		47E967D926DFFA910050CBE5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47F775DD26E1630D000DF730 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
+		73350E2726E78DC000DF726A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7362B92826E590900065DBFB /* Ladi and Upaj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ladi and Upaj.swift"; sourceTree = "<group>"; };
+		7362B92A26E592480065DBFB /* Octopad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Octopad.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		474C19D526DAEF17005C57EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474C19EB26DAEF20005C57EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474C19F626DAEF20005C57EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		474C19CF26DAEF17005C57EF = {
+			isa = PBXGroup;
+			children = (
+				474C19DA26DAEF17005C57EF /* Tabla App */,
+				474C19F126DAEF20005C57EF /* Tabla AppTests */,
+				474C19FC26DAEF20005C57EF /* Tabla AppUITests */,
+				474C19D926DAEF17005C57EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		474C19D926DAEF17005C57EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				474C19D826DAEF17005C57EF /* Tabla App.app */,
+				474C19EE26DAEF20005C57EF /* Tabla AppTests.xctest */,
+				474C19F926DAEF20005C57EF /* Tabla AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		474C19DA26DAEF17005C57EF /* Tabla App */ = {
+			isa = PBXGroup;
+			children = (
+				73B73B2126E67F0E00C3C724 /* Audio Files */,
+				73350E2726E78DC000DF726A /* ContentView.swift */,
+				4795DB1E26E30F89005BF487 /* Lehra.swift */,
+				4795DB2626E55F08005BF487 /* Tehai.swift */,
+				471B4B0A26DAF0A4003763D1 /* Kramalaya.swift */,
+				4795DB2426E55D20005BF487 /* Riyaz.swift */,
+				4795DB2826E56106005BF487 /* Gurus.swift */,
+				7362B92826E590900065DBFB /* Ladi and Upaj.swift */,
+				7362B92A26E592480065DBFB /* Octopad.swift */,
+				47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */,
+				47AF06F5270BD569003794A8 /* Parhanth.swift */,
+				470736B726E84C3D00339E9C /* Info.swift */,
+				471B4B1726DAF366003763D1 /* AudioList.swift */,
+				475FCBCE26DBDDFF009788FD /* VideoList.swift */,
+				47F775DD26E1630D000DF730 /* ItemList.swift */,
+				471B4B0726DAF0A3003763D1 /* Extensions.swift */,
+				474C19E326DAEF20005C57EF /* Preview Content */,
+				474C19DD26DAEF17005C57EF /* SceneDelegate.swift */,
+				47E967D926DFFA910050CBE5 /* Info.plist */,
+				474C19E126DAEF20005C57EF /* Assets.xcassets */,
+				478F557026DC481A00B45132 /* samarkan.TTF */,
+				474C19DB26DAEF17005C57EF /* AppDelegate.swift */,
+			);
+			path = "Tabla App";
+			sourceTree = "<group>";
+		};
+		474C19E326DAEF20005C57EF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				474C19E426DAEF20005C57EF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		474C19F126DAEF20005C57EF /* Tabla AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				474C19F226DAEF20005C57EF /* Tabla_AppTests.swift */,
+				474C19F426DAEF20005C57EF /* Info.plist */,
+			);
+			path = "Tabla AppTests";
+			sourceTree = "<group>";
+		};
+		474C19FC26DAEF20005C57EF /* Tabla AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				474C19FD26DAEF20005C57EF /* Tabla_AppUITests.swift */,
+				474C19FF26DAEF20005C57EF /* Info.plist */,
+			);
+			path = "Tabla AppUITests";
+			sourceTree = "<group>";
+		};
+		73B73B2126E67F0E00C3C724 /* Audio Files */ = {
+			isa = PBXGroup;
+			children = (
+				472B202126EC240E006190BC /* 65 BPM Lehra Single.mp3 */,
+				472B202026EC240E006190BC /* 120 BPM Lehra Single.mp3 */,
+				472B202226EC240E006190BC /* 176 BPM Lehra Single.mp3 */,
+			);
+			path = "Audio Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		474C19D726DAEF17005C57EF /* Tabla App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 474C1A0226DAEF20005C57EF /* Build configuration list for PBXNativeTarget "Tabla App" */;
+			buildPhases = (
+				474C19D426DAEF17005C57EF /* Sources */,
+				474C19D526DAEF17005C57EF /* Frameworks */,
+				474C19D626DAEF17005C57EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tabla App";
+			productName = "Tabla App";
+			productReference = 474C19D826DAEF17005C57EF /* Tabla App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		474C19ED26DAEF20005C57EF /* Tabla AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 474C1A0526DAEF20005C57EF /* Build configuration list for PBXNativeTarget "Tabla AppTests" */;
+			buildPhases = (
+				474C19EA26DAEF20005C57EF /* Sources */,
+				474C19EB26DAEF20005C57EF /* Frameworks */,
+				474C19EC26DAEF20005C57EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				474C19F026DAEF20005C57EF /* PBXTargetDependency */,
+			);
+			name = "Tabla AppTests";
+			productName = "Tabla AppTests";
+			productReference = 474C19EE26DAEF20005C57EF /* Tabla AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		474C19F826DAEF20005C57EF /* Tabla AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 474C1A0826DAEF20005C57EF /* Build configuration list for PBXNativeTarget "Tabla AppUITests" */;
+			buildPhases = (
+				474C19F526DAEF20005C57EF /* Sources */,
+				474C19F626DAEF20005C57EF /* Frameworks */,
+				474C19F726DAEF20005C57EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				474C19FB26DAEF20005C57EF /* PBXTargetDependency */,
+			);
+			name = "Tabla AppUITests";
+			productName = "Tabla AppUITests";
+			productReference = 474C19F926DAEF20005C57EF /* Tabla AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		474C19D026DAEF17005C57EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					474C19D726DAEF17005C57EF = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					474C19ED26DAEF20005C57EF = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 474C19D726DAEF17005C57EF;
+					};
+					474C19F826DAEF20005C57EF = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 474C19D726DAEF17005C57EF;
+					};
+				};
+			};
+			buildConfigurationList = 474C19D326DAEF17005C57EF /* Build configuration list for PBXProject "Tabla App" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 474C19CF26DAEF17005C57EF;
+			productRefGroup = 474C19D926DAEF17005C57EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				474C19D726DAEF17005C57EF /* Tabla App */,
+				474C19ED26DAEF20005C57EF /* Tabla AppTests */,
+				474C19F826DAEF20005C57EF /* Tabla AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		474C19D626DAEF17005C57EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				472B202526EC240E006190BC /* 176 BPM Lehra Single.mp3 in Resources */,
+				474C19E526DAEF20005C57EF /* Preview Assets.xcassets in Resources */,
+				472B202426EC240E006190BC /* 65 BPM Lehra Single.mp3 in Resources */,
+				472B202326EC240E006190BC /* 120 BPM Lehra Single.mp3 in Resources */,
+				474C19E226DAEF20005C57EF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474C19EC26DAEF20005C57EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474C19F726DAEF20005C57EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		474C19D426DAEF17005C57EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4795DB2926E56106005BF487 /* Gurus.swift in Sources */,
+				470736B826E84C3D00339E9C /* Info.swift in Sources */,
+				7362B92926E590900065DBFB /* Ladi and Upaj.swift in Sources */,
+				471B4B1826DAF366003763D1 /* AudioList.swift in Sources */,
+				4795DB2726E55F08005BF487 /* Tehai.swift in Sources */,
+				4795DB1F26E30F89005BF487 /* Lehra.swift in Sources */,
+				47BB782126EABF2C00DFFEA2 /* Dasa Prana.swift in Sources */,
+				47AF06F6270BD569003794A8 /* Parhanth.swift in Sources */,
+				471B4B1326DAF0A4003763D1 /* Kramalaya.swift in Sources */,
+				471B4B1026DAF0A4003763D1 /* Extensions.swift in Sources */,
+				474C19DC26DAEF17005C57EF /* AppDelegate.swift in Sources */,
+				475FCBCF26DBDDFF009788FD /* VideoList.swift in Sources */,
+				47F775DE26E1630D000DF730 /* ItemList.swift in Sources */,
+				73350E2826E78DC000DF726A /* ContentView.swift in Sources */,
+				7362B92B26E592480065DBFB /* Octopad.swift in Sources */,
+				474C19DE26DAEF17005C57EF /* SceneDelegate.swift in Sources */,
+				4795DB2526E55D20005BF487 /* Riyaz.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474C19EA26DAEF20005C57EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474C19F326DAEF20005C57EF /* Tabla_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474C19F526DAEF20005C57EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474C19FE26DAEF20005C57EF /* Tabla_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		474C19F026DAEF20005C57EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 474C19D726DAEF17005C57EF /* Tabla App */;
+			targetProxy = 474C19EF26DAEF20005C57EF /* PBXContainerItemProxy */;
+		};
+		474C19FB26DAEF20005C57EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 474C19D726DAEF17005C57EF /* Tabla App */;
+			targetProxy = 474C19FA26DAEF20005C57EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		474C1A0026DAEF20005C57EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		474C1A0126DAEF20005C57EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		474C1A0326DAEF20005C57EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Tabla App/Preview Content\"";
+				DEVELOPMENT_TEAM = XRW6W5DHB6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Tabla App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tumpasoumya.kathakriyaz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		474C1A0426DAEF20005C57EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Tabla App/Preview Content\"";
+				DEVELOPMENT_TEAM = XRW6W5DHB6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Tabla App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tumpasoumya.kathakriyaz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		474C1A0626DAEF20005C57EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tabla AppTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Swagnik.Tabla-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tabla App.app/Tabla App";
+			};
+			name = Debug;
+		};
+		474C1A0726DAEF20005C57EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tabla AppTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Swagnik.Tabla-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tabla App.app/Tabla App";
+			};
+			name = Release;
+		};
+		474C1A0926DAEF20005C57EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tabla AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Swagnik.Tabla-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tabla App";
+			};
+			name = Debug;
+		};
+		474C1A0A26DAEF20005C57EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tabla AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Swagnik.Tabla-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tabla App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		474C19D326DAEF17005C57EF /* Build configuration list for PBXProject "Tabla App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474C1A0026DAEF20005C57EF /* Debug */,
+				474C1A0126DAEF20005C57EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		474C1A0226DAEF20005C57EF /* Build configuration list for PBXNativeTarget "Tabla App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474C1A0326DAEF20005C57EF /* Debug */,
+				474C1A0426DAEF20005C57EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		474C1A0526DAEF20005C57EF /* Build configuration list for PBXNativeTarget "Tabla AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474C1A0626DAEF20005C57EF /* Debug */,
+				474C1A0726DAEF20005C57EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		474C1A0826DAEF20005C57EF /* Build configuration list for PBXNativeTarget "Tabla AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474C1A0926DAEF20005C57EF /* Debug */,
+				474C1A0A26DAEF20005C57EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 474C19D026DAEF17005C57EF /* Project object */;
+}
