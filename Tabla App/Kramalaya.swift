@@ -2,7 +2,7 @@
 //  KramalayaTab.swift
 //  Test
 //
-//  Created by Soumya Roychoudhury on 6/26/21.
+//  Created by Swagnik Roychoudhury on 6/26/21.
 //
 
 import SwiftUI

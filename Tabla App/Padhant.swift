@@ -2,7 +2,7 @@
 //  Octopad.swift
 //  Tabla App
 //
-//  Created by Debjani Roychoudhury on 9/5/21.
+//  Created by Swagnik Roychoudhury on 9/5/21.
 //
 
 import SwiftUI

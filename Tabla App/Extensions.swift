@@ -2,7 +2,7 @@
 //  Color.swift
 //  Tabla
 //
-//  Created by Soumya Roychoudhury on 3/14/21.
+//  Created by Swagnik Roychoudhury on 3/14/21.
 //
 
 import SwiftUI
@@ -43,6 +43,14 @@ extension Color {
     public static let orange1: Color = Color(UIColor(red: 140/255, green: 70/255, blue: 0/255, alpha: 0.7))
     
     public static let yellow1: Color = Color(UIColor(red: 215/255, green: 210/255, blue: 105/255, alpha: 0.7))
+    
+    public static let tablaColor1: Color = Color(UIColor(red: 250/255, green: 210/255, blue: 150/255, alpha: 1.0))
+    
+    public static let tablaColor2: Color = Color(UIColor(red: 250/255, green: 240/255, blue: 210/255, alpha: 1.0))
+    
+    public static let tablaColor3: Color = Color(UIColor(red: 70/255, green: 65/255, blue: 75/255, alpha: 1.0))
+    
+    public static let tablaColor4: Color = Color(UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1.0))
     
     
 }

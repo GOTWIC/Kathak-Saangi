@@ -16,7 +16,6 @@
 		472B202526EC240E006190BC /* 176 BPM Lehra Single.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 472B202226EC240E006190BC /* 176 BPM Lehra Single.mp3 */; };
 		474C19DC26DAEF17005C57EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19DB26DAEF17005C57EF /* AppDelegate.swift */; };
 		474C19DE26DAEF17005C57EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19DD26DAEF17005C57EF /* SceneDelegate.swift */; };
-		474C19E226DAEF20005C57EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474C19E126DAEF20005C57EF /* Assets.xcassets */; };
 		474C19E526DAEF20005C57EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474C19E426DAEF20005C57EF /* Preview Assets.xcassets */; };
 		474C19F326DAEF20005C57EF /* Tabla_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19F226DAEF20005C57EF /* Tabla_AppTests.swift */; };
 		474C19FE26DAEF20005C57EF /* Tabla_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C19FD26DAEF20005C57EF /* Tabla_AppUITests.swift */; };
@@ -25,12 +24,26 @@
 		4795DB2526E55D20005BF487 /* Riyaz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795DB2426E55D20005BF487 /* Riyaz.swift */; };
 		4795DB2726E55F08005BF487 /* Tehai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795DB2626E55F08005BF487 /* Tehai.swift */; };
 		4795DB2926E56106005BF487 /* Gurus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4795DB2826E56106005BF487 /* Gurus.swift */; };
-		47AF06F6270BD569003794A8 /* Parhanth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF06F5270BD569003794A8 /* Parhanth.swift */; };
+		47AF06F6270BD569003794A8 /* Padhant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF06F5270BD569003794A8 /* Padhant.swift */; };
 		47BB782126EABF2C00DFFEA2 /* Dasa Prana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */; };
 		47F775DE26E1630D000DF730 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F775DD26E1630D000DF730 /* ItemList.swift */; };
 		73350E2826E78DC000DF726A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73350E2726E78DC000DF726A /* ContentView.swift */; };
 		7362B92926E590900065DBFB /* Ladi and Upaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362B92826E590900065DBFB /* Ladi and Upaj.swift */; };
 		7362B92B26E592480065DBFB /* Octopad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362B92A26E592480065DBFB /* Octopad.swift */; };
+		737F0EFE27FBDE8F0005918B /* Tabla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737F0EFD27FBDE8F0005918B /* Tabla.swift */; };
+		737F0F0027FBE5250005918B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737F0EFF27FBE5240005918B /* Assets.xcassets */; };
+		737F0F0427FBF11B0005918B /* TablaSound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 737F0F0327FBF11B0005918B /* TablaSound1.wav */; };
+		737F0F0627FBF15E0005918B /* TablaSound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 737F0F0527FBF15E0005918B /* TablaSound2.wav */; };
+		737F0F0827FBF1FD0005918B /* TablaSound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 737F0F0727FBF1FD0005918B /* TablaSound3.wav */; };
+		737F0F0A27FBF24B0005918B /* TablaSound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 737F0F0927FBF24B0005918B /* TablaSound4.wav */; };
+		73FB67C527FD248C005CB96B /* TablaSound8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 73FB67C027FD248C005CB96B /* TablaSound8.wav */; };
+		73FB67C627FD248C005CB96B /* TablaSound6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 73FB67C127FD248C005CB96B /* TablaSound6.wav */; };
+		73FB67C727FD248C005CB96B /* TablaSound7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 73FB67C227FD248C005CB96B /* TablaSound7.wav */; };
+		73FB67C827FD248C005CB96B /* TablaSound9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 73FB67C327FD248C005CB96B /* TablaSound9.wav */; };
+		73FB67C927FD248C005CB96B /* TablaSound5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 73FB67C427FD248C005CB96B /* TablaSound5.wav */; };
+		73FB67CB27FE3BE0005CB96B /* MainMenuTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB67CA27FE3BE0005CB96B /* MainMenuTest.swift */; };
+		73FB67CD27FE5590005CB96B /* Test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB67CC27FE5590005CB96B /* Test1.swift */; };
+		73FB67CF27FE6AED005CB96B /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FB67CE27FE6AED005CB96B /* Test2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +74,6 @@
 		474C19D826DAEF17005C57EF /* Tabla App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tabla App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		474C19DB26DAEF17005C57EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		474C19DD26DAEF17005C57EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		474C19E126DAEF20005C57EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		474C19E426DAEF20005C57EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		474C19EE26DAEF20005C57EF /* Tabla AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabla AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		474C19F226DAEF20005C57EF /* Tabla_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabla_AppTests.swift; sourceTree = "<group>"; };
@@ -75,13 +87,27 @@
 		4795DB2426E55D20005BF487 /* Riyaz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Riyaz.swift; sourceTree = "<group>"; };
 		4795DB2626E55F08005BF487 /* Tehai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tehai.swift; sourceTree = "<group>"; };
 		4795DB2826E56106005BF487 /* Gurus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gurus.swift; sourceTree = "<group>"; };
-		47AF06F5270BD569003794A8 /* Parhanth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parhanth.swift; sourceTree = "<group>"; };
+		47AF06F5270BD569003794A8 /* Padhant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padhant.swift; sourceTree = "<group>"; };
 		47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dasa Prana.swift"; sourceTree = "<group>"; };
 		47E967D926DFFA910050CBE5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47F775DD26E1630D000DF730 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		73350E2726E78DC000DF726A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7362B92826E590900065DBFB /* Ladi and Upaj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ladi and Upaj.swift"; sourceTree = "<group>"; };
 		7362B92A26E592480065DBFB /* Octopad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Octopad.swift; sourceTree = "<group>"; };
+		737F0EFD27FBDE8F0005918B /* Tabla.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabla.swift; sourceTree = "<group>"; };
+		737F0EFF27FBE5240005918B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		737F0F0327FBF11B0005918B /* TablaSound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound1.wav; sourceTree = "<group>"; };
+		737F0F0527FBF15E0005918B /* TablaSound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound2.wav; sourceTree = "<group>"; };
+		737F0F0727FBF1FD0005918B /* TablaSound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound3.wav; sourceTree = "<group>"; };
+		737F0F0927FBF24B0005918B /* TablaSound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound4.wav; sourceTree = "<group>"; };
+		73FB67C027FD248C005CB96B /* TablaSound8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound8.wav; sourceTree = "<group>"; };
+		73FB67C127FD248C005CB96B /* TablaSound6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound6.wav; sourceTree = "<group>"; };
+		73FB67C227FD248C005CB96B /* TablaSound7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound7.wav; sourceTree = "<group>"; };
+		73FB67C327FD248C005CB96B /* TablaSound9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound9.wav; sourceTree = "<group>"; };
+		73FB67C427FD248C005CB96B /* TablaSound5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TablaSound5.wav; sourceTree = "<group>"; };
+		73FB67CA27FE3BE0005CB96B /* MainMenuTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTest.swift; sourceTree = "<group>"; };
+		73FB67CC27FE5590005CB96B /* Test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1.swift; sourceTree = "<group>"; };
+		73FB67CE27FE6AED005CB96B /* Test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,18 +168,22 @@
 				7362B92826E590900065DBFB /* Ladi and Upaj.swift */,
 				7362B92A26E592480065DBFB /* Octopad.swift */,
 				47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */,
-				47AF06F5270BD569003794A8 /* Parhanth.swift */,
+				47AF06F5270BD569003794A8 /* Padhant.swift */,
 				470736B726E84C3D00339E9C /* Info.swift */,
 				471B4B1726DAF366003763D1 /* AudioList.swift */,
 				475FCBCE26DBDDFF009788FD /* VideoList.swift */,
 				47F775DD26E1630D000DF730 /* ItemList.swift */,
 				471B4B0726DAF0A3003763D1 /* Extensions.swift */,
+				737F0EFD27FBDE8F0005918B /* Tabla.swift */,
 				474C19E326DAEF20005C57EF /* Preview Content */,
 				474C19DD26DAEF17005C57EF /* SceneDelegate.swift */,
 				47E967D926DFFA910050CBE5 /* Info.plist */,
-				474C19E126DAEF20005C57EF /* Assets.xcassets */,
 				478F557026DC481A00B45132 /* samarkan.TTF */,
 				474C19DB26DAEF17005C57EF /* AppDelegate.swift */,
+				737F0EFF27FBE5240005918B /* Assets.xcassets */,
+				73FB67CA27FE3BE0005CB96B /* MainMenuTest.swift */,
+				73FB67CC27FE5590005CB96B /* Test1.swift */,
+				73FB67CE27FE6AED005CB96B /* Test2.swift */,
 			);
 			path = "Tabla App";
 			sourceTree = "<group>";
@@ -187,6 +217,15 @@
 		73B73B2126E67F0E00C3C724 /* Audio Files */ = {
 			isa = PBXGroup;
 			children = (
+				73FB67C427FD248C005CB96B /* TablaSound5.wav */,
+				73FB67C127FD248C005CB96B /* TablaSound6.wav */,
+				73FB67C227FD248C005CB96B /* TablaSound7.wav */,
+				73FB67C027FD248C005CB96B /* TablaSound8.wav */,
+				73FB67C327FD248C005CB96B /* TablaSound9.wav */,
+				737F0F0727FBF1FD0005918B /* TablaSound3.wav */,
+				737F0F0527FBF15E0005918B /* TablaSound2.wav */,
+				737F0F0927FBF24B0005918B /* TablaSound4.wav */,
+				737F0F0327FBF11B0005918B /* TablaSound1.wav */,
 				472B202126EC240E006190BC /* 65 BPM Lehra Single.mp3 */,
 				472B202026EC240E006190BC /* 120 BPM Lehra Single.mp3 */,
 				472B202226EC240E006190BC /* 176 BPM Lehra Single.mp3 */,
@@ -299,9 +338,18 @@
 			files = (
 				472B202526EC240E006190BC /* 176 BPM Lehra Single.mp3 in Resources */,
 				474C19E526DAEF20005C57EF /* Preview Assets.xcassets in Resources */,
+				73FB67C627FD248C005CB96B /* TablaSound6.wav in Resources */,
+				73FB67C727FD248C005CB96B /* TablaSound7.wav in Resources */,
 				472B202426EC240E006190BC /* 65 BPM Lehra Single.mp3 in Resources */,
+				737F0F0A27FBF24B0005918B /* TablaSound4.wav in Resources */,
+				73FB67C527FD248C005CB96B /* TablaSound8.wav in Resources */,
+				737F0F0827FBF1FD0005918B /* TablaSound3.wav in Resources */,
+				737F0F0427FBF11B0005918B /* TablaSound1.wav in Resources */,
+				73FB67C827FD248C005CB96B /* TablaSound9.wav in Resources */,
 				472B202326EC240E006190BC /* 120 BPM Lehra Single.mp3 in Resources */,
-				474C19E226DAEF20005C57EF /* Assets.xcassets in Resources */,
+				73FB67C927FD248C005CB96B /* TablaSound5.wav in Resources */,
+				737F0F0027FBE5250005918B /* Assets.xcassets in Resources */,
+				737F0F0627FBF15E0005918B /* TablaSound2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,12 +380,16 @@
 				471B4B1826DAF366003763D1 /* AudioList.swift in Sources */,
 				4795DB2726E55F08005BF487 /* Tehai.swift in Sources */,
 				4795DB1F26E30F89005BF487 /* Lehra.swift in Sources */,
+				737F0EFE27FBDE8F0005918B /* Tabla.swift in Sources */,
+				73FB67CD27FE5590005CB96B /* Test1.swift in Sources */,
 				47BB782126EABF2C00DFFEA2 /* Dasa Prana.swift in Sources */,
-				47AF06F6270BD569003794A8 /* Parhanth.swift in Sources */,
+				47AF06F6270BD569003794A8 /* Padhant.swift in Sources */,
 				471B4B1326DAF0A4003763D1 /* Kramalaya.swift in Sources */,
+				73FB67CB27FE3BE0005CB96B /* MainMenuTest.swift in Sources */,
 				471B4B1026DAF0A4003763D1 /* Extensions.swift in Sources */,
 				474C19DC26DAEF17005C57EF /* AppDelegate.swift in Sources */,
 				475FCBCF26DBDDFF009788FD /* VideoList.swift in Sources */,
+				73FB67CF27FE6AED005CB96B /* Test2.swift in Sources */,
 				47F775DE26E1630D000DF730 /* ItemList.swift in Sources */,
 				73350E2826E78DC000DF726A /* ContentView.swift in Sources */,
 				7362B92B26E592480065DBFB /* Octopad.swift in Sources */,

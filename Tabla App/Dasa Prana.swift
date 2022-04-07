@@ -2,7 +2,7 @@
 //  Dasa Prana.swift
 //  Tabla App
 //
-//  Created by Soumya Roychoudhury on 9/9/21.
+//  Created by Swagnik Roychoudhury on 9/9/21.
 //
 
 import SwiftUI

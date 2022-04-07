@@ -6,7 +6,7 @@
 
 //
 
-//  Created by Soumya Roychoudhury on 3/14/21.
+//  Created by Swagnik Roychoudhury on 3/14/21.
 
 //
 
@@ -206,6 +206,23 @@ struct Home: View {
                         {
                             Spacer()
                                 .frame(height: modifiers.ht * spacing)
+                            
+                            NavigationLink(destination: Ladi_Upaj()){
+                                
+                                Text("Ladi and Upaj")
+                                    .font(.custom("BodoniSvtyTwoOSITCTT-Bold", size: modifiers.ht * 25))
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .padding()
+                                    .foregroundColor(.gold2)
+                                    .background(Color.clear)
+                                
+                            }.buttonStyle(ThemeAnimationStyle(splash: false))
+                        }
+                        
+                        Group
+                        {
+                            Spacer()
+                                .frame(height: modifiers.ht * spacing)
 
                             NavigationLink(destination: DasaPrana()){
                                 
@@ -241,9 +258,9 @@ struct Home: View {
                             Spacer()
                                 .frame(height: modifiers.ht * spacing)
                             
-                            NavigationLink(destination: Ladi_Upaj()){
+                            NavigationLink(destination: Tabla()){
                                 
-                                Text("Ladi and Upaj")
+                                Text("Tabla Player")
                                     .font(.custom("BodoniSvtyTwoOSITCTT-Bold", size: modifiers.ht * 25))
                                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                     .padding()
@@ -251,6 +268,7 @@ struct Home: View {
                                     .background(Color.clear)
                                 
                             }.buttonStyle(ThemeAnimationStyle(splash: false))
+                            
                         }
                         
                         Group

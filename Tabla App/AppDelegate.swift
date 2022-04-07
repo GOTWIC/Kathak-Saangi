@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Tabla App
 //
-//  Created by Soumya Roychoudhury on 8/28/21.
+//  Created by Swagnik Roychoudhury on 8/28/21.
 //
 
 import UIKit
