@@ -14,6 +14,8 @@ extension Color {
     
     public static let gold2: Color = Color(UIColor(red: 185/255, green: 150/255, blue: 100/255, alpha: 1.0))
     
+    public static let gold3: Color = Color(UIColor(red: 185/255, green: 150/255, blue: 100/255, alpha: 0.5))
+
     public static let grey1: Color = Color(UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1.0))
     
     public static let grey2: Color = Color(UIColor(red: 35/255, green: 31/255, blue: 31/255, alpha: 1.0))
@@ -51,6 +53,8 @@ extension Color {
     public static let tablaColor3: Color = Color(UIColor(red: 70/255, green: 65/255, blue: 75/255, alpha: 1.0))
     
     public static let tablaColor4: Color = Color(UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1.0))
+    
+    public static let white1: Color = Color(UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.6))
     
     
 }

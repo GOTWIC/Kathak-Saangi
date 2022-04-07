@@ -10,6 +10,9 @@ import SwiftUI
 
 struct TestView: View {
     
+    var tileTitles = ["Tabla Player", "Riyaz", "Kramalaya", "Ladi and Upaj", "Tehai", "Teentaal Lehra", "Octapad","Padhant", "Our Gurus", "Dasa Prana"]
+    
+    
     
     private func  getScale(proxy: GeometryProxy) -> CGFloat {
         var scale: CGFloat = 1
@@ -29,56 +32,74 @@ struct TestView: View {
     
     
     var body: some View  {
-        ScrollView(.horizontal) {
-            HStack(spacing: 60) {
-                Text("")
-                    .frame(width: 0)
+        
+        ZStack{
+            Color.grey2
+                .ignoresSafeArea()
             
-                ForEach(0..<10) { num in
-                    GeometryReader { proxy in
-                        
-                        
-                        VStack{
+            ScrollView(.horizontal) {
+                HStack(spacing: 60) {
+                    Text("")
+                        .frame(width: 0)
+                
+                    ForEach(0..<10) { num in
+                        GeometryReader { proxy in
                             
-                            let scale = getScale(proxy: proxy)
-                            
-                            
-                            Image("Ghungroo4")
-                                .resizable()
-                                .scaledToFit()
+                            VStack{
+                                
+                                let scale = getScale(proxy: proxy)
+
+                                ZStack{
+                                    
+                                    
+                                    Image("Ghungroo3")
+                                        .resizable()
+                                        .scaledToFit()
+                                    
+                                    
+                                    VStack{
+                                    
+                                        
+                                        Text("\(tileTitles[num])")
+                                            .font(.system(size: 12, weight: .light, design: .serif))
+                                            .frame(width: 220, height: 290)
+                                            .background(Color.white1)
+                                    }
+                                    
+        
+                                }
                                 .frame(width: 220)
+                                .overlay(
+                                            RoundedRectangle(cornerRadius: 30)
+                                                .stroke(Color.white, lineWidth: 7)
+                                        )
                                 .cornerRadius(30.0)
                                 .clipped()
-                                .shadow(color: .gold2, radius: 15, x: 0, y: 00)
+                                .shadow(color: .gold3, radius: 30, x: 0, y: 15)
                                 .rotation3DEffect(
                                     .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
                                     axis: (x: 0.0, y: 0.3, z: 0.0)
                                 )
                                 .scaleEffect(CGSize(width: scale, height: scale))
-
-                            
-                            Spacer()
-                                .frame(height: 70)
-                            
-                            Text("Scaling \(scale)")
-                            
-                            
-                            
-                            
+         
+                                Spacer()
+                                    .frame(height: 70)
+                                
+                                Text("Scaling \(scale)")
+                                
+                            }
+                                
                         }
-                        
-                        
-                        
-                        
-                            
-                    }
-                    .frame(width: 200, height: 400)
-                }.frame(height: 600)
-                
-                Text("")
-                    .frame(width: 10)
-            }.padding(32)
+                        .frame(width: 200, height: 400)
+                    }.frame(height: 600)
+                    
+                    Text("")
+                        .frame(width: 10)
+                }.padding(32)
+            }
         }
+        
+        
     }
 }
     
