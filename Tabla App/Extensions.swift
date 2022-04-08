@@ -60,6 +60,9 @@ extension Color {
     
     public static let white3: Color = Color(UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5))
     
+    public static let splashBackground: Color = Color(UIColor(red: 160/255, green: 0/255, blue: 250/255, alpha: 0.1))
+    
+    
     
 }
 

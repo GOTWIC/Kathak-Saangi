@@ -100,7 +100,7 @@ struct Splash: View {
                 
                 Spacer()
 
-                NavigationLink(destination: Home()){
+                NavigationLink(destination: TestView()){
 
                     Text("Enter")
                         .font(.custom("BodoniSvtyTwoOSITCTT-Bold", size: modifiers.wt * 40))
@@ -119,11 +119,12 @@ struct Splash: View {
             
             Spacer()
         }.background(
-            Image("Ghungroo3")
+            Image("TB2")
                 .resizable()
-                .opacity(0.9)
+                .opacity(1)
                 .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
+            
+            
         )
             
 

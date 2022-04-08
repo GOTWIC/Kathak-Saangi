@@ -27,6 +27,7 @@
 		47AF06F6270BD569003794A8 /* Padhant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF06F5270BD569003794A8 /* Padhant.swift */; };
 		47BB782126EABF2C00DFFEA2 /* Dasa Prana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */; };
 		47F775DE26E1630D000DF730 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F775DD26E1630D000DF730 /* ItemList.swift */; };
+		7333629F2800E9CB0037E32A /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7333629E2800E9CB0037E32A /* Test3.swift */; };
 		73350E2826E78DC000DF726A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73350E2726E78DC000DF726A /* ContentView.swift */; };
 		7362B92926E590900065DBFB /* Ladi and Upaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362B92826E590900065DBFB /* Ladi and Upaj.swift */; };
 		7362B92B26E592480065DBFB /* Octapad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7362B92A26E592480065DBFB /* Octapad.swift */; };
@@ -91,6 +92,7 @@
 		47BB782026EABF2C00DFFEA2 /* Dasa Prana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dasa Prana.swift"; sourceTree = "<group>"; };
 		47E967D926DFFA910050CBE5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47F775DD26E1630D000DF730 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
+		7333629E2800E9CB0037E32A /* Test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3.swift; sourceTree = "<group>"; };
 		73350E2726E78DC000DF726A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7362B92826E590900065DBFB /* Ladi and Upaj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ladi and Upaj.swift"; sourceTree = "<group>"; };
 		7362B92A26E592480065DBFB /* Octapad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Octapad.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				73FB67CA27FE3BE0005CB96B /* MainMenuTest.swift */,
 				73FB67CC27FE5590005CB96B /* Test1.swift */,
 				73FB67CE27FE6AED005CB96B /* Test2.swift */,
+				7333629E2800E9CB0037E32A /* Test3.swift */,
 			);
 			path = "Tabla App";
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				7362B92926E590900065DBFB /* Ladi and Upaj.swift in Sources */,
 				471B4B1826DAF366003763D1 /* AudioList.swift in Sources */,
 				4795DB2726E55F08005BF487 /* Tehai.swift in Sources */,
+				7333629F2800E9CB0037E32A /* Test3.swift in Sources */,
 				4795DB1F26E30F89005BF487 /* Lehra.swift in Sources */,
 				737F0EFE27FBDE8F0005918B /* Tabla.swift in Sources */,
 				73FB67CD27FE5590005CB96B /* Test1.swift in Sources */,
