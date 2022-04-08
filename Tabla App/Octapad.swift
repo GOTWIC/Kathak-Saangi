@@ -10,7 +10,7 @@ import AVKit
 import Foundation
 
 
-struct Octopad: View {
+struct Octapad: View {
 
     
     var videoNames = ["Composition 1", "Composition 2", "Composition 3"]
@@ -144,7 +144,7 @@ struct Octopad_Previews: PreviewProvider {
         
         Group {
             
-            Octopad().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+            Octapad().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
             
         }
         

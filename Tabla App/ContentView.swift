@@ -294,7 +294,7 @@ struct Home: View {
                             Spacer()
                                 .frame(height: modifiers.ht * spacing)
                             
-                            NavigationLink(destination: Octopad()){
+                            NavigationLink(destination: Octapad()){
                                 
                                 Text("Octapad")
                                     .font(.custom("BodoniSvtyTwoOSITCTT-Bold", size: modifiers.ht * 25))
