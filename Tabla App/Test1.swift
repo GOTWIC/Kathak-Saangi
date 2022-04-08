@@ -14,6 +14,8 @@ struct TestView: View {
     
     var tileDescriptions = ["Ever wanted to play the Tabla? Now you can, with this interactive Tabla Player!", "Use these practice audios for your daily riyaz of hand-movements, footwork, and circles.", "", "", "", "", "","", "", ""]
     
+    var tileImages = ["", "Tabla Image 1", "TG1", "GhungrooEdited2", "Tabla Image 3", "", "Octapad", "Padhant", "", ""]
+    
     
     @StateObject var modifiers = ScreenModifiers()
     
@@ -73,19 +75,24 @@ struct TestView: View {
                                         Spacer()
                                     
                                         
-                                        Text("\(tileTitles[num])")
-                                            .font(.system(size: 27, weight: .light, design: .serif))
+                                        
                                         
                                         ZStack{
-                                            Image("Tabla Image 1")
+                                            Image(tileImages[num])
                                                 .resizable()
-                                                .scaledToFill()  
+                                                .scaledToFill()
+                                                .scaleEffect(1.2)
+                                            
+                                            Text("\(tileTitles[num])")
+                                                .font(.system(size: 27, weight: .light, design: .serif))
+                                                .multilineTextAlignment(.center)
+                                            
+                                                
                                         }
-                                        .frame(width: 190)
-                                        
-                                        
-                                            .frame(width: modifiers.ht * 190, height: 100)
-                                            .border(Color.black, width: 5)
+                                        .frame(width: 190, height: 120)
+                                        .clipped()
+                                        .cornerRadius(20)
+//                                        .border(Color.red, width: 5)
 
                                         
                                         Spacer()

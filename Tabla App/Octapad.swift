@@ -30,7 +30,7 @@ struct Octopad: View {
             {
                 Spacer()
                     .frame(height: modifiers.ht * 30)
-                Image("Octopad")
+                Image("Octapad")
                     .resizable()
                     .frame(width: modifiers.ht * 300, height: modifiers.ht * 195)
                     .border(Color.black, width: 5)
@@ -38,7 +38,7 @@ struct Octopad: View {
                 Spacer()
                     .frame(height: modifiers.ht * 30)
                 
-                Text("Octopad")
+                Text("Octapad")
                     .foregroundColor(.gold2)
                     .font(.system(size: modifiers.wt * 24, weight: .bold))
                     .frame(width: modifiers.wt * 100, height: modifiers.wt * 25, alignment: .center)

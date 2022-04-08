@@ -296,7 +296,7 @@ struct Home: View {
                             
                             NavigationLink(destination: Octopad()){
                                 
-                                Text("Octopad")
+                                Text("Octapad")
                                     .font(.custom("BodoniSvtyTwoOSITCTT-Bold", size: modifiers.ht * 25))
                                     .padding()
                                     .foregroundColor(.gold2)
