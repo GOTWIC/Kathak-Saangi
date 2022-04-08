@@ -58,6 +58,8 @@ extension Color {
     
     public static let white2: Color = Color(UIColor(red: 185/255, green: 150/255, blue: 100/255, alpha: 0.6))
     
+    public static let white3: Color = Color(UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5))
+    
     
 }
 

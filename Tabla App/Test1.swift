@@ -12,7 +12,7 @@ struct TestView: View {
     
     var tileTitles = ["Tabla Player", "Riyaz", "Kramalaya", "Ladi and Upaj", "Tehai", "Teentaal Lehra", "Octapad","Padhant", "Our Gurus", "Dasa Prana"]
     
-    var tileDescriptions = ["Ever wanted to play the Tabla? Now you can, with this interactive Tabla Player!", "Use these practice audios for your daily riyaz of hand-movements, footwork, and circles.", "", "", "", "", "","", "", ""]
+    var tileDescriptions = ["Ever wanted to play the Tabla? Now you can, with this interactive Tabla Player!", "Use these practice audios for your daily riyaz of hand-movements, footwork, and circles", "Practice audio for Kramalaya (Chromatic Speed), ranging from Beginner to Advanced", "Practice Laris, a composition created by different variations of a theme, and its improv counterpart, Upaj", "Explore the never-seen-before mathematics behind different types of tehais, through tutorials and calculators", "A simple Teentaal Lehra with adjustable speeds", "Western compositions created on the Octapad, for the Kathakar's own choreography","", "", ""]
     
     var tileImages = ["", "Tabla Image 1", "TG1", "GhungrooEdited2", "Tabla Image 3", "", "Octapad", "Padhant", "", ""]
     
@@ -42,13 +42,12 @@ struct TestView: View {
         
         ZStack{
             
-            Image("StarPage")
-                .resizable()
-                .scaledToFill()
-                .frame(width: modifiers.wt * 390 , alignment: .center)
-            
-//            Color.grey2
-//                .ignoresSafeArea()
+            Image("WP1").centerCropped()
+                //.resizable()
+                //.scaledToFill()
+                //.frame(width: modifiers.wt * 390 , alignment: .center)
+                
+
             
             ScrollView(.horizontal) {
                 HStack(spacing: 60) {
@@ -64,40 +63,49 @@ struct TestView: View {
 
                                 ZStack{
                                     
+                                    Color.grey2
                                     
-                                    Image("Ghungroo4")
-                                        .resizable()
-                                        .scaledToFit()
                                     
+//                                    Image("Ghungroo3")
+//                                        .resizable()
+//                                        .scaledToFit()
+
+
                                     
                                     VStack(alignment: .center){
                                         
                                         Spacer()
+                                            .frame(height: 30)
                                     
-                                        
-                                        
-                                        
+
                                         ZStack{
                                             Image(tileImages[num])
                                                 .resizable()
                                                 .scaledToFill()
                                                 .scaleEffect(1.2)
                                             
-                                            Text("\(tileTitles[num])")
-                                                .font(.system(size: 27, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                            
+                                            Text("")
+                                                .frame(width:190, height: 120)
+                                                .background(Color.white3)
                                                 
+                                            
+                                            Text("\(tileTitles[num])")
+                                                .font(.system(size: 27, weight: .bold, design: .serif))
+                                                .multilineTextAlignment(.center)
+                                                .padding(10)
+                                                .foregroundColor(.black)
+//                                                .background(Color.white1)
+//                                                .cornerRadius(10)
+                                                
+                                            
                                         }
                                         .frame(width: 190, height: 120)
                                         .clipped()
                                         .cornerRadius(20)
-//                                        .border(Color.red, width: 5)
+                                        
 
                                         
                                         Spacer()
-                                        
-                                            
                                         
                                         Text("\(tileDescriptions[num])")
                                             .font(.system(size: 12, weight: .light, design: .serif))
@@ -114,7 +122,7 @@ struct TestView: View {
                                             
                                     }
                                     .frame(width: 220, height: 290)
-                                    .background(Color.white2)
+                                    //.background(Color.white2)
                                     .foregroundColor(Color.white)
                                     
         
@@ -126,17 +134,17 @@ struct TestView: View {
                                         )
                                 .cornerRadius(30.0)
                                 .clipped()
-                                .shadow(color: .red, radius: 30, x: 0, y: 15)
+                                .shadow(color: .orange, radius: 20, x: 0, y: 10)
                                 .rotation3DEffect(
                                     .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                    axis: (x: 0.0, y: 0.3, z: 0.0)
+                                    axis: (x: 0, y: 0.3, z: 0)
                                 )
                                 .scaleEffect(CGSize(width: scale, height: scale))
          
                                 Spacer()
                                     .frame(height: 70)
                                 
-                                Text("Scaling \(scale)")
+                                //Text("Scaling \(scale)")
                                 
                             }
                                 
