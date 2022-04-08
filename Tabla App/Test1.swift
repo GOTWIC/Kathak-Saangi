@@ -47,8 +47,7 @@ struct TestView: View {
                 //.resizable()
                 //.scaledToFill()
                 //.frame(width: modifiers.wt * 390 , alignment: .center)
-                
-
+            
             
             ScrollView(.horizontal) {
                 HStack(spacing: 60) {
