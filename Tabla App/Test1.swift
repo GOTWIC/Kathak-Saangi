@@ -12,6 +12,11 @@ struct TestView: View {
     
     var tileTitles = ["Tabla Player", "Riyaz", "Kramalaya", "Ladi and Upaj", "Tehai", "Teentaal Lehra", "Octapad","Padhant", "Our Gurus", "Dasa Prana"]
     
+    var tileDescriptions = ["Ever wanted to play the Tabla? Now you can, with this interactive Tabla Player!", "Use these practice audios for your daily riyaz of hand-movements, footwork, and circles.", "", "", "", "", "","", "", ""]
+    
+    
+    @StateObject var modifiers = ScreenModifiers()
+    
     
     
     private func  getScale(proxy: GeometryProxy) -> CGFloat {
@@ -22,8 +27,8 @@ struct TestView: View {
             scale = 1 + (200 - diff) / 500
         }
         
-        if scale == 1.4 {
-            let impactMed = UIImpactFeedbackGenerator(style: .medium)
+        if scale >= 1.392 {
+            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                 impactMed.impactOccurred()
         }
         
@@ -34,8 +39,14 @@ struct TestView: View {
     var body: some View  {
         
         ZStack{
-            Color.grey2
-                .ignoresSafeArea()
+            
+            Image("StarPage")
+                .resizable()
+                .scaledToFill()
+                .frame(width: modifiers.wt * 390 , alignment: .center)
+            
+//            Color.grey2
+//                .ignoresSafeArea()
             
             ScrollView(.horizontal) {
                 HStack(spacing: 60) {
@@ -52,19 +63,52 @@ struct TestView: View {
                                 ZStack{
                                     
                                     
-                                    Image("Ghungroo3")
+                                    Image("Ghungroo4")
                                         .resizable()
                                         .scaledToFit()
                                     
                                     
-                                    VStack{
+                                    VStack(alignment: .center){
+                                        
+                                        Spacer()
                                     
                                         
                                         Text("\(tileTitles[num])")
+                                            .font(.system(size: 27, weight: .light, design: .serif))
+                                        
+                                        ZStack{
+                                            Image("Tabla Image 1")
+                                                .resizable()
+                                                .scaledToFill()  
+                                        }
+                                        .frame(width: 190)
+                                        
+                                        
+                                            .frame(width: modifiers.ht * 190, height: 100)
+                                            .border(Color.black, width: 5)
+
+                                        
+                                        Spacer()
+                                        
+                                            
+                                        
+                                        Text("\(tileDescriptions[num])")
                                             .font(.system(size: 12, weight: .light, design: .serif))
-                                            .frame(width: 220, height: 290)
+                                            .multilineTextAlignment(.center)
+                                            .padding()
+                                            .frame(width: 190)
+                                            .foregroundColor(.gold3)
                                             .background(Color.white1)
+                                            .cornerRadius(20)
+                                        
+                                        
+                                        Spacer()
+                                            .frame(height: 30)
+                                            
                                     }
+                                    .frame(width: 220, height: 290)
+                                    .background(Color.white2)
+                                    .foregroundColor(Color.white)
                                     
         
                                 }
@@ -75,7 +119,7 @@ struct TestView: View {
                                         )
                                 .cornerRadius(30.0)
                                 .clipped()
-                                .shadow(color: .gold3, radius: 30, x: 0, y: 15)
+                                .shadow(color: .red, radius: 30, x: 0, y: 15)
                                 .rotation3DEffect(
                                     .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
                                     axis: (x: 0.0, y: 0.3, z: 0.0)

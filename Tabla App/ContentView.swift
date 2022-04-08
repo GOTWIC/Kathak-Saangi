@@ -258,7 +258,7 @@ struct Home: View {
                             Spacer()
                                 .frame(height: modifiers.ht * spacing)
                             
-                            NavigationLink(destination: Tabla()){
+                            NavigationLink(destination: TestView()){
                                 
                                 Text("Tabla Player")
                                     .font(.custom("BodoniSvtyTwoOSITCTT-Bold", size: modifiers.ht * 25))
