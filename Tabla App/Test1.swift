@@ -59,118 +59,236 @@ struct TestView: View {
                 
                 Spacer()
                 
-                ScrollViewReader { scrollView in
+//                ScrollViewReader { scrollView in
+//
+//                    ScrollView(.horizontal) {
+//
+//                        HStack(spacing: 60) {
+//                            Text("")
+//                                .frame(width: 0)
+//
+//                            ForEach(0..<10) { num in
+//                                GeometryReader { proxy in
+//                                    NavigationLink(destination: Riyaz()){
+//
+//                                        VStack{
+//
+//                                            let scale = getScale(proxy: proxy)
+//
+//                                            ZStack{
+//
+////                                                    Color.grey2
+//
+//
+//                                                Image("TB3")
+//                                                    .resizable()
+//                                                    .scaledToFit()
+//
+//
+//
+//                                                VStack(alignment: .center){
+//
+//                                                    Spacer()
+//                                                        .frame(height: 15)
+//
+//
+//                                                    ZStack{
+//                                                        Image(tileImages[num])
+//                                                            .resizable()
+//                                                            .scaledToFill()
+//                                                            .scaleEffect(1.2)
+//
+//                                                        Text("")
+//                                                            .frame(width:190, height: 120)
+//                                                            .background(Color.white3)
+//
+//
+//                                                        Text("\(tileTitles[num])")
+//                                                            .font(.system(size: 27, weight: .bold, design: .serif))
+//                                                            .multilineTextAlignment(.center)
+//                                                            .padding(10)
+//                                                            .foregroundColor(.black)
+//            //                                                .background(Color.white1)
+//            //                                                .cornerRadius(10)
+//
+//
+//                                                    }
+//                                                    .frame(width: 190, height: 120)
+//                                                    .clipped()
+//                                                    .cornerRadius(20)
+//
+//                                                    Spacer()
+//
+//                                                    Text("\(tileDescriptions[num])")
+//                                                        .font(.system(size: 12, weight: .light, design: .serif))
+//                                                        .multilineTextAlignment(.center)
+//                                                        .padding()
+//                                                        .frame(width: 190)
+//                                                        .foregroundColor(.black)
+//                                                        .background(Color.white1)
+//                                                        .cornerRadius(20)
+//
+//
+//                                                    Spacer()
+//                                                        .frame(height: 20)
+//
+//                                                }
+//                                                .frame(width: 220, height: 290)
+//                                                //.background(Color.white2)
+//                                                .foregroundColor(Color.white)
+//
+//
+//                                            }
+//                                            .frame(width: 220)
+//                                            .overlay(
+//                                                        RoundedRectangle(cornerRadius: 30)
+//                                                            .stroke(Color.white, lineWidth: 7)
+//                                                    )
+//                                            .cornerRadius(30.0)
+//                                            .clipped()
+//                                            .shadow(color: .purple, radius: 20, x: 0, y: 10)
+//                                            .rotation3DEffect(
+//                                                .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+//                                                axis: (x: 0, y: 0.3, z: 0)
+//                                            )
+//                                            .scaleEffect(CGSize(width: scale, height: scale))
+//
+//                                            Spacer()
+//                                                .frame(height: 70)
+//
+//                                        }
+//                                    }
+//
+//
+//                                }
+//                                .frame(width: 200, height: 400)
+//                                .id(num)
+//                            }.frame(height: 600)
+//
+//                            Text("")
+//                                .frame(width: 10)
+//                        }.padding(32)
+//
+//                    }
+//                }
+                
+                
+                OffsettableScrollView { point in
+                    horizontalOffset = (point.x * -1) + 1546.5
+                    self.progressValue = Float(horizontalOffset/2500)
+                } content: {
                     
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 60) {
-                            Text("")
-                                .frame(width: 0)
+                    HStack(spacing: 60) {
+                        Text("")
+                            .frame(width: 0)
 
-                            ForEach(0..<10) { num in
-                                GeometryReader { proxy in
-                                    NavigationLink(destination: Riyaz()){
+                        ForEach(0..<10) { num in
+                            GeometryReader { proxy in
+                                NavigationLink(destination: Riyaz()){
 
-                                        VStack{
+                                    VStack{
 
-                                            let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                            ZStack{
+                                        ZStack{
 
 //                                                    Color.grey2
 
 
-                                                Image("TB3")
-                                                    .resizable()
-                                                    .scaledToFit()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFit()
 
 
 
-                                                VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                                    Spacer()
-                                                        .frame(height: 15)
-
-
-                                                    ZStack{
-                                                        Image(tileImages[num])
-                                                            .resizable()
-                                                            .scaledToFill()
-                                                            .scaleEffect(1.2)
-
-                                                        Text("")
-                                                            .frame(width:190, height: 120)
-                                                            .background(Color.white3)
+                                                Spacer()
+                                                    .frame(height: 15)
 
 
-                                                        Text("\(tileTitles[num])")
-                                                            .font(.system(size: 27, weight: .bold, design: .serif))
-                                                            .multilineTextAlignment(.center)
-                                                            .padding(10)
-                                                            .foregroundColor(.black)
-            //                                                .background(Color.white1)
-            //                                                .cornerRadius(10)
+                                                ZStack{
+                                                    Image(tileImages[num])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
+
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                    }
-                                                    .frame(width: 190, height: 120)
-                                                    .clipped()
-                                                    .cornerRadius(20)
-
-                                                    Spacer()
-
-                                                    Text("\(tileDescriptions[num])")
-                                                        .font(.system(size: 12, weight: .light, design: .serif))
+                                                    Text("\(tileTitles[num])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
                                                         .multilineTextAlignment(.center)
-                                                        .padding()
-                                                        .frame(width: 190)
+                                                        .padding(10)
                                                         .foregroundColor(.black)
-                                                        .background(Color.white1)
-                                                        .cornerRadius(20)
+        //                                                .background(Color.white1)
+        //                                                .cornerRadius(10)
 
-
-                                                    Spacer()
-                                                        .frame(height: 20)
 
                                                 }
-                                                .frame(width: 220, height: 290)
-                                                //.background(Color.white2)
-                                                .foregroundColor(Color.white)
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
 
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[num])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
+                                                    .multilineTextAlignment(.center)
+                                                    .padding()
+                                                    .frame(width: 190)
+                                                    .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 220)
-                                            .overlay(
-                                                        RoundedRectangle(cornerRadius: 30)
-                                                            .stroke(Color.white, lineWidth: 7)
-                                                    )
-                                            .cornerRadius(30.0)
-                                            .clipped()
-                                            .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                            .rotation3DEffect(
-                                                .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                                axis: (x: 0, y: 0.3, z: 0)
-                                            )
-                                            .scaleEffect(CGSize(width: scale, height: scale))
+                                            .frame(width: 220, height: 290)
+                                            //.background(Color.white2)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-                                                .frame(height: 70)
 
                                         }
+                                        .frame(width: 220)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
+
+                                        Spacer()
+                                            .frame(height: 70)
+
                                     }
-
-
                                 }
-                                .frame(width: 200, height: 400)
-                                .id(num)
-                            }.frame(height: 600)
 
-                            Text("")
-                                .frame(width: 10)
-                        }.padding(32)
-                    }
+
+                            }
+                            .frame(width: 200, height: 400)
+                            .id(num)
+                        }.frame(height: 600)
+
+                        Text("")
+                            .frame(width: 10)
+                    }.padding(32)
+                    
                 }
                 
                 Spacer()
+                
+                
                 
                 
                 ProgressBar(value: $progressValue).frame(width: 300, height: 20)
@@ -226,7 +344,7 @@ struct OffsettableScrollView<T: View>: View {
          @ViewBuilder content: () -> T
     ) {
         self.axes = axes
-        self.showsIndicator = showsIndicator
+        self.showsIndicator = false
         self.onOffsetChanged = onOffsetChanged
         self.content = content()
     }
