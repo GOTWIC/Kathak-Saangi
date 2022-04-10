@@ -140,6 +140,10 @@ struct Home: View {
     
     @State var progressValue: Float = 0.0
     
+    @State var leftFlag: Bool = false
+    
+    @State var rightFlag: Bool = false
+    
     @State private var currentIndex = 0
     
     @State private var horizontalOffset: CGFloat = 0.0
@@ -177,7 +181,9 @@ struct Home: View {
 
     var body: some View {
         
+    
         
+
         ZStack{
             
             Image("TB4")
@@ -202,776 +208,797 @@ struct Home: View {
                     
                 } content: {
                     
-                    HStack(spacing: 60) {
-                        Text("")
-                            .frame(width: 0)
+                    ScrollViewReader { prox in
                         
-                        Group{
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Tabla().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                        HStack(spacing: 60) {
+                            Text("")
+                                .frame(width: 0)
+                            
+                            Group{
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Tabla().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[0])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[0])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[0])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
-                                                    .multilineTextAlignment(.center)
-                                                    .padding(10)
-                                                    .foregroundColor(.black)
+                                                    Text("\(tileTitles[0])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
 
-                                            }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
-
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[0])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
                                                 .cornerRadius(20)
 
+                                                Spacer()
 
-                                            Spacer()
-                                                .frame(height: 20)
-
-                                        }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
-                                    }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
-                                }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(0)
-
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Riyaz().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
-
-                                    let scale = getScale(proxy: proxy)
-
-                                    ZStack{
-
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
-
-                                        VStack(alignment: .center){
-
-                                            Spacer()
-
-                                            ZStack{
-                                                Image(tileImages[1])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
-
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
-
-
-                                                Text("\(tileTitles[1])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                Text("\(tileDescriptions[0])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[1])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(1)
+                                .frame(width: 200, height: 340)
+                                .id(0)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Kramalaya().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Riyaz().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[2])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[1])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[2])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[1])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[1])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[2])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(2)
+                                .frame(width: 200, height: 340)
+                                .id(1)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Ladi_Upaj().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Kramalaya().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[3])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[2])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[3])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[2])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[2])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[3])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(3)
+                                .frame(width: 200, height: 340)
+                                .id(2)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Tehai().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Ladi_Upaj().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[4])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[3])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[4])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[3])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[3])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[4])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(4)
+                                .frame(width: 200, height: 340)
+                                .id(3)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Lehra().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Tehai().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[5])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[4])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[5])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[4])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[4])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[5])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(5)
+                                .frame(width: 200, height: 340)
+                                .id(4)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Octapad().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Lehra().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[6])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[5])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[6])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[5])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[5])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[6])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(6)
+                                .frame(width: 200, height: 340)
+                                .id(5)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Padhant().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Octapad().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[7])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[6])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[7])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[6])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[6])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[7])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(7)
+                                .frame(width: 200, height: 340)
+                                .id(6)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: Gurus().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Padhant().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[8])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[7])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[8])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[7])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[7])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[8])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
-                            }
-                            .frame(width: 200, height: 340)
-                            .id(8)
+                                .frame(width: 200, height: 340)
+                                .id(7)
 
-                            GeometryReader { proxy in
-                                NavigationLink(destination: DasaPrana().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: Gurus().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
 
-                                    let scale = getScale(proxy: proxy)
+                                        let scale = getScale(proxy: proxy)
 
-                                    ZStack{
+                                        ZStack{
 
-                                        Image("TB3")
-                                            .resizable()
-                                            .scaledToFill()
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
 
-                                        VStack(alignment: .center){
+                                            VStack(alignment: .center){
 
-                                            Spacer()
+                                                Spacer()
 
-                                            ZStack{
-                                                Image(tileImages[9])
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .scaleEffect(1.2)
+                                                ZStack{
+                                                    Image(tileImages[8])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
 
-                                                Text("")
-                                                    .frame(width:190, height: 120)
-                                                    .background(Color.white3)
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
 
 
-                                                Text("\(tileTitles[9])")
-                                                    .font(.system(size: 27, weight: .bold, design: .serif))
+                                                    Text("\(tileTitles[8])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[8])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
                                                     .multilineTextAlignment(.center)
-                                                    .padding(10)
+                                                    .padding()
+                                                    .frame(width: 190)
                                                     .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
 
                                             }
-                                            .frame(width: 190, height: 120)
-                                            .clipped()
-                                            .cornerRadius(20)
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
 
-                                            Spacer()
-
-                                            Text("\(tileDescriptions[9])")
-                                                .font(.system(size: 12, weight: .light, design: .serif))
-                                                .multilineTextAlignment(.center)
-                                                .padding()
-                                                .frame(width: 190)
-                                                .foregroundColor(.black)
-                                                .background(Color.white1)
-                                                .cornerRadius(20)
-
-
-                                            Spacer()
-                                                .frame(height: 20)
 
                                         }
-                                        .frame(height: 290)
-                                        .foregroundColor(Color.white)
-
-
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
                                     }
-                                    .frame(width: 220, height: 300)
-                                    .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color.white, lineWidth: 7)
-                                            )
-                                    .cornerRadius(30.0)
-                                    .clipped()
-                                    .shadow(color: .purple, radius: 20, x: 0, y: 10)
-                                    .rotation3DEffect(
-                                        .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
-                                        axis: (x: 0, y: 0.3, z: 0)
-                                    )
-                                    .scaleEffect(CGSize(width: scale, height: scale))
                                 }
+                                .frame(width: 200, height: 340)
+                                .id(8)
+
+                                GeometryReader { proxy in
+                                    NavigationLink(destination: DasaPrana().onAppear(){let impactMed = UIImpactFeedbackGenerator(style: .light); impactMed.impactOccurred()}){
+
+                                        let scale = getScale(proxy: proxy)
+
+                                        ZStack{
+
+                                            Image("TB3")
+                                                .resizable()
+                                                .scaledToFill()
+
+                                            VStack(alignment: .center){
+
+                                                Spacer()
+
+                                                ZStack{
+                                                    Image(tileImages[9])
+                                                        .resizable()
+                                                        .scaledToFill()
+                                                        .scaleEffect(1.2)
+
+                                                    Text("")
+                                                        .frame(width:190, height: 120)
+                                                        .background(Color.white3)
+
+
+                                                    Text("\(tileTitles[9])")
+                                                        .font(.system(size: 27, weight: .bold, design: .serif))
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(10)
+                                                        .foregroundColor(.black)
+
+                                                }
+                                                .frame(width: 190, height: 120)
+                                                .clipped()
+                                                .cornerRadius(20)
+
+                                                Spacer()
+
+                                                Text("\(tileDescriptions[9])")
+                                                    .font(.system(size: 12, weight: .light, design: .serif))
+                                                    .multilineTextAlignment(.center)
+                                                    .padding()
+                                                    .frame(width: 190)
+                                                    .foregroundColor(.black)
+                                                    .background(Color.white1)
+                                                    .cornerRadius(20)
+
+
+                                                Spacer()
+                                                    .frame(height: 20)
+
+                                            }
+                                            .frame(height: 290)
+                                            .foregroundColor(Color.white)
+
+
+                                        }
+                                        .frame(width: 220, height: 300)
+                                        .overlay(
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color.white, lineWidth: 7)
+                                                )
+                                        .cornerRadius(30.0)
+                                        .clipped()
+                                        .shadow(color: .purple, radius: 20, x: 0, y: 10)
+                                        .rotation3DEffect(
+                                            .degrees(-Double(proxy.frame(in: .global).minX - (90)) / 8),
+                                            axis: (x: 0, y: 0.3, z: 0)
+                                        )
+                                        .scaleEffect(CGSize(width: scale, height: scale))
+                                    }
+                                }
+                                .frame(width: 200, height: 340)
+                                .id(9)
+
+                            }.frame(height: 600)
+
+                            Text("")
+                                .frame(width: 10)
+                        }
+                        .padding(32)
+                        .onChange(of: leftFlag, perform: { value in
+                            withAnimation(.spring()){
+                                prox.scrollTo(0, anchor: .center)
                             }
-                            .frame(width: 200, height: 340)
-                            .id(9)
-
-                        }.frame(height: 600)
-
-                        Text("")
-                            .frame(width: 10)
-                    }.padding(32)
+                        })
+                        .onChange(of: rightFlag, perform: { value in
+                            withAnimation(.spring()){
+                                prox.scrollTo(9, anchor: .center)
+                            }
+                        })
+                        
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
                     
                 }
                 
@@ -982,8 +1009,17 @@ struct Home: View {
                     
                     Spacer()
                     
-                    Image(systemName: "arrow.left")
-                        .foregroundColor(.orange)
+                    Button(action: {
+                        
+                        leftFlag = !leftFlag
+                        
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
+                    }
+                    ) {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(.orange)
+                    }
                     
                     Spacer()
                     
@@ -991,8 +1027,21 @@ struct Home: View {
                     
                     Spacer()
                     
-                    Image(systemName: "arrow.right")
-                        .foregroundColor(.orange)
+//                    Image(systemName: "arrow.right")
+//                        .foregroundColor(.orange)
+                    
+                    
+                    Button(action: {
+                        
+                        rightFlag = !rightFlag
+
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
+                    }
+                    ) {
+                        Image(systemName: "arrow.right")
+                            .foregroundColor(.orange)
+                    }
                     
                     Spacer()
                     
