@@ -58,8 +58,9 @@ struct Tabla: View {
                         .fill(Color.tablaColor1)
                         .frame(width: modifiers.ht * 238)
                         .onTapGesture {
-                            
                             playSound(track: trackNames[0], drumNum: 1)
+                            let impactMed = UIImpactFeedbackGenerator(style: .light)
+                            impactMed.impactOccurred()
                         }
 
                     Circle()
@@ -67,6 +68,8 @@ struct Tabla: View {
                         .frame(width: modifiers.ht * 172)
                         .onTapGesture {
                             playSound(track: trackNames[1], drumNum: 1)
+                            let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                            impactMed.impactOccurred()
                         }
 
                     Circle()
@@ -74,6 +77,8 @@ struct Tabla: View {
                         .frame(width: modifiers.ht * 90)
                         .onTapGesture {
                             playSound(track: trackNames[2], drumNum: 1)
+                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                            impactMed.impactOccurred()
                         }
 
                     Circle()
@@ -82,6 +87,8 @@ struct Tabla: View {
                         .frame(width: modifiers.ht * 90)
                         .onTapGesture {
                             playSound(track: trackNames[2], drumNum: 1)
+                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                            impactMed.impactOccurred()
                         }
 
                 }
@@ -103,6 +110,8 @@ struct Tabla: View {
                         .frame(width: modifiers.ht * 294)
                         .onTapGesture {
                             playSound(track: trackNames[3], drumNum: 2)
+                            let impactMed = UIImpactFeedbackGenerator(style: .light)
+                            impactMed.impactOccurred()
                         }
 
                     VStack{
@@ -115,6 +124,8 @@ struct Tabla: View {
                                 .frame(width: modifiers.ht * 205)
                                 .onTapGesture {
                                     playSound(track: trackNames[4], drumNum: 2)
+                                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                                    impactMed.impactOccurred()
                                 }
                             
                             
@@ -126,6 +137,8 @@ struct Tabla: View {
                                         .frame(width: modifiers.ht * 105)
                                         .onTapGesture {
                                             playSound(track: trackNames[5], drumNum: 2)
+                                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                                            impactMed.impactOccurred()
                                         }
 
                                     Circle()
@@ -134,6 +147,8 @@ struct Tabla: View {
                                         .frame(width: modifiers.ht * 105)
                                         .onTapGesture {
                                             playSound(track: trackNames[5], drumNum: 2)
+                                            let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                                            impactMed.impactOccurred()
                                         }
                                 }
                                 

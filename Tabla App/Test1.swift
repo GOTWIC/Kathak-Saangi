@@ -12,6 +12,12 @@ struct TestView: View {
     
     @State var progressValue: Float = 0.0
     
+    @State private var currentIndex = 0
+    
+    @State private var horizontalOffset: CGFloat = 0.0
+    
+    @StateObject var modifiers = ScreenModifiers()
+    
     var tileTitles = ["Tabla Player", "Riyaz", "Kramalaya", "Ladi and Upaj", "Tehai", "Teentaal Lehra", "Octapad","Padhant", "Our Gurus", "Dasa Prana"]
     
     var tileDescriptions = ["Ever wanted to play the Tabla? Now you can, with this interactive Tabla Player!", "Use these practice audios for your daily riyaz of hand-movements, footwork, and circles", "Practice audio for Kramalaya (Chromatic Speed), ranging from Beginner to Advanced", "Practice Laris, a composition created by different variations of a theme, and its improv counterpart, Upaj", "Explore the never-seen-before mathematics behind different types of tehais, through tutorials and calculators", "A simple Teentaal Lehra with adjustable speeds", "Western compositions created on the Octapad, for the Kathakar's own choreography","Learn complex and tongue-twisting compositions to improve your recitation skills, including a phrase-by-phrase breakdown", "Specially curated tutorials and showcases by Guru Sandip Mallick and Guru Aniruddha Mukherjee", "An article detailing the Dasa Prana, the 10 Vital Elements of Taal"]
@@ -20,15 +26,11 @@ struct TestView: View {
     
 
     
-    @StateObject var modifiers = ScreenModifiers()
-    
-    @State private var currentIndex = 0
-    
-    @State private var horizontalOffset: CGFloat = 0.0
     
     
     
-    private func  getScale(proxy: GeometryProxy) -> CGFloat {
+    
+    func  getScale(proxy: GeometryProxy) -> CGFloat {
         var scale: CGFloat = 1
         let x = proxy.frame(in: .global).minX
         let diff = abs(x - 90)
