@@ -188,32 +188,30 @@ struct Home: View {
             
             Image("TB4")
                 .resizable()
-                .scaledToFill()
-                .frame(width: modifiers.wt * 390 , alignment: .center)
             
             
             VStack {
-                
+
                 Spacer()
-                
+
 //                Text("Offset: \(String(format: "%.2f", horizontalOffset))")
 //                    .frame(maxWidth: .infinity)
 //                    .padding()
 //                    .background(Color.yellow)
-                
-                
+
+
                 OffsettableScrollView { point in
                     horizontalOffset = (point.x * -1) + 1546.5 * modifiers.wt
                     self.progressValue = Float((horizontalOffset + 100 * modifiers.wt)/((2500 * modifiers.wt)+100 * modifiers.wt))
-                    
+
                 } content: {
-                    
+
                     ScrollViewReader { prox in
-                        
+
                         HStack{
                             Text("")
                                 .frame(width: 80 * modifiers.wt)
-                            
+
                             HStack(spacing: 90 * pow(modifiers.wt,1.2)) {
                                 Group{
                                     GeometryReader { proxy in
@@ -274,7 +272,7 @@ struct Home: View {
 
 
                                             }
-                                            .frame(width: 220 * modifiers.wt, height: 300 * pow(modifiers.ht,2.3))
+                                            .frame(width: 220 * modifiers.wt, height: 300 * pow(modifiers.ht,2))
                                             .overlay(
                                                         RoundedRectangle(cornerRadius: 30 * modifiers.ht)
                                                             .stroke(Color.white, lineWidth: 7 * modifiers.ht)
@@ -975,7 +973,7 @@ struct Home: View {
                                     .frame(width: 200 * modifiers.wt, height: 340 * modifiers.ht)
                                     .id(9)
 
-                                }.frame(height: 680 * modifiers.ht)
+                                }.frame(height: 800 * modifiers.ht)
                             }
                             .onChange(of: leftFlag, perform: { value in
                                 withAnimation(.spring()){
@@ -987,21 +985,17 @@ struct Home: View {
                                     prox.scrollTo(9, anchor: .center)
                                 }
                             })
-                            
+
                             Text("")
                                 .frame(width: 100 * modifiers.wt)
-                            
+
                         }
                     }
                 }
-                
-                
-               
                 Spacer()
-            
+
             }
-            
-            
+                
             
             VStack{
             
@@ -1048,7 +1042,9 @@ struct Home: View {
                         .padding()
             
             VStack{
+                
                 Spacer()
+                
                 
                 HStack{
                     
@@ -1093,9 +1089,12 @@ struct Home: View {
                     
                 }
                 
-                Spacer()
-                    .frame(height: 20 * pow(modifiers.wt,2.2))
+                    Spacer()
+                    .frame(height: 40 * modifiers.ht)
             }
+            
+            
+            
         }
         .navigationBarBackButtonHidden(true).navigationBarTitle("Home", displayMode: .inline).navigationBarHidden(true)
         .onAppear{
