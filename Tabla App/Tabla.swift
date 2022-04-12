@@ -21,9 +21,9 @@ struct Tabla: View {
     
     var trackNames = ["TablaSound5", "TablaSound3", "TablaSound4", "TablaSound7", "TablaSound6", "TablaSound8"]
     
-    @State private var scaleValue1 = CGFloat(1)
+    @State private var scaleValue1 = CGFloat(0.9)
     
-    @State private var scaleValue2 = CGFloat(1)
+    @State private var scaleValue2 = CGFloat(0.9)
     
     
     var body: some View {
@@ -44,6 +44,21 @@ struct Tabla: View {
 
                 Spacer()
                     .frame(height: modifiers.ht * 34)
+                
+                Text("Pressing different parts of the Tabla below will produce the different types of sounds that a real Tabla creates.")
+                    .font(.custom("BodoniSvtyTwoOSITCTT-Bold", size: modifiers.wt * 12))
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .frame(width: 300 * modifiers.wt)
+                    .background(Color.gold2)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10 * modifiers.ht)
+                            .stroke(Color.white, lineWidth: 7 * modifiers.ht)
+                    )
+                    .cornerRadius(10.0 * modifiers.ht)
+                    
+                
+                Spacer()
                 
                 ZStack{
    
@@ -165,7 +180,7 @@ struct Tabla: View {
                 .scaleEffect(self.scaleValue2)
                 
                 Spacer()
-                        .frame(height: modifiers.ht * 28)
+                        .frame(height: modifiers.ht * 20)
 
             }
         }
@@ -176,15 +191,15 @@ struct Tabla: View {
         
         withAnimation(.easeInOut(duration: 0.05)) {
             if(drumNum == 1){
-                scaleValue1 = 0.93
+                scaleValue1 = 0.8
             }
             else if(drumNum == 2){
-                scaleValue2 = 0.93
+                scaleValue2 = 0.8
             }
         }
         withAnimation(.easeInOut(duration: 0.05).delay(0.01)){
-            scaleValue1 = 1.0
-            scaleValue2 = 1.0
+            scaleValue1 = 0.9
+            scaleValue2 = 0.9
         }
         
         self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: track, ofType: "wav")!))

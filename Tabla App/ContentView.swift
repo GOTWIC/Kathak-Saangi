@@ -154,7 +154,7 @@ struct Home: View {
     
     var tileDescriptions = ["Ever wanted to play the Tabla? Now you can, with this interactive Tabla Player!", "Use these practice audios for your daily riyaz of hand-movements, footwork, and circles", "Practice audio for Kramalaya (Chromatic Speed), ranging from Beginner to Advanced", "Practice Laris, a composition created by different variations of a theme, and its improv counterpart, Upaj", "Explore the never-seen-before mathematics behind different types of tehais, through tutorials and calculators", "A simple Teentaal Lehra with adjustable speeds", "Western compositions created on the Octapad, for the Kathakar's own choreography","Learn complex and tongue-twisting compositions to improve your recitation skills, including a phrase-by-phrase breakdown", "Specially curated tutorials and showcases by Guru Sandip Mallick and Guru Aniruddha Mukherjee", "An article detailing the Dasa Prana, the 10 Vital Elements of Taal"]
     
-    var tileImages = ["Tabla Image 1", "Tabla Image 1", "TG1", "GhungrooEdited2", "Tabla Image 3", "Ghungroo3", "Octapad", "Padhant", "Ghungroo1", "TB7"]
+    var tileImages = ["Tabla Image 1", "Ghungroo3", "TG1", "GhungrooEdited2", "Tabla Image 3", "TB8", "Octapad", "Padhant", "Ghungroo1", "TB7"]
     
     
     func  getScale(proxy: GeometryProxy) -> CGFloat {
@@ -442,7 +442,7 @@ struct Home: View {
                                 ) {
                                     Image(systemName: self.showInfo ? "xmark" : "info.circle")
                                         .resizable()
-                                        .foregroundColor(.gold2)
+                                        .foregroundColor(.white)
                                         .frame(width: modifiers.ht * 35, height: modifiers.ht * 35)
                                 }
                             }
@@ -485,7 +485,7 @@ struct Home: View {
                     ) {
                         Image(systemName: "arrow.left")
                             .resizable()
-                            .foregroundColor(.orange)
+                            .foregroundColor(.white)
                             .frame(width: modifiers.wt * 20, height: modifiers.wt * 15)
                     }
                     
@@ -505,7 +505,7 @@ struct Home: View {
                     ) {
                         Image(systemName: "arrow.right")
                             .resizable()
-                            .foregroundColor(.orange)
+                            .foregroundColor(.white)
                             .frame(width: modifiers.wt * 20, height: modifiers.wt * 15)
                     }
                     
