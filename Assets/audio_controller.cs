@@ -1,10 +1,12 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
-public class audio_controller : MonoBehaviour, IPointerClickHandler
+public class audio_controller : MonoBehaviour
 {
+    [Header("Click Area (audio_element)")]
+    [SerializeField] private Button audioElementButton;   // Put this Button on audio_element
+
     [Header("UI")]
     [SerializeField] private Image playPauseImage;
     [SerializeField] private Sprite playSprite;
@@ -24,13 +26,18 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
-        // Basic defaults / safety
+        // Hook click ONLY on audio_element's Button
+        if (audioElementButton != null)
+            audioElementButton.onClick.AddListener(TogglePlayPause);
+
+        // Audio defaults
         if (audioSource != null)
         {
             audioSource.playOnAwake = false;
             if (audioClip != null) audioSource.clip = audioClip;
         }
 
+        // Slider defaults
         if (progressSlider != null)
         {
             progressSlider.minValue = 0f;
@@ -42,30 +49,32 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
         SetPlayingUI(false);
     }
 
-    private void OnDestroy()
+    private void Start()
     {
-        if (progressSlider != null)
-            progressSlider.onValueChanged.RemoveListener(OnSliderValueChanged);
+        ForceUIState();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void OnDestroy()
     {
-        TogglePlayPause();
+        if (audioElementButton != null)
+            audioElementButton.onClick.RemoveListener(TogglePlayPause);
+
+        if (progressSlider != null)
+            progressSlider.onValueChanged.RemoveListener(OnSliderValueChanged);
     }
 
     private void Update()
     {
         if (audioSource == null || audioSource.clip == null || progressSlider == null) return;
 
-        // If ended, reset UI
+        // Finished -> reset UI
         if (!audioSource.isPlaying && !isScrubbing && audioSource.time > 0f)
         {
-            // Consider "finished" when very close to end
             if (audioSource.time >= audioSource.clip.length - 0.02f)
             {
                 audioSource.Stop();
                 audioSource.time = 0f;
-                progressSlider.value = 0f;
+                progressSlider.SetValueWithoutNotify(0f);
                 SetPlayingUI(false);
                 return;
             }
@@ -75,7 +84,7 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
         if (audioSource.isPlaying && !isScrubbing)
         {
             float t = audioSource.time / audioSource.clip.length;
-            progressSlider.value = Mathf.Clamp01(t);
+            progressSlider.SetValueWithoutNotify(Mathf.Clamp01(t));
         }
     }
 
@@ -111,43 +120,30 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
 
     private void OnSliderValueChanged(float value01)
     {
-        if (!isScrubbing) return;
         if (audioSource == null || audioSource.clip == null) return;
 
-        float newTime = value01 * audioSource.clip.length;
+        // Seek only when the user is interacting (drag/touch),
+        // or when BeginScrub/EndScrub is used.
+        bool treatAsUserScrub = isScrubbing || Input.GetMouseButton(0) || Input.touchCount > 0;
+        if (!treatAsUserScrub) return;
+
+        float newTime = Mathf.Clamp01(value01) * audioSource.clip.length;
         audioSource.time = Mathf.Clamp(newTime, 0f, audioSource.clip.length);
     }
 
-    // Hook these up via EventTrigger on the Slider (Pointer Down / Pointer Up)
-    public void BeginScrub()
-    {
-        isScrubbing = true;
-    }
-
-    public void EndScrub()
-    {
-        isScrubbing = false;
-
-        // Optional: if you want scrubbing while paused to stay paused, do nothing.
-        // If you want scrubbing to resume playback automatically when it was playing, add logic here.
-    }
-
-    private void Start()
-    {
-        ForceUIState();
-    }
+    // Optional: use these with an EventTrigger on the Slider (Pointer Down / Pointer Up)
+    public void BeginScrub() => isScrubbing = true;
+    public void EndScrub() => isScrubbing = false;
 
     private void ForceUIState()
     {
-        // Always start hidden unless currently playing
         bool playing = audioSource != null && audioSource.isPlaying;
         SetPlayingUI(playing);
 
         if (progressSlider != null && audioSource != null && audioSource.clip != null)
         {
             float t = audioSource.clip.length > 0 ? audioSource.time / audioSource.clip.length : 0f;
-            progressSlider.value = Mathf.Clamp01(t);
+            progressSlider.SetValueWithoutNotify(Mathf.Clamp01(t));
         }
     }
-
 }
