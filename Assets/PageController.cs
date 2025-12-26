@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PageController : MonoBehaviour
@@ -28,6 +29,9 @@ public class PageController : MonoBehaviour
         public string descriptionText;
     }
 
+    // ---------------------------
+    // Scene / Prefabs
+    // ---------------------------
     [Header("Scene References")]
     [SerializeField] private Transform content;
 
@@ -36,17 +40,45 @@ public class PageController : MonoBehaviour
     [SerializeField] private GameObject audioPrefab;
     [SerializeField] private GameObject descriptionPrefab;
 
-    [Header("Data")]
+    // ---------------------------
+    // Page-level fields
+    // ---------------------------
+    [Header("Page Settings")]
+    [SerializeField] private Color page_color = Color.white;
+    [SerializeField] private Sprite page_gradient;
+    [SerializeField] private string page_name;
+    [SerializeField] private Sprite page_image;
+
+    // ---------------------------
+    // Data
+    // ---------------------------
+    [Header("List Contents")]
     [SerializeField] private List<PageItem> items = new List<PageItem>();
 
     [Header("Build Options")]
     [SerializeField] private bool buildOnStart = true;
     [SerializeField] private bool clearExistingChildrenBeforeBuild = true;
 
+    // ---------------------------
+    // Hierarchy Paths (relative to SpotifyTemplate root = this.transform)
+    // ---------------------------
+    // page_color -> SpotifyTemplate/CarouselRoot/background/color (Image.color)
+    private const string BG_COLOR_IMAGE_PATH = "CarouselRoot/background/color";
+
+    // page_gradient -> SpotifyTemplate/CarouselRoot/background/gradient (Image.sprite)
+    private const string BG_GRADIENT_IMAGE_PATH = "CarouselRoot/background/gradient";
+
+    // page_name -> SpotifyTemplate/CarouselRoot/background_info/module_name_foreground/module_name (TMP_Text.text)
+    private const string PAGE_NAME_TMP_PATH = "CarouselRoot/background_info/module_name_background/module_name_foreground/module_name";
+
+    // page_image -> SpotifyTemplate/CarouselRoot/background_info/module_img (Image.sprite)
+    private const string PAGE_IMAGE_PATH = "CarouselRoot/background_info/module_img";
+
+    // Item bindings (relative to instantiated prefab root)
     private const string HEADER_TMP_PATH = "text";                // header_container -> text -> TMP
     private const string AUDIO_TMP_PATH = "audio_element/text";   // audio_component -> audio_element -> text -> TMP
     private const string AUDIO_SOURCE_PATH = "audio_element";     // audio_component -> audio_element -> AudioSource
-    private const string DESCRIPTION_TMP_PATH = "text";           // description_container -> text -> TMP
+    private const string DESCRIPTION_TMP_PATH = "description_element/text";           // description_container -> text -> TMP
 
     private void Start()
     {
@@ -54,6 +86,9 @@ public class PageController : MonoBehaviour
             Rebuild();
     }
 
+    // ============================================================
+    // Public API
+    // ============================================================
     public void Rebuild()
     {
         if (content == null)
@@ -61,6 +96,9 @@ public class PageController : MonoBehaviour
             Debug.LogError("[PageController] Content is not assigned.");
             return;
         }
+
+        // Apply page settings first (so the UI matches the data even if list is empty)
+        ApplyPageBindingsRuntime();
 
         if (clearExistingChildrenBeforeBuild)
             ClearContentChildrenRuntime();
@@ -79,10 +117,75 @@ public class PageController : MonoBehaviour
             GameObject go = Instantiate(prefab, content, worldPositionStays: false);
             go.name = $"{item.type}: {GetNiceName(item)}";
 
-            ApplyBindings(go, item);
+            ApplyItemBindings(go, item);
         }
     }
 
+    public void ClearAll()
+    {
+        if (content != null)
+            ClearContentChildrenRuntime();
+
+        ClearPageBindingsRuntime();
+    }
+
+    // ============================================================
+    // Page bindings
+    // ============================================================
+    private void ApplyPageBindingsRuntime()
+    {
+        // Background color image
+        var bgColorImg = GetImageAtRootPath(BG_COLOR_IMAGE_PATH);
+        if (bgColorImg != null)
+            bgColorImg.color = page_color;
+        else
+            Debug.LogWarning($"[PageController] Background color Image not found at '{BG_COLOR_IMAGE_PATH}'.");
+
+        // Background gradient sprite
+        var bgGradientImg = GetImageAtRootPath(BG_GRADIENT_IMAGE_PATH);
+        if (bgGradientImg != null)
+            bgGradientImg.sprite = page_gradient;
+        else
+            Debug.LogWarning($"[PageController] Background gradient Image not found at '{BG_GRADIENT_IMAGE_PATH}'.");
+
+        // Page name TMP
+        var nameTmp = GetTmpAtRootPath(PAGE_NAME_TMP_PATH);
+        if (nameTmp != null)
+            nameTmp.text = page_name ?? "";
+        else
+            Debug.LogWarning($"[PageController] Page name TMP_Text not found at '{PAGE_NAME_TMP_PATH}'.");
+
+        // Page cover image sprite
+        var coverImg = GetImageAtRootPath(PAGE_IMAGE_PATH);
+        if (coverImg != null)
+            coverImg.sprite = page_image;
+        else
+            Debug.LogWarning($"[PageController] Page image Image not found at '{PAGE_IMAGE_PATH}'.");
+    }
+
+    private void ClearPageBindingsRuntime()
+    {
+        // "Clear" means reset the driven UI fields to blank/neutral.
+        var bgColorImg = GetImageAtRootPath(BG_COLOR_IMAGE_PATH);
+        if (bgColorImg != null)
+            bgColorImg.color = Color.white;
+
+        var bgGradientImg = GetImageAtRootPath(BG_GRADIENT_IMAGE_PATH);
+        if (bgGradientImg != null)
+            bgGradientImg.sprite = null;
+
+        var nameTmp = GetTmpAtRootPath(PAGE_NAME_TMP_PATH);
+        if (nameTmp != null)
+            nameTmp.text = "";
+
+        var coverImg = GetImageAtRootPath(PAGE_IMAGE_PATH);
+        if (coverImg != null)
+            coverImg.sprite = null;
+    }
+
+    // ============================================================
+    // Item bindings
+    // ============================================================
     private static string GetNiceName(PageItem item)
     {
         if (item.type == ItemType.Description)
@@ -101,7 +204,7 @@ public class PageController : MonoBehaviour
         }
     }
 
-    private void ApplyBindings(GameObject instanceRoot, PageItem item)
+    private void ApplyItemBindings(GameObject instanceRoot, PageItem item)
     {
         switch (item.type)
         {
@@ -140,10 +243,13 @@ public class PageController : MonoBehaviour
         }
     }
 
-    private static TMP_Text GetTmpAtPath(Transform root, string path)
+    // ============================================================
+    // Utilities
+    // ============================================================
+    private void ClearContentChildrenRuntime()
     {
-        var t = FindByPath(root, path);
-        return t != null ? t.GetComponent<TMP_Text>() : null;
+        for (int i = content.childCount - 1; i >= 0; i--)
+            Destroy(content.GetChild(i).gameObject);
     }
 
     private static Transform FindByPath(Transform root, string path)
@@ -155,7 +261,7 @@ public class PageController : MonoBehaviour
 
         for (int i = 0; i < parts.Length; i++)
         {
-            string part = parts[i];
+            var part = parts[i];
             if (string.IsNullOrWhiteSpace(part)) continue;
 
             current = current.Find(part);
@@ -165,18 +271,33 @@ public class PageController : MonoBehaviour
         return current;
     }
 
-    private void ClearContentChildrenRuntime()
+    private static TMP_Text GetTmpAtPath(Transform root, string path)
     {
-        for (int i = content.childCount - 1; i >= 0; i--)
-            Destroy(content.GetChild(i).gameObject);
+        var t = FindByPath(root, path);
+        return t != null ? t.GetComponent<TMP_Text>() : null;
+    }
+
+    private Image GetImageAtRootPath(string pathFromRoot)
+    {
+        var t = FindByPath(transform, pathFromRoot);
+        return t != null ? t.GetComponent<Image>() : null;
+    }
+
+    private TMP_Text GetTmpAtRootPath(string pathFromRoot)
+    {
+        var t = FindByPath(transform, pathFromRoot);
+        return t != null ? t.GetComponent<TMP_Text>() : null;
     }
 
 #if UNITY_EDITOR
+    // ============================================================
+    // Editor-aware rebuild/clear (supports edit mode + Undo)
+    // ============================================================
     [ContextMenu("Rebuild (Editor/Play)")]
-    private void ContextRebuild()
-    {
-        RebuildEditorAware();
-    }
+    private void ContextRebuild() => RebuildEditorAware();
+
+    [ContextMenu("Clear All (Editor/Play)")]
+    private void ContextClear() => ClearAllEditorAware();
 
     private void RebuildEditorAware()
     {
@@ -191,6 +312,8 @@ public class PageController : MonoBehaviour
             Debug.LogError("[PageController] Content is not assigned.");
             return;
         }
+
+        ApplyPageBindingsEditorUndo();
 
         if (clearExistingChildrenBeforeBuild)
         {
@@ -210,17 +333,108 @@ public class PageController : MonoBehaviour
             go.transform.SetParent(content, false);
 
             go.name = $"{item.type}: {GetNiceName(item)}";
-
-            ApplyBindings(go, item);
+            ApplyItemBindings(go, item);
 
             UnityEditor.EditorUtility.SetDirty(go);
         }
 
         UnityEditor.EditorUtility.SetDirty(this);
     }
+
+    private void ClearAllEditorAware()
+    {
+        if (UnityEditor.EditorApplication.isPlaying)
+        {
+            ClearAll();
+            return;
+        }
+
+        if (content != null)
+        {
+            for (int i = content.childCount - 1; i >= 0; i--)
+                UnityEditor.Undo.DestroyObjectImmediate(content.GetChild(i).gameObject);
+        }
+
+        ClearPageBindingsEditorUndo();
+
+        UnityEditor.EditorUtility.SetDirty(this);
+    }
+
+    private void ApplyPageBindingsEditorUndo()
+    {
+        var bgColorImg = GetImageAtRootPath(BG_COLOR_IMAGE_PATH);
+        if (bgColorImg != null)
+        {
+            UnityEditor.Undo.RecordObject(bgColorImg, "Set Page Color");
+            bgColorImg.color = page_color;
+            UnityEditor.EditorUtility.SetDirty(bgColorImg);
+        }
+
+        var bgGradientImg = GetImageAtRootPath(BG_GRADIENT_IMAGE_PATH);
+        if (bgGradientImg != null)
+        {
+            UnityEditor.Undo.RecordObject(bgGradientImg, "Set Page Gradient");
+            bgGradientImg.sprite = page_gradient;
+            UnityEditor.EditorUtility.SetDirty(bgGradientImg);
+        }
+
+        var nameTmp = GetTmpAtRootPath(PAGE_NAME_TMP_PATH);
+        if (nameTmp != null)
+        {
+            UnityEditor.Undo.RecordObject(nameTmp, "Set Page Name");
+            nameTmp.text = page_name ?? "";
+            UnityEditor.EditorUtility.SetDirty(nameTmp);
+        }
+
+        var coverImg = GetImageAtRootPath(PAGE_IMAGE_PATH);
+        if (coverImg != null)
+        {
+            UnityEditor.Undo.RecordObject(coverImg, "Set Page Image");
+            coverImg.sprite = page_image;
+            UnityEditor.EditorUtility.SetDirty(coverImg);
+        }
+    }
+
+    private void ClearPageBindingsEditorUndo()
+    {
+        var bgColorImg = GetImageAtRootPath(BG_COLOR_IMAGE_PATH);
+        if (bgColorImg != null)
+        {
+            UnityEditor.Undo.RecordObject(bgColorImg, "Clear Page Color");
+            bgColorImg.color = Color.white;
+            UnityEditor.EditorUtility.SetDirty(bgColorImg);
+        }
+
+        var bgGradientImg = GetImageAtRootPath(BG_GRADIENT_IMAGE_PATH);
+        if (bgGradientImg != null)
+        {
+            UnityEditor.Undo.RecordObject(bgGradientImg, "Clear Page Gradient");
+            bgGradientImg.sprite = null;
+            UnityEditor.EditorUtility.SetDirty(bgGradientImg);
+        }
+
+        var nameTmp = GetTmpAtRootPath(PAGE_NAME_TMP_PATH);
+        if (nameTmp != null)
+        {
+            UnityEditor.Undo.RecordObject(nameTmp, "Clear Page Name");
+            nameTmp.text = "";
+            UnityEditor.EditorUtility.SetDirty(nameTmp);
+        }
+
+        var coverImg = GetImageAtRootPath(PAGE_IMAGE_PATH);
+        if (coverImg != null)
+        {
+            UnityEditor.Undo.RecordObject(coverImg, "Clear Page Image");
+            coverImg.sprite = null;
+            UnityEditor.EditorUtility.SetDirty(coverImg);
+        }
+    }
 #endif
 
 #if UNITY_EDITOR
+    // ============================================================
+    // Custom Inspector with buttons
+    // ============================================================
     [UnityEditor.CustomEditor(typeof(PageController))]
     private class PageControllerEditor : UnityEditor.Editor
     {
@@ -237,10 +451,7 @@ public class PageController : MonoBehaviour
                 displayRemoveButton: true
             );
 
-            _list.drawHeaderCallback = rect =>
-            {
-                UnityEditor.EditorGUI.LabelField(rect, "Items");
-            };
+            _list.drawHeaderCallback = rect => UnityEditor.EditorGUI.LabelField(rect, "Items");
 
             _list.elementHeightCallback = index =>
             {
@@ -302,18 +513,31 @@ public class PageController : MonoBehaviour
         {
             serializedObject.Update();
 
+            // Scene refs / prefabs
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("content"));
             UnityEditor.EditorGUILayout.Space(4);
-
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("headerPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("audioPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("descriptionPrefab"));
-            UnityEditor.EditorGUILayout.Space(8);
 
+            UnityEditor.EditorGUILayout.Space(10);
+
+            // Page settings
+            UnityEditor.EditorGUILayout.LabelField("Page Settings", UnityEditor.EditorStyles.boldLabel);
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("page_color"), new GUIContent("Page Color"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("page_gradient"), new GUIContent("Page Gradient"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("page_name"), new GUIContent("Page Name"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("page_image"), new GUIContent("Page Image"));
+
+            UnityEditor.EditorGUILayout.Space(10);
+
+            // Build options
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("buildOnStart"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("clearExistingChildrenBeforeBuild"));
-            UnityEditor.EditorGUILayout.Space(8);
 
+            UnityEditor.EditorGUILayout.Space(10);
+
+            // Add buttons
             UnityEditor.EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("Add Header")) AddItem(ItemType.Header);
             if (GUILayout.Button("Add Audio")) AddItem(ItemType.Audio);
@@ -321,9 +545,12 @@ public class PageController : MonoBehaviour
             UnityEditor.EditorGUILayout.EndHorizontal();
 
             UnityEditor.EditorGUILayout.Space(6);
-            _list.DoLayoutList();
-            UnityEditor.EditorGUILayout.Space(8);
 
+            _list.DoLayoutList();
+
+            UnityEditor.EditorGUILayout.Space(10);
+
+            // Rebuild / Clear buttons
             var pc = (PageController)target;
 
             UnityEditor.EditorGUILayout.BeginHorizontal();
@@ -338,11 +565,11 @@ public class PageController : MonoBehaviour
 
             if (GUILayout.Button("Clear Content"))
             {
-                if (pc.content != null)
-                {
-                    for (int i = pc.content.childCount - 1; i >= 0; i--)
-                        UnityEditor.Undo.DestroyObjectImmediate(pc.content.GetChild(i).gameObject);
-                }
+                var method = typeof(PageController).GetMethod(
+                    "ClearAllEditorAware",
+                    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic
+                );
+                method?.Invoke(pc, null);
             }
             UnityEditor.EditorGUILayout.EndHorizontal();
 
