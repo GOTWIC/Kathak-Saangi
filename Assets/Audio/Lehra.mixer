@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-6137672768611616393
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lehra3
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: e2f8a43567e394cfead7d4016cbf8c41
+  m_Children: []
+  m_Volume: 5067407380eb347d5b46b818622673f8
+  m_Pitch: 78688cd640cec4ae592eb897e8590e47
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 1373963123838601923}
+  - {fileID: 8708759319493809301}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-6002324539766128790
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -11,6 +31,42 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: 16e5ce6122a1d4472babe337be949bf8
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-2935087746095610935
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4f20bcc9f7fe142929e7a6d41ccbf1ce
+  m_EffectName: Attenuation
+  m_MixLevel: 6ae1322ed853f43e693d6e95f9fe5279
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-1721260271985061332
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3d5185f50c4d34cbebcdfc9a63c2f954
+  m_EffectName: Pitch Shifter
+  m_MixLevel: d8ddbd3b11388454287381b8f6cc687f
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: 11728da8ce158400f91642f800435ce0
+  - m_ParameterName: FFT size
+    m_GUID: 15a5344a4efa84ff68466821aabcb9ff
+  - m_ParameterName: Overlap
+    m_GUID: 46252f5b502f24d3795f1d54427e30f8
+  - m_ParameterName: Max channels
+    m_GUID: 9f4fb10c8f0454093bd28b57d4644bf5
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
@@ -31,11 +87,17 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: d674ea4aff6c14d0aa30de15091368b5
-    name: LehraPitchShiftSemitones
+    name: LehraPitch1
+  - guid: 11728da8ce158400f91642f800435ce0
+    name: LehraPitch2
+  - guid: 16740b89610074f8498ca8dfc0d334bb
+    name: LehraPitch3
   m_AudioMixerGroupViews:
   - guids:
     - 78c87b90a56e1422da3586d1439c4301
     - 41cb8bf9a278645fea94b7ef045abfb9
+    - 91dc549cc90b544ae91b062ac9f5ed2d
+    - e2f8a43567e394cfead7d4016cbf8c41
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -50,6 +112,8 @@ AudioMixerGroupController:
   m_GroupID: 78c87b90a56e1422da3586d1439c4301
   m_Children:
   - {fileID: 4595338345077304228}
+  - {fileID: 5006399745449056766}
+  - {fileID: -6137672768611616393}
   m_Volume: 43e9fb0d60c254222a16768af67ac443
   m_Pitch: 888f57ad20e0d48ab873096ee0786eaa
   m_Send: 00000000000000000000000000000000
@@ -85,13 +149,27 @@ AudioMixerSnapshotController:
   m_FloatValues:
     d674ea4aff6c14d0aa30de15091368b5: 0.829
   m_TransitionOverrides: {}
+--- !u!244 &1373963123838601923
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: ed8d2d96f8eec4eb0b4e0646e748fc2a
+  m_EffectName: Attenuation
+  m_MixLevel: c2ac36132503c4ce5b06ccd65b85a800
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &4595338345077304228
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lehra
+  m_Name: Lehra1
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 41cb8bf9a278645fea94b7ef045abfb9
   m_Children: []
@@ -101,6 +179,26 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: -6002324539766128790}
   - {fileID: 6578144177035596059}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &5006399745449056766
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lehra2
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 91dc549cc90b544ae91b062ac9f5ed2d
+  m_Children: []
+  m_Volume: 5048aa2c92b524acb90394285f0c89e3
+  m_Pitch: ec8d42b25022d4cf09fae776381e8a3d
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -2935087746095610935}
+  - {fileID: -1721260271985061332}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -124,6 +222,28 @@ AudioMixerEffectController:
     m_GUID: 60e9182d28c2f41c4aa07cfc0206ad82
   - m_ParameterName: Max channels
     m_GUID: 7ffb059501cff46be83074e0008f2bf0
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &8708759319493809301
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 493e11ecbb1fb44368f7773cecb50de0
+  m_EffectName: Pitch Shifter
+  m_MixLevel: 3a79d9e6e6710400ebe0abbb0852c53e
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: 16740b89610074f8498ca8dfc0d334bb
+  - m_ParameterName: FFT size
+    m_GUID: da51d0a133296492986e8793b942b5f3
+  - m_ParameterName: Overlap
+    m_GUID: d58703d9b73d74e4a8b7788c17a56e23
+  - m_ParameterName: Max channels
+    m_GUID: 52a42839780224e0295c477cc4c48a3b
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

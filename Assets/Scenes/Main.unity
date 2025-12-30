@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 0.9166667
       objectReference: {fileID: 0}
+    - target: {fileID: 4790461655666275383, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 5006399745449056766, guid: f6d80784f144140f2851387d73e70c5b, type: 2}
     - target: {fileID: 5684785621804799770, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -927,7 +931,7 @@ MonoBehaviour:
     description: Explore the never-seen-before mathematics behind different types
       of tehais, through tutorials and calculators
     backgroundImage: {fileID: 7362972359521825499, guid: 9264fffd994a140e8811dffac96e6479, type: 3}
-    linkedCanvas: {fileID: 1269028324}
+    linkedCanvas: {fileID: 144816287}
   - name: Teentaal Lehra
     description: A simple Teentaal Lehra with adjustable speed
     backgroundImage: {fileID: -513546068271041449, guid: 65db9e804b7ce4765858bcd7945d0a66, type: 3}
@@ -964,6 +968,28 @@ MonoBehaviour:
   minScale: 0.7
   maxScale: 1
   customEffectRadius: 4
+--- !u!114 &114426947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4137099674182236812, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 107140245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114426949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2458015809253084741, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 107140245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &114599388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1246,11 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -2120}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &144816287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7405123986692024746, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+  m_PrefabInstance: {fileID: 1632040276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &172852951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,6 +4024,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3625569117396264192, guid: c14ba928970ee4ab79f7b091eade6b7d, type: 3}
   m_PrefabInstance: {fileID: 440988922}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &441688900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7289104098156120686, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 107140245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &442789279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5255,6 +5297,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3625569117396264192, guid: c14ba928970ee4ab79f7b091eade6b7d, type: 3}
   m_PrefabInstance: {fileID: 581242809}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &593555577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7289104098156120686, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 5755488788896227036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &605156994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5727,6 +5780,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665857161}
   m_CullTransparentMesh: 1
+--- !u!114 &676979222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7289104098156120686, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 735690784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &702193002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5850,6 +5914,10 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 0.96590906
       objectReference: {fileID: 0}
+    - target: {fileID: 4790461655666275383, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6137672768611616393, guid: f6d80784f144140f2851387d73e70c5b, type: 2}
     - target: {fileID: 5684785621804799770, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8629,6 +8697,33 @@ MonoBehaviour:
   items: []
   buildOnStart: 1
   clearExistingChildrenBeforeBuild: 1
+--- !u!114 &1270891159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4137099674182236812, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 5755488788896227036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1270891161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2458015809253084741, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 5755488788896227036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &1276027367 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4790461655666275383, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 107140245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1290110996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12176,6 +12271,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+--- !u!82 &1635517242 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4790461655666275383, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 735690784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1640985874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7405123986692024746, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
@@ -15601,6 +15701,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997888016}
   m_CullTransparentMesh: 1
+--- !u!114 &1998837457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4137099674182236812, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 735690784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1998837459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2458015809253084741, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+  m_PrefabInstance: {fileID: 735690784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2023895439
 GameObject:
   m_ObjectHideFlags: 0
@@ -16869,6 +16991,7 @@ GameObject:
   - component: {fileID: 2123810508}
   - component: {fileID: 2123810507}
   - component: {fileID: 2123810509}
+  - component: {fileID: 2123810510}
   m_Layer: 5
   m_Name: controls
   m_TagString: Untagged
@@ -16964,6 +17087,63 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2123810510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123810505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f2f5363e67f487c89dddc1abc786dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containers:
+  - statusButton: {fileID: 1270891161}
+    statusImage: {fileID: 1270891159}
+    playSprite: {fileID: 3794550611322748858, guid: 1cd4cd324d2b2478db4ea0c273385a89, type: 3}
+    pauseSprite: {fileID: 21300000, guid: 894da1feef01b4b79a87d6a135491881, type: 3}
+    tempoSlider: {fileID: 593555577}
+    min_bpm: 50
+    max_bpm: 109
+    base_bpm: 65
+    selected_bpm: 0
+    speed_multiplier: 0
+    audioSource: {fileID: 474269082}
+    clip: {fileID: 8300000, guid: c70fc23283a9f4e73baa6096bd311dfb, type: 3}
+    audioMixer: {fileID: 24100000, guid: f6d80784f144140f2851387d73e70c5b, type: 2}
+    pitchShiftParam: LehraPitch1
+  - statusButton: {fileID: 114426949}
+    statusImage: {fileID: 114426947}
+    playSprite: {fileID: 3794550611322748858, guid: 1cd4cd324d2b2478db4ea0c273385a89, type: 3}
+    pauseSprite: {fileID: 21300000, guid: 894da1feef01b4b79a87d6a135491881, type: 3}
+    tempoSlider: {fileID: 441688900}
+    min_bpm: 110
+    max_bpm: 169
+    base_bpm: 120
+    selected_bpm: 0
+    speed_multiplier: 0
+    audioSource: {fileID: 1276027367}
+    clip: {fileID: 8300000, guid: f3ca5654609ab4475b8aa8f4abf401ab, type: 3}
+    audioMixer: {fileID: 24100000, guid: f6d80784f144140f2851387d73e70c5b, type: 2}
+    pitchShiftParam: LehraPitch2
+  - statusButton: {fileID: 1998837459}
+    statusImage: {fileID: 1998837457}
+    playSprite: {fileID: 3794550611322748858, guid: 1cd4cd324d2b2478db4ea0c273385a89, type: 3}
+    pauseSprite: {fileID: 21300000, guid: 894da1feef01b4b79a87d6a135491881, type: 3}
+    tempoSlider: {fileID: 676979222}
+    min_bpm: 170
+    max_bpm: 240
+    base_bpm: 176
+    selected_bpm: 0
+    speed_multiplier: 0
+    audioSource: {fileID: 1635517242}
+    clip: {fileID: 8300000, guid: 7764777829e4c41a98504d9a7107f32d, type: 3}
+    audioMixer: {fileID: 24100000, guid: f6d80784f144140f2851387d73e70c5b, type: 2}
+    pitchShiftParam: LehraPitch3
+  overallBpmText: {fileID: 2144240504}
+  defaultOverallBpm: 50
 --- !u!1001 &2126584742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17737,6 +17917,10 @@ PrefabInstance:
     - target: {fileID: 6828053227512814135, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
       propertyPath: m_Name
       value: slider_container
+      objectReference: {fileID: 0}
+    - target: {fileID: 7289104098156120686, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
+      propertyPath: m_Value
+      value: 50.1
       objectReference: {fileID: 0}
     - target: {fileID: 7289104098156120686, guid: 4a40966bc14fe42c5b1f7ca9bab52a78, type: 3}
       propertyPath: m_MaxValue

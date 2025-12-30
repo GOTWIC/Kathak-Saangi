@@ -1,158 +1,217 @@
+using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
-public class LehraControl : MonoBehaviour
+public class LehraControls : MonoBehaviour
 {
-    [Header("UI")]
-    [SerializeField] private Button statusButton;
-    [SerializeField] private Image statusImage;
-    [SerializeField] private Sprite playSprite;
-    [SerializeField] private Sprite pauseSprite;
-    [SerializeField] private Slider tempoSlider;
+    [Serializable]
+    public class Container
+    {
+        [Header("UI")]
+        public Button statusButton;
+        public Image statusImage;
+        public Sprite playSprite;   // shown when NOT playing
+        public Sprite pauseSprite;  // shown when playing
+        public Slider tempoSlider;
 
-    [Header("BPM Settings")]
-    [SerializeField] private int min_bpm = 60;
-    [SerializeField] private int max_bpm = 180;
-    [SerializeField] private int base_bpm = 120;
+        [Header("BPM Settings")]
+        public int min_bpm = 60;
+        public int max_bpm = 180;
+        public int base_bpm = 120;
 
-    [Header("Read Only")]
-    [ReadOnly, SerializeField] private int selected_bpm;
-    [ReadOnly, SerializeField] private float speed_multiplier;
+        [Header("Read Only")]
+        [ReadOnly] public int selected_bpm;
+        [ReadOnly] public float speed_multiplier;
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip clip;
+        [Header("Audio")]
+        public AudioSource audioSource;
+        public AudioClip clip;
 
-    [Header("Pitch-constant time stretch (AudioMixer Pitch Shifter)")]
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private string pitchShiftSemitonesParam = "LehraPitchShiftSemitones";
+        [Header("Pitch Compensation (Pitch Shifter Pitch MULTIPLIER 0.5..2.0)")]
+        public AudioMixer audioMixer;
+        public string pitchShiftParam; // e.g. "LehraA_PitchComp"
+    }
 
-    private bool _isPlaying;
+    [Header("Containers")]
+    [SerializeField] private List<Container> containers = new List<Container>(3);
+
+    [Header("Overall BPM UI")]
+    [SerializeField] private TMP_Text overallBpmText;
+    [SerializeField] private int defaultOverallBpm = 50;
+
+    private int _currentlyPlayingIndex = -1; // -1 = none playing
+    private int _lastOverallBpm;
 
     private void Awake()
     {
-        if (audioSource == null) audioSource = GetComponent<AudioSource>();
-        if (tempoSlider == null) tempoSlider = GetComponentInChildren<Slider>(true);
+        _lastOverallBpm = defaultOverallBpm;
+        UpdateOverallBpmText(_lastOverallBpm);
 
-        if (statusButton != null)
-            statusButton.onClick.AddListener(TogglePlayPause);
-
-        if (tempoSlider != null)
+        for (int i = 0; i < containers.Count; i++)
         {
-            int lo = Mathf.Min(min_bpm, max_bpm);
-            int hi = Mathf.Max(min_bpm, max_bpm);
+            int idx = i;
+            var c = containers[idx];
 
-            tempoSlider.minValue = lo;
-            tempoSlider.maxValue = hi;
-            tempoSlider.wholeNumbers = true;
+            // Configure slider range + start at MIN BPM
+            if (c.tempoSlider != null)
+            {
+                int lo = Mathf.Min(c.min_bpm, c.max_bpm);
+                int hi = Mathf.Max(c.min_bpm, c.max_bpm);
 
-            tempoSlider.value = Mathf.Clamp(base_bpm, lo, hi);
-            tempoSlider.onValueChanged.AddListener(OnSliderChanged);
+                c.tempoSlider.minValue = lo;
+                c.tempoSlider.maxValue = hi;
+                c.tempoSlider.wholeNumbers = true;
+
+                c.tempoSlider.value = lo; // <-- start at minimum
+
+                c.tempoSlider.onValueChanged.AddListener(_ => OnSliderChanged(idx));
+            }
+            else
+            {
+                Debug.LogWarning($"[LehraControls] Container {idx}: tempoSlider not assigned.");
+            }
+
+            // Wire button
+            if (c.statusButton != null)
+                c.statusButton.onClick.AddListener(() => OnStatusButtonClicked(idx));
+            else
+                Debug.LogWarning($"[LehraControls] Container {idx}: statusButton not assigned.");
+
+            // Default: not playing
+            SetContainerPlaying(idx, playing: false, stopAudio: true);
+
+            // Init internal bpm/speed state
+            SyncBpmFromSlider(idx);
+            ApplySpeedWithConstantPitch(idx);
         }
-
-        SetPlaying(false);
-
-        SyncBpmFromSlider();
-        ApplySpeedWithConstantPitch();
     }
 
     private void OnDestroy()
     {
-        if (statusButton != null)
-            statusButton.onClick.RemoveListener(TogglePlayPause);
-
-        if (tempoSlider != null)
-            tempoSlider.onValueChanged.RemoveListener(OnSliderChanged);
-    }
-
-    private void TogglePlayPause() => SetPlaying(!_isPlaying);
-
-    private void SetPlaying(bool play)
-    {
-        _isPlaying = play;
-
-        if (statusImage != null)
-            statusImage.sprite = _isPlaying ? pauseSprite : playSprite;
-
-        if (audioSource == null) return;
-
-        if (clip != null) audioSource.clip = clip;
-
-        if (_isPlaying)
+        for (int i = 0; i < containers.Count; i++)
         {
-            if (audioSource.clip != null) audioSource.Play();
-            else Debug.LogWarning("[LehraControl] No AudioClip assigned yet.");
-        }
-        else
-        {
-            audioSource.Stop();
+            var c = containers[i];
+            if (c.statusButton != null) c.statusButton.onClick.RemoveAllListeners();
+            if (c.tempoSlider != null) c.tempoSlider.onValueChanged.RemoveAllListeners();
         }
     }
 
-    private void OnSliderChanged(float _)
+    private void OnStatusButtonClicked(int idx)
     {
-        SyncBpmFromSlider();
-        ApplySpeedWithConstantPitch();
-    }
-
-    private void SyncBpmFromSlider()
-    {
-        if (tempoSlider == null)
+        // Clicking the currently playing one => stop it (overall BPM stays as-is)
+        if (_currentlyPlayingIndex == idx)
         {
-            selected_bpm = Mathf.Max(1, base_bpm);
+            SetContainerPlaying(idx, playing: false, stopAudio: true);
+            _currentlyPlayingIndex = -1;
             return;
         }
 
-        selected_bpm = Mathf.RoundToInt(tempoSlider.value);
+        // Stop whoever was playing
+        if (_currentlyPlayingIndex >= 0)
+            SetContainerPlaying(_currentlyPlayingIndex, playing: false, stopAudio: true);
+
+        // Start this one
+        SetContainerPlaying(idx, playing: true, stopAudio: false);
+        _currentlyPlayingIndex = idx;
+
+        // When a container becomes active, lock overall BPM to it immediately
+        SyncBpmFromSlider(idx);
+        _lastOverallBpm = containers[idx].selected_bpm;
+        UpdateOverallBpmText(_lastOverallBpm);
     }
 
-    private void ApplySpeedWithConstantPitch()
+    private void OnSliderChanged(int idx)
     {
-        if (audioSource == null) return;
+        // Always update that container's internal bpm/speed (even if not playing)
+        SyncBpmFromSlider(idx);
+        ApplySpeedWithConstantPitch(idx);
 
-        int denom = Mathf.Max(1, base_bpm);
-        speed_multiplier = selected_bpm / (float)denom;
-
-        // AudioSource.pitch is both speed + pitch. Clamp to what you can reasonably correct.
-        speed_multiplier = Mathf.Clamp(speed_multiplier, 0.5f, 2.0f);
-        audioSource.pitch = speed_multiplier;
-
-        // Pitch Shifter "Pitch" is a multiplier too (0.5x..2.0x). Use inverse to cancel pitch change.
-        float pitchCompensation = 1f / Mathf.Max(0.0001f, speed_multiplier);
-        pitchCompensation = Mathf.Clamp(pitchCompensation, 0.5f, 2.0f);
-
-        if (audioMixer != null && !string.IsNullOrWhiteSpace(pitchShiftSemitonesParam))
+        // Overall BPM update rules:
+        // - If none playing: any slider can change it
+        // - If one is playing: only that container's slider can change it
+        if (_currentlyPlayingIndex == -1 || _currentlyPlayingIndex == idx)
         {
-            audioMixer.SetFloat(pitchShiftSemitonesParam, pitchCompensation);
+            _lastOverallBpm = containers[idx].selected_bpm;
+            UpdateOverallBpmText(_lastOverallBpm);
         }
     }
 
-    private static float Log2(float x)
+    private void UpdateOverallBpmText(int bpm)
     {
-        x = Mathf.Max(0.0001f, x);
-        return Mathf.Log(x) / Mathf.Log(2f);
+        if (overallBpmText != null)
+            overallBpmText.text = $"{bpm} BPM";
     }
 
-#if UNITY_EDITOR
-    private void OnValidate()
+    private void SetContainerPlaying(int idx, bool playing, bool stopAudio)
     {
-        if (tempoSlider != null)
+        if (idx < 0 || idx >= containers.Count) return;
+        var c = containers[idx];
+
+        // Icon swap
+        if (c.statusImage != null)
+            c.statusImage.sprite = playing ? c.pauseSprite : c.playSprite;
+
+        if (c.audioSource == null) return;
+
+        if (c.clip != null)
+            c.audioSource.clip = c.clip;
+
+        // Apply speed & compensation before play
+        SyncBpmFromSlider(idx);
+        ApplySpeedWithConstantPitch(idx);
+
+        if (playing)
         {
-            int lo = Mathf.Min(min_bpm, max_bpm);
-            int hi = Mathf.Max(min_bpm, max_bpm);
-            tempoSlider.minValue = lo;
-            tempoSlider.maxValue = hi;
-            tempoSlider.wholeNumbers = true;
+            if (c.audioSource.clip != null) c.audioSource.Play();
+            else Debug.LogWarning($"[LehraControls] Container {idx}: No AudioClip assigned.");
+        }
+        else if (stopAudio)
+        {
+            c.audioSource.Stop();
+        }
+    }
+
+    private void SyncBpmFromSlider(int idx)
+    {
+        var c = containers[idx];
+
+        if (c.tempoSlider == null)
+        {
+            c.selected_bpm = Mathf.Max(1, c.base_bpm);
+            return;
         }
 
-        SyncBpmFromSlider();
-        ApplySpeedWithConstantPitch();
+        c.selected_bpm = Mathf.RoundToInt(c.tempoSlider.value);
     }
-#endif
+
+    private void ApplySpeedWithConstantPitch(int idx)
+    {
+        var c = containers[idx];
+
+        int denom = Mathf.Max(1, c.base_bpm);
+        c.speed_multiplier = c.selected_bpm / (float)denom;
+
+        // Must stay within what Unity's pitch shifter can compensate (0.5..2.0)
+        float speed = Mathf.Clamp(c.speed_multiplier, 0.5f, 2.0f);
+        c.speed_multiplier = speed;
+
+        if (c.audioSource != null)
+            c.audioSource.pitch = speed;
+
+        // Compensation uses Pitch Shifter "Pitch" multiplier (0.5..2.0)
+        if (c.audioMixer != null && !string.IsNullOrWhiteSpace(c.pitchShiftParam))
+        {
+            float compensation = 1f / Mathf.Max(0.0001f, speed);
+            compensation = Mathf.Clamp(compensation, 0.5f, 2.0f);
+            c.audioMixer.SetFloat(c.pitchShiftParam, compensation);
+        }
+    }
 }
 
-// ReadOnly attribute (single-file)
+// ReadOnly attribute + drawer (single file)
 public class ReadOnlyAttribute : PropertyAttribute { }
 
 #if UNITY_EDITOR
