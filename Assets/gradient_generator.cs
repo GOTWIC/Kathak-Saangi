@@ -50,7 +50,7 @@ public class gradient_generator : MonoBehaviour
         tex.Apply();
 
         byte[] png = tex.EncodeToPNG();
-        string path = Path.Combine(Application.dataPath, fileName);
+        string path = Path.Combine(Application.dataPath, "Gradients", fileName);
         File.WriteAllBytes(path, png);
 
 #if UNITY_EDITOR

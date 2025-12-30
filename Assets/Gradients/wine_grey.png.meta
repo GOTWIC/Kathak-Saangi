@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8955d541d53474571a8e3dc61075dc45
+guid: 6b1ec06b5da3e474fbd30424e8bae830
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6045059249271433869
-    second: gradient_to_transparent_0
+      213: -1115844342631535976
+    second: wine_grey_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gradient_to_transparent_0
+      name: wine_grey_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1024
-        height: 1022
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3759cf014a2ab1ca0800000000000000
-      internalID: -6045059249271433869
+      spriteID: 89a61dc7b79b380f0800000000000000
+      internalID: -1115844342631535976
       vertices: []
       indices: 
       edges: []

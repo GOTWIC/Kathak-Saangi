@@ -10,7 +10,8 @@ public class PageController : MonoBehaviour
     {
         Header,
         Audio,
-        Description
+        Description,
+        Spacer
     }
 
     [Serializable]
@@ -39,6 +40,7 @@ public class PageController : MonoBehaviour
     [SerializeField] private GameObject headerPrefab;
     [SerializeField] private GameObject audioPrefab;
     [SerializeField] private GameObject descriptionPrefab;
+    [SerializeField] private GameObject spacerPrefab;
 
     // ---------------------------
     // Page-level fields
@@ -72,7 +74,7 @@ public class PageController : MonoBehaviour
     private const string PAGE_NAME_TMP_PATH = "CarouselRoot/background_info/module_name_background/module_name_foreground/module_name";
 
     // page_image -> SpotifyTemplate/CarouselRoot/background_info/module_img (Image.sprite)
-    private const string PAGE_IMAGE_PATH = "CarouselRoot/background_info/module_img";
+    private const string PAGE_IMAGE_PATH = "CarouselRoot/background_info/module_img/img";
 
     // Item bindings (relative to instantiated prefab root)
     private const string HEADER_TMP_PATH = "text";                // header_container -> text -> TMP
@@ -158,7 +160,10 @@ public class PageController : MonoBehaviour
         // Page cover image sprite
         var coverImg = GetImageAtRootPath(PAGE_IMAGE_PATH);
         if (coverImg != null)
+        {
             coverImg.sprite = page_image;
+            coverImg.preserveAspect = true;
+        }
         else
             Debug.LogWarning($"[PageController] Page image Image not found at '{PAGE_IMAGE_PATH}'.");
     }
@@ -190,6 +195,8 @@ public class PageController : MonoBehaviour
     {
         if (item.type == ItemType.Description)
             return "Description";
+        if (item.type == ItemType.Spacer)
+            return "Spacer";
         return string.IsNullOrWhiteSpace(item.displayName) ? "Item" : item.displayName;
     }
 
@@ -200,6 +207,7 @@ public class PageController : MonoBehaviour
             case ItemType.Header: return headerPrefab;
             case ItemType.Audio: return audioPrefab;
             case ItemType.Description: return descriptionPrefab;
+            case ItemType.Spacer: return spacerPrefab;
             default: return null;
         }
     }
@@ -238,6 +246,12 @@ public class PageController : MonoBehaviour
                 var tmp = GetTmpAtPath(instanceRoot.transform, DESCRIPTION_TMP_PATH);
                 if (tmp != null) tmp.text = item.descriptionText ?? "";
                 else Debug.LogWarning($"[PageController] Description TMP not found at '{DESCRIPTION_TMP_PATH}' on '{instanceRoot.name}'.");
+                break;
+            }
+
+            case ItemType.Spacer:
+            {
+                // Spacer doesn't need any bindings, just instantiate the prefab
                 break;
             }
         }
@@ -391,6 +405,7 @@ public class PageController : MonoBehaviour
         {
             UnityEditor.Undo.RecordObject(coverImg, "Set Page Image");
             coverImg.sprite = page_image;
+            coverImg.preserveAspect = true;
             UnityEditor.EditorUtility.SetDirty(coverImg);
         }
     }
@@ -465,6 +480,7 @@ public class PageController : MonoBehaviour
                 var type = (ItemType)typeProp.enumValueIndex;
                 if (type == ItemType.Header) return (2 * lineH) + pad; // type + name
                 if (type == ItemType.Audio) return (3 * lineH) + pad;  // type + name + clip
+                if (type == ItemType.Spacer) return lineH + pad;       // type only
 
                 // Description: type + big text area
                 float descH = UnityEditor.EditorGUI.GetPropertyHeight(descProp, includeChildren: true);
@@ -500,6 +516,10 @@ public class PageController : MonoBehaviour
                     UnityEditor.EditorGUI.PropertyField(r1, nameProp, new GUIContent("Name"));
                     UnityEditor.EditorGUI.PropertyField(r2, clipProp, new GUIContent("Audio Clip"));
                 }
+                else if (type == ItemType.Spacer)
+                {
+                    // Spacer doesn't need any additional fields
+                }
                 else // Description
                 {
                     float descH = UnityEditor.EditorGUI.GetPropertyHeight(descProp, includeChildren: true);
@@ -519,6 +539,7 @@ public class PageController : MonoBehaviour
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("headerPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("audioPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("descriptionPrefab"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("spacerPrefab"));
 
             UnityEditor.EditorGUILayout.Space(10);
 
@@ -542,6 +563,7 @@ public class PageController : MonoBehaviour
             if (GUILayout.Button("Add Header")) AddItem(ItemType.Header);
             if (GUILayout.Button("Add Audio")) AddItem(ItemType.Audio);
             if (GUILayout.Button("Add Description")) AddItem(ItemType.Description);
+            if (GUILayout.Button("Add Spacer")) AddItem(ItemType.Spacer);
             UnityEditor.EditorGUILayout.EndHorizontal();
 
             UnityEditor.EditorGUILayout.Space(6);
