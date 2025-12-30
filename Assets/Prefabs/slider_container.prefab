@@ -119,10 +119,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 7878035025006790138}
   m_HandleRect: {fileID: 1655221032152853884}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_MinValue: 60
+  m_MaxValue: 180
+  m_WholeNumbers: 1
+  m_Value: 60
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -806,8 +806,16 @@ MonoBehaviour:
   statusImage: {fileID: 4137099674182236812}
   playSprite: {fileID: 3794550611322748858, guid: 1cd4cd324d2b2478db4ea0c273385a89, type: 3}
   pauseSprite: {fileID: 21300000, guid: 894da1feef01b4b79a87d6a135491881, type: 3}
+  tempoSlider: {fileID: 7289104098156120686}
+  min_bpm: 60
+  max_bpm: 180
+  base_bpm: 120
+  selected_bpm: 60
+  speed_multiplier: 0.5
   audioSource: {fileID: 4790461655666275383}
   clip: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: f6d80784f144140f2851387d73e70c5b, type: 2}
+  pitchShiftSemitonesParam: LehraPitchShiftSemitones
 --- !u!82 &4790461655666275383
 AudioSource:
   m_ObjectHideFlags: 0
@@ -817,13 +825,13 @@ AudioSource:
   m_GameObject: {fileID: 6828053227512814135}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4595338345077304228, guid: f6d80784f144140f2851387d73e70c5b, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
+  m_Pitch: 0.5
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

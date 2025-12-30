@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-6002324539766128790
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4669f029c5e964c5793e56436184a76d
+  m_EffectName: Attenuation
+  m_MixLevel: 16e5ce6122a1d4472babe337be949bf8
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lehra
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: d674ea4aff6c14d0aa30de15091368b5
+    name: LehraPitchShiftSemitones
+  m_AudioMixerGroupViews:
+  - guids:
+    - 78c87b90a56e1422da3586d1439c4301
+    - 41cb8bf9a278645fea94b7ef045abfb9
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 78c87b90a56e1422da3586d1439c4301
+  m_Children:
+  - {fileID: 4595338345077304228}
+  m_Volume: 43e9fb0d60c254222a16768af67ac443
+  m_Pitch: 888f57ad20e0d48ab873096ee0786eaa
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 78c057569cc4a4c6aaaa413ea31dd604
+  m_EffectName: Attenuation
+  m_MixLevel: 99041d1da00bd4ad98c78dab8055c201
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 0cd2440cfa0f04912b0797aa78d5b068
+  m_FloatValues:
+    d674ea4aff6c14d0aa30de15091368b5: 0.829
+  m_TransitionOverrides: {}
+--- !u!243 &4595338345077304228
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lehra
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 41cb8bf9a278645fea94b7ef045abfb9
+  m_Children: []
+  m_Volume: dc245cc56220841838db73d1d9e69988
+  m_Pitch: 1293fffaf16a144e09d8631a050ec490
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6002324539766128790}
+  - {fileID: 6578144177035596059}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &6578144177035596059
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: ddc2dc0c414da4a9d8ecd5c3216fcf42
+  m_EffectName: Pitch Shifter
+  m_MixLevel: d0889003c2f6c4c769c0c966024b0d46
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: d674ea4aff6c14d0aa30de15091368b5
+  - m_ParameterName: FFT size
+    m_GUID: 0384f83603b8948fa87b571b75b413c9
+  - m_ParameterName: Overlap
+    m_GUID: 60e9182d28c2f41c4aa07cfc0206ad82
+  - m_ParameterName: Max channels
+    m_GUID: 7ffb059501cff46be83074e0008f2bf0
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
