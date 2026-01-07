@@ -11,7 +11,9 @@ public class PageController : MonoBehaviour
         Header,
         Audio,
         Description,
-        Spacer
+        Spacer,
+        Video,
+        Button
     }
 
     [Serializable]
@@ -19,7 +21,7 @@ public class PageController : MonoBehaviour
     {
         public ItemType type = ItemType.Header;
 
-        // Used for Header + Audio
+        // Used for Header + Audio + Video + Button
         public string displayName;
 
         // Only used when type == Audio
@@ -28,6 +30,10 @@ public class PageController : MonoBehaviour
         // Only used when type == Description
         [TextArea(2, 8)]
         public string descriptionText;
+
+        // Only used when type == Button
+        public GameObject canvasToDisable;
+        public GameObject canvasToEnable;
     }
 
     // ---------------------------
@@ -41,6 +47,8 @@ public class PageController : MonoBehaviour
     [SerializeField] private GameObject audioPrefab;
     [SerializeField] private GameObject descriptionPrefab;
     [SerializeField] private GameObject spacerPrefab;
+    [SerializeField] private GameObject videoPrefab;
+    [SerializeField] private GameObject buttonPrefab;
 
     // ---------------------------
     // Page-level fields
@@ -81,6 +89,7 @@ public class PageController : MonoBehaviour
     private const string AUDIO_TMP_PATH = "audio_element/text";   // audio_component -> audio_element -> text -> TMP
     private const string AUDIO_SOURCE_PATH = "audio_element";     // audio_component -> audio_element -> AudioSource
     private const string DESCRIPTION_TMP_PATH = "description_element/text";           // description_container -> text -> TMP
+    private const string VIDEO_BUTTON_TMP_PATH = "main_area/text"; // video/button -> main_area -> text -> TMP
 
     private void Start()
     {
@@ -197,6 +206,10 @@ public class PageController : MonoBehaviour
             return "Description";
         if (item.type == ItemType.Spacer)
             return "Spacer";
+        if (item.type == ItemType.Video)
+            return string.IsNullOrWhiteSpace(item.displayName) ? "Video" : item.displayName;
+        if (item.type == ItemType.Button)
+            return string.IsNullOrWhiteSpace(item.displayName) ? "Button" : item.displayName;
         return string.IsNullOrWhiteSpace(item.displayName) ? "Item" : item.displayName;
     }
 
@@ -208,6 +221,8 @@ public class PageController : MonoBehaviour
             case ItemType.Audio: return audioPrefab;
             case ItemType.Description: return descriptionPrefab;
             case ItemType.Spacer: return spacerPrefab;
+            case ItemType.Video: return videoPrefab;
+            case ItemType.Button: return buttonPrefab;
             default: return null;
         }
     }
@@ -252,6 +267,61 @@ public class PageController : MonoBehaviour
             case ItemType.Spacer:
             {
                 // Spacer doesn't need any bindings, just instantiate the prefab
+                break;
+            }
+
+            case ItemType.Video:
+            {
+                var tmp = GetTmpAtPath(instanceRoot.transform, VIDEO_BUTTON_TMP_PATH);
+                if (tmp != null) tmp.text = item.displayName ?? "";
+                else Debug.LogWarning($"[PageController] Video TMP not found at '{VIDEO_BUTTON_TMP_PATH}' on '{instanceRoot.name}'.");
+                // Note: Video URL would typically be handled by a VideoPlayer component
+                // This is a placeholder - you may need to add specific video binding logic
+                break;
+            }
+
+            case ItemType.Button:
+            {
+                var tmp = GetTmpAtPath(instanceRoot.transform, VIDEO_BUTTON_TMP_PATH);
+                if (tmp != null) tmp.text = item.displayName ?? "";
+                else Debug.LogWarning($"[PageController] Button TMP not found at '{VIDEO_BUTTON_TMP_PATH}' on '{instanceRoot.name}'.");
+
+                // Set GoToPage component fields
+                var goToPage = instanceRoot.GetComponent<GoToPage>();
+                if (goToPage == null)
+                {
+                    Debug.LogWarning($"[PageController] GoToPage component not found on '{instanceRoot.name}'.");
+                }
+                else
+                {
+                    Debug.Log($"[PageController] Found GoToPage component on '{instanceRoot.name}'. Setting canvases...");
+                    
+                    // Use reflection to set private serialized fields
+                    var canvasToEnableField = typeof(GoToPage).GetField("canvasToEnable", 
+                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    var canvasToDisableField = typeof(GoToPage).GetField("canvasToDisable", 
+                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+                    if (canvasToEnableField != null)
+                    {
+                        canvasToEnableField.SetValue(goToPage, item.canvasToEnable);
+                        Debug.Log($"[PageController] Set canvasToEnable to: {(item.canvasToEnable != null ? item.canvasToEnable.name : "NULL")}");
+                    }
+                    else
+                    {
+                        Debug.LogError($"[PageController] Failed to find canvasToEnable field via reflection!");
+                    }
+                    
+                    if (canvasToDisableField != null)
+                    {
+                        canvasToDisableField.SetValue(goToPage, item.canvasToDisable);
+                        Debug.Log($"[PageController] Set canvasToDisable to: {(item.canvasToDisable != null ? item.canvasToDisable.name : "NULL")}");
+                    }
+                    else
+                    {
+                        Debug.LogError($"[PageController] Failed to find canvasToDisable field via reflection!");
+                    }
+                }
                 break;
             }
         }
@@ -481,6 +551,8 @@ public class PageController : MonoBehaviour
                 if (type == ItemType.Header) return (2 * lineH) + pad; // type + name
                 if (type == ItemType.Audio) return (3 * lineH) + pad;  // type + name + clip
                 if (type == ItemType.Spacer) return lineH + pad;       // type only
+                if (type == ItemType.Video) return (2 * lineH) + pad;  // type + name
+                if (type == ItemType.Button) return (4 * lineH) + pad;  // type + name + canvasToDisable + canvasToEnable
 
                 // Description: type + big text area
                 float descH = UnityEditor.EditorGUI.GetPropertyHeight(descProp, includeChildren: true);
@@ -494,6 +566,8 @@ public class PageController : MonoBehaviour
                 var nameProp = element.FindPropertyRelative("displayName");
                 var clipProp = element.FindPropertyRelative("audioClip");
                 var descProp = element.FindPropertyRelative("descriptionText");
+                var canvasToDisableProp = element.FindPropertyRelative("canvasToDisable");
+                var canvasToEnableProp = element.FindPropertyRelative("canvasToEnable");
 
                 float lineH = UnityEditor.EditorGUIUtility.singleLineHeight;
                 rect.y += 2f;
@@ -520,6 +594,21 @@ public class PageController : MonoBehaviour
                 {
                     // Spacer doesn't need any additional fields
                 }
+                else if (type == ItemType.Video)
+                {
+                    var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
+                    UnityEditor.EditorGUI.PropertyField(r1, nameProp, new GUIContent("Name"));
+                }
+                else if (type == ItemType.Button)
+                {
+                    var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
+                    var r2 = new Rect(rect.x, rect.y + 2 * lineH, rect.width, lineH);
+                    var r3 = new Rect(rect.x, rect.y + 3 * lineH, rect.width, lineH);
+
+                    UnityEditor.EditorGUI.PropertyField(r1, nameProp, new GUIContent("Name"));
+                    UnityEditor.EditorGUI.PropertyField(r2, canvasToDisableProp, new GUIContent("Canvas To Disable"));
+                    UnityEditor.EditorGUI.PropertyField(r3, canvasToEnableProp, new GUIContent("Canvas To Enable"));
+                }
                 else // Description
                 {
                     float descH = UnityEditor.EditorGUI.GetPropertyHeight(descProp, includeChildren: true);
@@ -540,6 +629,8 @@ public class PageController : MonoBehaviour
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("audioPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("descriptionPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("spacerPrefab"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("videoPrefab"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("buttonPrefab"));
 
             UnityEditor.EditorGUILayout.Space(10);
 
@@ -560,10 +651,12 @@ public class PageController : MonoBehaviour
 
             // Add buttons
             UnityEditor.EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Add Header")) AddItem(ItemType.Header);
-            if (GUILayout.Button("Add Audio")) AddItem(ItemType.Audio);
-            if (GUILayout.Button("Add Description")) AddItem(ItemType.Description);
-            if (GUILayout.Button("Add Spacer")) AddItem(ItemType.Spacer);
+            if (GUILayout.Button("Header")) AddItem(ItemType.Header);
+            if (GUILayout.Button("Audio")) AddItem(ItemType.Audio);
+            if (GUILayout.Button("Description")) AddItem(ItemType.Description);
+            if (GUILayout.Button("Spacer")) AddItem(ItemType.Spacer);
+            if (GUILayout.Button("Video")) AddItem(ItemType.Video);
+            if (GUILayout.Button("Button")) AddItem(ItemType.Button);
             UnityEditor.EditorGUILayout.EndHorizontal();
 
             UnityEditor.EditorGUILayout.Space(6);
@@ -609,6 +702,8 @@ public class PageController : MonoBehaviour
             element.FindPropertyRelative("displayName").stringValue = "";
             element.FindPropertyRelative("audioClip").objectReferenceValue = null;
             element.FindPropertyRelative("descriptionText").stringValue = "";
+            element.FindPropertyRelative("canvasToDisable").objectReferenceValue = null;
+            element.FindPropertyRelative("canvasToEnable").objectReferenceValue = null;
 
             serializedObject.ApplyModifiedProperties();
         }

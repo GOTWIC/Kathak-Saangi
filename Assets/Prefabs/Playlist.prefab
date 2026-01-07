@@ -1111,6 +1111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasTag: Main
   prefabRootToDisable: {fileID: 7405123986692024746}
+  canvasToEnableDirect: {fileID: 0}
+  canvasToDisableDirect: {fileID: 0}
 --- !u!1 &2520679565028759146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,6 +1469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasTag: Main
   prefabRootToDisable: {fileID: 7405123986692024746}
+  canvasToEnableDirect: {fileID: 0}
+  canvasToDisableDirect: {fileID: 0}
 --- !u!1 &4122948925413064353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,6 +2414,8 @@ MonoBehaviour:
   audioPrefab: {fileID: 2501333389301056202, guid: c14ba928970ee4ab79f7b091eade6b7d, type: 3}
   descriptionPrefab: {fileID: 2362659594077229122, guid: eb84bc9e0ff214fe99f87c12c07bc597, type: 3}
   spacerPrefab: {fileID: 3274486951888369680, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+  videoPrefab: {fileID: 2501333389301056202, guid: 22afb4317c6604cbdb64011497f21aa8, type: 3}
+  buttonPrefab: {fileID: 2501333389301056202, guid: 48e938d77b0924da19f01a30b96bd65a, type: 3}
   page_color: {r: 1, g: 1, b: 1, a: 1}
   page_gradient: {fileID: 0}
   page_name: 
