@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3625569117396264192}
   - component: {fileID: 2417381500894387715}
-  - component: {fileID: -7941552932722489934}
+  - component: {fileID: 1869736885552632289}
   m_Layer: 5
   m_Name: video_container
   m_TagString: Untagged
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &-7941552932722489934
+--- !u!114 &1869736885552632289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,11 +150,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2501333389301056202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b543c1cbd2e54758825d97d131f0106, type: 3}
+  m_Script: {fileID: 11500000, guid: be171311ae154418388fd9781b710040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasToEnable: {fileID: 0}
-  canvasToDisable: {fileID: 0}
+  youtubeVideoId: dQw4w9WgXcQ
+  useShortLink: 0
 --- !u!1 &5570561061721231567
 GameObject:
   m_ObjectHideFlags: 0

@@ -279,43 +279,30 @@ public class PageController : MonoBehaviour
                 if (tmp != null) tmp.text = item.displayName ?? "";
                 else Debug.LogWarning($"[PageController] Video TMP not found at '{VIDEO_BUTTON_TMP_PATH}' on '{instanceRoot.name}'.");
 
-                // Set GoToPage component fields
-                var goToPage = instanceRoot.GetComponent<GoToPage>();
-                if (goToPage == null)
+                // Set VideoRedirect component fields
+                var videoRedirect = instanceRoot.GetComponent<VideoRedirect>();
+                if (videoRedirect == null)
                 {
-                    Debug.LogWarning($"[PageController] GoToPage component not found on '{instanceRoot.name}'.");
+                    Debug.LogWarning($"[PageController] VideoRedirect component not found on '{instanceRoot.name}'.");
                 }
                 else
                 {
-                    Debug.Log($"[PageController] Found GoToPage component on '{instanceRoot.name}'. Setting canvases...");
+                    Debug.Log($"[PageController] Found VideoRedirect component on '{instanceRoot.name}'. Setting YouTube video ID...");
                     
-                    // Use reflection to set private serialized fields
-                    var canvasToEnableField = typeof(GoToPage).GetField("canvasToEnable", 
-                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                    var canvasToDisableField = typeof(GoToPage).GetField("canvasToDisable", 
+                    // Use reflection to set private serialized field
+                    var youtubeVideoIdField = typeof(VideoRedirect).GetField("youtubeVideoId", 
                         System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
-                    if (canvasToEnableField != null)
+                    if (youtubeVideoIdField != null)
                     {
-                        canvasToEnableField.SetValue(goToPage, item.canvasToEnable);
-                        Debug.Log($"[PageController] Set canvasToEnable to: {(item.canvasToEnable != null ? item.canvasToEnable.name : "NULL")}");
+                        youtubeVideoIdField.SetValue(videoRedirect, item.videoString ?? "");
+                        Debug.Log($"[PageController] Set youtubeVideoId to: {(string.IsNullOrWhiteSpace(item.videoString) ? "EMPTY" : item.videoString)}");
                     }
                     else
                     {
-                        Debug.LogError($"[PageController] Failed to find canvasToEnable field via reflection!");
-                    }
-                    
-                    if (canvasToDisableField != null)
-                    {
-                        canvasToDisableField.SetValue(goToPage, item.canvasToDisable);
-                        Debug.Log($"[PageController] Set canvasToDisable to: {(item.canvasToDisable != null ? item.canvasToDisable.name : "NULL")}");
-                    }
-                    else
-                    {
-                        Debug.LogError($"[PageController] Failed to find canvasToDisable field via reflection!");
+                        Debug.LogError($"[PageController] Failed to find youtubeVideoId field via reflection!");
                     }
                 }
-                // Note: videoString is stored but not used yet
                 break;
             }
 
@@ -590,7 +577,7 @@ public class PageController : MonoBehaviour
                 if (type == ItemType.Header) return (2 * lineH) + pad; // type + name
                 if (type == ItemType.Audio) return (3 * lineH) + pad;  // type + name + clip
                 if (type == ItemType.Spacer) return lineH + pad;       // type only
-                if (type == ItemType.Video) return (5 * lineH) + pad;  // type + name + canvasToDisable + canvasToEnable + videoString
+                if (type == ItemType.Video) return (3 * lineH) + pad;  // type + name + videoString
                 if (type == ItemType.Button) return (4 * lineH) + pad;  // type + name + canvasToDisable + canvasToEnable
 
                 // Description: type + big text area
@@ -638,13 +625,9 @@ public class PageController : MonoBehaviour
                 {
                     var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
                     var r2 = new Rect(rect.x, rect.y + 2 * lineH, rect.width, lineH);
-                    var r3 = new Rect(rect.x, rect.y + 3 * lineH, rect.width, lineH);
-                    var r4 = new Rect(rect.x, rect.y + 4 * lineH, rect.width, lineH);
 
                     UnityEditor.EditorGUI.PropertyField(r1, nameProp, new GUIContent("Name"));
-                    UnityEditor.EditorGUI.PropertyField(r2, canvasToDisableProp, new GUIContent("Canvas To Disable"));
-                    UnityEditor.EditorGUI.PropertyField(r3, canvasToEnableProp, new GUIContent("Canvas To Enable"));
-                    UnityEditor.EditorGUI.PropertyField(r4, videoStringProp, new GUIContent("Video String"));
+                    UnityEditor.EditorGUI.PropertyField(r2, videoStringProp, new GUIContent("Video ID"));
                 }
                 else if (type == ItemType.Button)
                 {
