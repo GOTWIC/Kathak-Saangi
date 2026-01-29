@@ -3049,6 +3049,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7405123986692024746, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
   m_PrefabInstance: {fileID: 1632040276}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &144816289 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2036290841295643281, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+  m_PrefabInstance: {fileID: 1632040276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &149215672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8737,7 +8742,7 @@ GameObject:
   - component: {fileID: 406431397}
   - component: {fileID: 406431398}
   m_Layer: 5
-  m_Name: gharana (2)
+  m_Name: banaras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9975,11 +9980,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: "The Lucknow gharana of Kathak grew in Awadh (Lucknow) under strong
-        royal patronage and refined court culture. Rooted in Kathak families from
-        the Allahabad\u2013Handia region, it flourished through Thakur Prasad, Kalka
-        Prasad, and Bindadin Maharaj, and peaked under Nawab Wajid Ali Shah in the
-        19th century."
+      value: 'The Jaipur Gharana developed in the courts of the Kachhwaha kings of
+        Jaipur in Rajasthan. It was founded by Shri Bhanuji, who was trained in the
+        vigorous Tandava style inspired by Lord Shiva by a sage. '
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -10518,11 +10521,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: "It is especially noted for fine, intricate footwork presented with
-        soft weight shifts, rounded upper-body and wrist movements, and controlled
-        chakkars that look fluid rather than forceful. Its repertoire prominently
-        features thumri-based interpretation, gats/nikas (stylized walks and poses),
-        and polished adaab\u2013salaami manners reflecting Awadhi court aesthetics."
+      value: "The core foundation of this gharana lies in Krishna Leela, devotion,
+        and Veer Rasa, deeply rooted in the Tandava principle. Powerful thali footwork,
+        jumps, and strong body movements are key characteristics. Every beat of the
+        ghungroo follows strict rhythmic discipline. Abhinaya plays a central role\u2014stories
+        unfold through expressive eyes, while emotions are articulated through precise
+        hand gestures."
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -12293,8 +12297,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: Thakur Prasad ji, Kalka Prasad ji, Bindadin Maharaj ji, Achhan Maharaj
-        ji, Lachhu Maharaj ji, Shambhu Maharaj ji, Pt. Birju Maharaj ji.
+      value: A prestigious gharana upheld by maestros such as Pt. Kundan Lal Gangani,
+        Pt. Durga Lal, and Pt. Roshan Kumari, whose disciples continue its grand
+        tradition
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -14526,8 +14531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: Thakur Prasad ji, Kalka Prasad ji, Bindadin Maharaj ji, Achhan Maharaj
-        ji, Lachhu Maharaj ji, Shambhu Maharaj ji, Pt. Birju Maharaj ji.
+      value: Pandit Janaki Prasad , Sitara Devi, Pandit Gopi Krishna, Pandit Sohanlal
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -17929,6 +17933,108 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6666145363639099260, guid: eb84bc9e0ff214fe99f87c12c07bc597, type: 3}
   m_PrefabInstance: {fileID: 831800556}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &834029945
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 194269829835286360}
+    m_Modifications:
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3274486951888369680, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+      propertyPath: m_Name
+      value: spacer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+--- !u!224 &834029946 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1419162792410051094, guid: 003629c1165fc4ae59b8caa3d81cd7a5, type: 3}
+  m_PrefabInstance: {fileID: 834029945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &834414942 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5700653762532648759, guid: 316e30d9acce347f7beaff35a26e0c7a, type: 3}
@@ -19144,7 +19250,7 @@ GameObject:
   - component: {fileID: 908988057}
   - component: {fileID: 908988058}
   m_Layer: 5
-  m_Name: gharana
+  m_Name: lucknow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20121,7 +20227,7 @@ GameObject:
   - component: {fileID: 950225835}
   - component: {fileID: 950225836}
   m_Layer: 5
-  m_Name: gharana (1)
+  m_Name: jaipur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24103,7 +24209,7 @@ MonoBehaviour:
   - {fileID: 1945124968}
   - {fileID: 574817617}
   - {fileID: 1640985876}
-  - {fileID: 0}
+  - {fileID: 144816289}
   - {fileID: 1188606427}
   - {fileID: 1721088942}
   - {fileID: 888165826}
@@ -25707,10 +25813,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: The Lucknow Gharana of Kathak is known for its nazakat (delicacy), tehzeeb
-        (refined grace), and deeply emotive abhinaya (storytelling). Shaped by the
-        Awadh court tradition, it emphasizes lyrical movement, subtle facial expression,
-        and an elegant, nuanced presentation of rhythm and poetry.
+      value: This strong, masculine tradition took shape under royal patronage, emphasizing
+        power, rhythm, and grandeur. Over time, it evolved into a distinctive Kathak
+        gharana known for its bold technique and rhythmic excellence.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -29351,11 +29456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: "The Lucknow gharana of Kathak grew in Awadh (Lucknow) under strong
-        royal patronage and refined court culture. Rooted in Kathak families from
-        the Allahabad\u2013Handia region, it flourished through Thakur Prasad, Kalka
-        Prasad, and Bindadin Maharaj, and peaked under Nawab Wajid Ali Shah in the
-        19th century."
+      value: The Banaras Gharana of Kathak originated in the sacred city of Banaras
+        (Varanasi), a major center of Hindu learning, ritual, and temple culture.
+        This tradition was established by Pandit Janaki Prasad, who systematized
+        the temple-based Bhakti bhava of Kathak, giving it a distinct spiritual and
+        devotional framework.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -31194,11 +31299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: "Kalka Prasad and Bindadin Maharaj shaped the Lucknow Gharana by refining
-        its signature nazakat, expressive abhinaya, and polished courtly presentation.
-        Bindadin\u2019s thumri-based compositions and Kalka Prasad\u2019s strong
-        training lineage helped define the gharana\u2019s repertoire and passed it
-        down through generations of celebrated Kathak artists."
+      value: The Banaras Gharana is not merely an art form but a spiritual discipline.
+        Kathak here is performed as arpan (offering), not for entertainment. Tatkaar
+        is not just sound; it creates a sacred bond with the earth. Movements emphasize
+        weight, control, and groundedness rather than speed, reflecting depth, strength,
+        and inner devotion.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -35862,11 +35967,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: "Kalka Prasad and Bindadin Maharaj shaped the Lucknow Gharana by refining
-        its signature nazakat, expressive abhinaya, and polished courtly presentation.
-        Bindadin\u2019s thumri-based compositions and Kalka Prasad\u2019s strong
-        training lineage helped define the gharana\u2019s repertoire and passed it
-        down through generations of celebrated Kathak artists."
+      value: 'The legacy of the Jaipur Gharana reflects strong tandava elements,
+        giving the tradition a majestic, robust, and commanding presence that continues
+        to define its powerful impact on Kathak.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -40352,7 +40457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jaipur
+  m_text: 'Banaras
 
     Gharana'
   m_isRightToLeft: 0
@@ -40632,10 +40737,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: The Lucknow Gharana of Kathak is known for its nazakat (delicacy), tehzeeb
-        (refined grace), and deeply emotive abhinaya (storytelling). Shaped by the
-        Awadh court tradition, it emphasizes lyrical movement, subtle facial expression,
-        and an elegant, nuanced presentation of rhythm and poetry.
+      value: The Banaras Gharana developed alongside temple traditions and devotional
+        practices, drawing strong influence from Shaiva worship and spiritual storytelling.
+        It is regarded as the oldest gharana and the root source from which other
+        Kathak gharanas evolved.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -41260,11 +41365,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: "It is especially noted for fine, intricate footwork presented with
-        soft weight shifts, rounded upper-body and wrist movements, and controlled
-        chakkars that look fluid rather than forceful. Its repertoire prominently
-        features thumri-based interpretation, gats/nikas (stylized walks and poses),
-        and polished adaab\u2013salaami manners reflecting Awadhi court aesthetics."
+      value: It is known for its powerful and energetic style, with strong emphasis
+        on complex rhythmic patterns (layakari). Its features include bold, precise
+        footwork, intricate tihais, powerful bols, and dynamic, fast-paced spins.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -43026,6 +43129,7 @@ RectTransform:
   - {fileID: 908988057}
   - {fileID: 950225835}
   - {fileID: 406431397}
+  - {fileID: 834029946}
   m_Father: {fileID: 1283881689733583254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -46076,7 +46180,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 0
+  m_Spacing: 300
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -47727,7 +47831,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4055277955885738200}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.36379084
+  m_Size: 0.31805715
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -248,13 +248,28 @@ public class PageController : MonoBehaviour
                 if (tmp != null) tmp.text = item.displayName ?? "";
                 else Debug.LogWarning($"[PageController] Audio TMP not found at '{AUDIO_TMP_PATH}' on '{instanceRoot.name}'.");
 
-                var audioT = FindByPath(instanceRoot.transform, AUDIO_SOURCE_PATH);
-                var src = audioT != null ? audioT.GetComponent<AudioSource>() : null;
-
-                if (src == null)
-                    Debug.LogWarning($"[PageController] AudioSource not found at '{AUDIO_SOURCE_PATH}' on '{instanceRoot.name}'.");
+                // Set audio clip on the audio_controller component
+                var audioController = instanceRoot.GetComponent<audio_controller>();
+                if (audioController == null)
+                {
+                    Debug.LogWarning($"[PageController] audio_controller component not found on '{instanceRoot.name}'.");
+                }
                 else
-                    src.clip = item.audioClip;
+                {
+                    // Use reflection to set the private serialized audioClip field
+                    var audioClipField = typeof(audio_controller).GetField("audioClip", 
+                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+                    if (audioClipField != null)
+                    {
+                        audioClipField.SetValue(audioController, item.audioClip);
+                        Debug.Log($"[PageController] Set audio_controller.audioClip to: {(item.audioClip != null ? item.audioClip.name : "NULL")}");
+                    }
+                    else
+                    {
+                        Debug.LogError($"[PageController] Failed to find audioClip field on audio_controller via reflection!");
+                    }
+                }
 
                 break;
             }
