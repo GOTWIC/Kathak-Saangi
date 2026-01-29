@@ -2812,40 +2812,40 @@ MonoBehaviour:
     description: A simple Teentaal Lehra with adjustable speed
     backgroundImage: {fileID: -513546068271041449, guid: 65db9e804b7ce4765858bcd7945d0a66, type: 3}
     linkedCanvas: {fileID: 1188606426}
-  - name: Octapad
-    description: Western compositions created on the Octapad, for the Kathakar's
-      own choreography
-    backgroundImage: {fileID: 7970593409031449545, guid: cd58ca256a57f4e3cb3aaea42b90bd92, type: 3}
-    linkedCanvas: {fileID: 1721088940}
   - name: Padhant
     description: Learn complex and tongue-twisting compositions to improve your recitation
       skills, including a phrase-by-phrase breakdown
     backgroundImage: {fileID: -1964769029138863996, guid: d23e6a452f2bc4a83b0203d91ce7d122, type: 3}
     linkedCanvas: {fileID: 888165824}
+  - name: Adhar of Kathak
+    description: Essential Concepts and Classical Grammar
+    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    linkedCanvas: {fileID: 8384596970991619957}
+  - name: Vistaar in Kathak
+    description: Advanced Concepts and Structural Depth
+    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    linkedCanvas: {fileID: 1030084286}
+  - name: Invocations and Verses
+    description: 
+    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    linkedCanvas: {fileID: 1361538222}
+  - name: Kathak Parampara ke Mahanubhav
+    description: 
+    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    linkedCanvas: {fileID: 1761997390}
+  - name: Kathak Gharanas
+    description: Review the various Gharanas in Kathak
+    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    linkedCanvas: {fileID: 4752201060207177107}
   - name: Dasa Prana
     description: An article detailing the Dasa Prana, the 10 Vital Elements of Taal
     backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
     linkedCanvas: {fileID: 463925904}
-  - name: Core Concepts
-    description: Review the Core Concepts of Kathak, from taals to terminology
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
-    linkedCanvas: {fileID: 8384596970991619957}
-  - name: Intermediate Concepts
-    description: Review the Core Concepts of Kathak, from taals to terminology
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
-    linkedCanvas: {fileID: 1030084286}
-  - name: Advanced Concepts
-    description: Review the Core Concepts of Kathak, from taals to terminology
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
-    linkedCanvas: {fileID: 1361538222}
-  - name: Important Gurus
-    description: Review the Core Concepts of Kathak, from taals to terminology
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
-    linkedCanvas: {fileID: 1761997390}
-  - name: Gharanas
-    description: Review the Core Concepts of Kathak, from taals to terminology
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
-    linkedCanvas: {fileID: 4752201060207177107}
+  - name: Octapad
+    description: Western compositions created on the Octapad, for the Kathakar's
+      own choreography
+    backgroundImage: {fileID: 7970593409031449545, guid: cd58ca256a57f4e3cb3aaea42b90bd92, type: 3}
+    linkedCanvas: {fileID: 1721088940}
   initialCards: 8
   preloadPixels: 200
 --- !u!114 &108112639
@@ -2886,6 +2886,170 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &138505885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1153442145}
+    m_Modifications:
+    - target: {fileID: 866724949284516187, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: Exponents
+      objectReference: {fileID: 0}
+    - target: {fileID: 866724949284516187, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7624998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438591870539405778, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Name
+      value: info_row
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: The Raigarh Gharana was shaped and carried forward by eminent masters
+        such as Pt. Kartik Ram and Guru Kalyan Das, whose artistry and discipleship
+        continue to uphold and expand this distinguished tradition.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278334292
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+--- !u!224 &138505886 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+  m_PrefabInstance: {fileID: 138505885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &139120524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5406,6 +5570,149 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &245151494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245151495}
+  - component: {fileID: 245151497}
+  - component: {fileID: 245151496}
+  m_Layer: 5
+  m_Name: text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &245151495
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245151494}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 532240990}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -19.8}
+  m_SizeDelta: {x: 700, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &245151496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245151494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "A gharana is a distinct lineage or school of art that evolves through
+    generations, shaped by shared training, philosophy, and aesthetic values. Much
+    like flowers in a garden\u2014each with its own color, fragrance, and form\u2014every
+    gharana has a unique identity while belonging to the same artistic tradition.
+    Rooted in a guru\u2013shishya parampara, a gharana preserves a family-like lineage
+    where knowledge, style, and sensibility are passed down with care. Differences
+    in movement, expression, rhythm, and interpretation give each gharana its own
+    character, allowing the art form to bloom in many beautiful and diverse ways."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4288403199
+  m_fontColor: {r: 1, g: 0.8392157, b: 0.60784316, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 39
+  m_fontSizeBase: 39
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -178.01486, y: -123.12648, z: -180.1345, w: -93.78403}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &245151497
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245151494}
+  m_CullTransparentMesh: 1
 --- !u!1 &265135088
 GameObject:
   m_ObjectHideFlags: 0
@@ -8731,6 +9038,168 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5700653762532648759, guid: 316e30d9acce347f7beaff35a26e0c7a, type: 3}
   m_PrefabInstance: {fileID: 389833362}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &406063183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1153442145}
+    m_Modifications:
+    - target: {fileID: 866724949284516187, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: legacy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.r
+      value: 0.05724919
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438591870539405778, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Name
+      value: info_row
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: Maharaja Chakradhar Singh composed thousands of original bandishes,
+        parans, and rhythmic structures that greatly enriched the Kathak repertoire.
+        His legacy includes unique thematic and descriptive compositions inspired
+        by nature, philosophy, and emotions, such as Megh Pushp (Cloud Flower), Chamak
+        Bijli (Flashing Lightning), Brahma Beej, and Dal Badal Paran.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278334292
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+--- !u!224 &406063184 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+  m_PrefabInstance: {fileID: 406063183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &406431396
 GameObject:
   m_ObjectHideFlags: 0
@@ -9980,9 +10449,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: 'The Jaipur Gharana developed in the courts of the Kachhwaha kings of
-        Jaipur in Rajasthan. It was founded by Shri Bhanuji, who was trained in the
-        vigorous Tandava style inspired by Lord Shiva by a sage. '
+      value: The Jaipur Gharana traces its roots to temple traditions, where Kathak
+        was first practiced as a form of sacred expression. From these spiritual
+        beginnings, it later flourished under the patronage of the Rajput royal courts
+        of Rajasthan. The gharana was founded by Shri Bhanuji, who received rigorous
+        training from a sage in the powerful Tandava style inspired by Lord Shiva.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -10804,6 +11275,189 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482342226}
   m_CullTransparentMesh: 1
+--- !u!1001 &484689020
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1153442145}
+    m_Modifications:
+    - target: {fileID: 866724949284516187, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: Features
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9008031
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438591870539405778, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Name
+      value: info_row
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: The Raigarh Gharana is distinguished by a harmonious blend of the powerful,
+        dynamic elements of the Jaipur tradition and the subtle, graceful nuances
+        and angakala of the Lucknow style. It combines refined elegance with commanding
+        layakari and intricate footwork, and is especially known for its innovative,
+        complex, and experimental rhythmic compositions, deeply influenced by tabla
+        and pakhawaj bols.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278334292
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063289533439586420, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063289533439586420, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063289533439586420, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063289533439586420, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0000782013
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063289533439586420, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.000002
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+--- !u!224 &484689021 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+  m_PrefabInstance: {fileID: 484689020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &487271557
 GameObject:
   m_ObjectHideFlags: 0
@@ -11591,11 +12245,163 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1504015414263369713, guid: 413600fe74eb2472daae8936edd7c180, type: 3}
   m_PrefabInstance: {fileID: 520287291}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &522363541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522363542}
+  - component: {fileID: 522363544}
+  - component: {fileID: 522363543}
+  m_Layer: 5
+  m_Name: title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &522363542
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522363541}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1953308570}
+  m_Father: {fileID: 1243375775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1250, y: 550}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &522363543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522363541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4604575619979087795, guid: eeec8babe8d8a463988f619cafc7871d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &522363544
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522363541}
+  m_CullTransparentMesh: 1
 --- !u!224 &527545686 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3625569117396264192, guid: 48e938d77b0924da19f01a30b96bd65a, type: 3}
   m_PrefabInstance: {fileID: 1510719495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &532240989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532240990}
+  - component: {fileID: 532240992}
+  - component: {fileID: 532240991}
+  m_Layer: 5
+  m_Name: text_background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &532240990
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532240989}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 245151495}
+  m_Father: {fileID: 961727907}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -22.8}
+  m_SizeDelta: {x: 1090, y: 650}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &532240991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532240989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.68235296}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -9185966038353905261, guid: fc3a1cba84b534b38b3257f8c3d06cac, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &532240992
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532240989}
+  m_CullTransparentMesh: 1
 --- !u!1 &544164433
 GameObject:
   m_ObjectHideFlags: 0
@@ -12297,9 +13103,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: A prestigious gharana upheld by maestros such as Pt. Kundan Lal Gangani,
-        Pt. Durga Lal, and Pt. Roshan Kumari, whose disciples continue its grand
-        tradition
+      value: This prestigious gharana has been upheld by maestros such as Pt. Kundan
+        Lal Gangani, Pt. Durga Lal, and Pt. Roshan Kumari, whose disciples continue
+        to carry forward its grand tradition.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -20678,6 +21484,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953560028}
   m_CullTransparentMesh: 1
+--- !u!1 &961727906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961727907}
+  - component: {fileID: 961727909}
+  - component: {fileID: 961727908}
+  m_Layer: 5
+  m_Name: 'description '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &961727907
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961727906}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 532240990}
+  m_Father: {fileID: 1243375775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1250, y: 900}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &961727908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961727906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5274136047101369458, guid: 032dc912330bf403fa18757441950fb0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &961727909
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961727906}
+  m_CullTransparentMesh: 1
 --- !u!1001 &978772973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21629,7 +22511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[1].text
-      value: Advanced Concepts
+      value: Invocations and Verses
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[1].type
@@ -24243,6 +25125,74 @@ MonoBehaviour:
   topColor: {r: 0.84313726, g: 0.8235294, b: 0.4117647, a: 1}
   bottomColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
   fileName: yellow_grey.png
+--- !u!1 &1153442144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153442145}
+  - component: {fileID: 1153442146}
+  m_Layer: 5
+  m_Name: raigarh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1153442145
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153442144}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1770382978}
+  - {fileID: 1393099760}
+  - {fileID: 1346353908}
+  - {fileID: 484689021}
+  - {fileID: 406063184}
+  - {fileID: 138505886}
+  m_Father: {fileID: 194269829835286360}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1250, y: 2550}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1153442146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153442144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &1156828638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25762,6 +26712,70 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 316e30d9acce347f7beaff35a26e0c7a, type: 3}
+--- !u!1 &1243375774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243375775}
+  - component: {fileID: 1243375776}
+  m_Layer: 5
+  m_Name: heading
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1243375775
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243375774}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 522363542}
+  - {fileID: 961727907}
+  m_Father: {fileID: 194269829835286360}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1250, y: 1450}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1243375776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243375774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: -40
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!224 &1243966670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3803730522709857795, guid: ee1f27056255e4434ba9898b6e0615f2, type: 3}
@@ -25813,9 +26827,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: This strong, masculine tradition took shape under royal patronage, emphasizing
-        power, rhythm, and grandeur. Over time, it evolved into a distinctive Kathak
-        gharana known for its bold technique and rhythmic excellence.
+      value: This strong and masculine tradition took shape under royal patronage,
+        with a focus on power, rhythm, and grandeur. Over time, it evolved into a
+        distinct Kathak gharana celebrated for its bold technique and rhythmic excellence.
+        Every spin reflects Rajput pride, and the parans narrate tales of valor and
+        bravery.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -26705,7 +27721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[1].text
-      value: Intermediate Concepts
+      value: Vistaar in Kathak
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[1].type
@@ -27925,6 +28941,169 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1504015414263369713, guid: 413600fe74eb2472daae8936edd7c180, type: 3}
   m_PrefabInstance: {fileID: 1157376037}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1346353907
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1153442145}
+    m_Modifications:
+    - target: {fileID: 866724949284516187, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: essense
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6443302
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438591870539405778, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Name
+      value: info_row
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: Maharaja Chakradhar Singh was not only a ruler but also an accomplished
+        dancer, a composer, and a master scholar of tala and rhythm. By synthesizing
+        the strength and rhythmic rigor of the Jaipur Gharana with the delicacy,
+        expressiveness, and angakala of the Lucknow Gharana, he evolved an independent
+        Kathak style. In this gharana, melody carries attitude, and that attitude
+        is charged with intensity and rhythmic depth.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278334292
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+--- !u!224 &1346353908 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+  m_PrefabInstance: {fileID: 1346353907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1347942698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28791,6 +29970,165 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1393099759
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1153442145}
+    m_Modifications:
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726206840163652711, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.b
+      value: 0.15549321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097597913825351916, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438591870539405778, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Name
+      value: info_row
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_text
+      value: The Raigarh Gharana took shape in the early 20th century in the royal
+        court of Maharaja Chakradhar Singh of Chhattisgarh. A visionary patron of
+        the arts, the Maharaja transformed his court into a center for Kathak, where
+        leading dancers, musicians, and scholars were invited to explore, refine,
+        and innovate. Under his guidance, Kathak acquired a new identity, which came
+        to be recognized as the Raigarh Gharana.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278334292
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992733533201645679, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+--- !u!224 &1393099760 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
+  m_PrefabInstance: {fileID: 1393099759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1401151898
 GameObject:
   m_ObjectHideFlags: 0
@@ -35190,6 +36528,82 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1770382977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1770382978}
+  - component: {fileID: 1770382980}
+  - component: {fileID: 1770382979}
+  m_Layer: 5
+  m_Name: title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1770382978
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770382977}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1799819186}
+  m_Father: {fileID: 1153442145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1250, y: 550}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1770382979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770382977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4604575619979087795, guid: eeec8babe8d8a463988f619cafc7871d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1770382980
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770382977}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1770825329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35967,11 +37381,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: 'The legacy of the Jaipur Gharana reflects strong tandava elements,
-        giving the tradition a majestic, robust, and commanding presence that continues
-        to define its powerful impact on Kathak.
-
-'
+      value: "The legacy of the Jaipur Gharana lies in its strong tandava elements,
+        which give the tradition a majestic, robust, and commanding presence. Here,
+        rhythm becomes power and dance becomes devotion\u2014an artistry forged in
+        valor and elevated through spiritual discipline."
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -36083,6 +37496,144 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7562250739474481663, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
   m_PrefabInstance: {fileID: 1799485935}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1799819185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1799819186}
+  - component: {fileID: 1799819188}
+  - component: {fileID: 1799819187}
+  m_Layer: 5
+  m_Name: title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1799819186
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799819185}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1770382978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 639, y: -292.6801}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1799819187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799819185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Raigarh
+
+    Gharana'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_sharedMaterial: {fileID: 5667627813647244551, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4288403199
+  m_fontColor: {r: 1, g: 0.83879024, b: 0.6084906, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 155.6
+  m_fontSizeBase: 38.2
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 155.6
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -491.24652, y: -138.42409, z: -478.96436, w: -174.56335}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1799819188
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799819185}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1801943780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38534,6 +40085,144 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67770266ead0943ebb3518b4b47baf33, type: 3}
+--- !u!1 &1953308569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953308570}
+  - component: {fileID: 1953308572}
+  - component: {fileID: 1953308571}
+  m_Layer: 5
+  m_Name: title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1953308570
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953308569}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 522363542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 639, y: -292.6801}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1953308571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953308569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Kathak
+
+    Gharanas'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_sharedMaterial: {fileID: 5667627813647244551, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4288403199
+  m_fontColor: {r: 1, g: 0.83879024, b: 0.6084906, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 155.6
+  m_fontSizeBase: 38.2
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 155.6
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -491.24652, y: -138.42409, z: -478.96436, w: -174.56335}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1953308572
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953308569}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1976742373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38962,7 +40651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[1].text
-      value: Important Gurus
+      value: Kathak Parampara ke Mahanubhav
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[2].type
@@ -41365,9 +43054,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_text
-      value: It is known for its powerful and energetic style, with strong emphasis
-        on complex rhythmic patterns (layakari). Its features include bold, precise
-        footwork, intricate tihais, powerful bols, and dynamic, fast-paced spins.
+      value: The Jaipur Gharana is known for its powerful and energetic style, with
+        a strong emphasis on complex rhythmic patterns (layakari). Its defining features
+        include bold and precise footwork, intricate tihais, powerful bols, and dynamic,
+        fast-paced spins, marked by a sharp and forceful flow of rhythm.
       objectReference: {fileID: 0}
     - target: {fileID: 4493938700838905391, guid: 73e080955c86441de8affef9ded8ce75, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -43126,9 +44816,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1243375775}
   - {fileID: 908988057}
   - {fileID: 950225835}
   - {fileID: 406431397}
+  - {fileID: 1153442145}
   - {fileID: 834029946}
   m_Father: {fileID: 1283881689733583254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45919,9 +47611,7 @@ MonoBehaviour:
     fontSize: 140
     height: 100
   - type: 0
-    text: 'Kathak
-
-      Core Concepts '
+    text: Adhar of Kathak
     fontSize: 140
     height: 0
   - type: 1
@@ -46180,7 +47870,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 300
+  m_Spacing: 200
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -47113,6 +48803,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 207310211363861898, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 940070071277611956, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
       propertyPath: canvasToEnable
       value: 
@@ -47138,6 +48832,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4013995484227276718, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4013995484227276718, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -47167,6 +48865,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6019269017645197686, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019269017645197686, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6098892660834186366, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
@@ -47287,6 +48989,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8095402553742365983, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095402553742365983, guid: 86f648c231ee14a6e96f44960b982da0, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -47831,7 +49537,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4055277955885738200}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.31805715
+  m_Size: 0.21657588
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
