@@ -85,7 +85,7 @@ public class PageController : MonoBehaviour
     private const string PAGE_NAME_TMP_PATH = "CarouselRoot/background_info/module_name_background/module_name_foreground/module_name";
 
     // page_image -> SpotifyTemplate/CarouselRoot/background_info/module_img (Image.sprite)
-    private const string PAGE_IMAGE_PATH = "CarouselRoot/background_info/module_img/img";
+    private const string PAGE_IMAGE_PATH = "CarouselRoot/background_info/frame/module_img/img";
 
     // Item bindings (relative to instantiated prefab root)
     private const string HEADER_TMP_PATH = "text";                // header_container -> text -> TMP
