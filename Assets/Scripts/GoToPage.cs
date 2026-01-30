@@ -45,6 +45,7 @@ public class GoToPage : MonoBehaviour, IPointerClickHandler
         }
     }
 
+
     private GameObject FindTopmostCanvasParent()
     {
         Transform current = transform;
