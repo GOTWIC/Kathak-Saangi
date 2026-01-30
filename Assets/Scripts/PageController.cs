@@ -30,6 +30,8 @@ public class PageController : MonoBehaviour
         // Only used when type == Description
         [TextArea(2, 8)]
         public string descriptionText;
+        [Tooltip("If > 0, sets the RectTransform height of description_element. Leave 0 for no override.")]
+        public float descriptionHeightOverride = 0f;
 
         // Only used when type == Button or Video
         public GameObject canvasToDisable;
@@ -92,6 +94,7 @@ public class PageController : MonoBehaviour
     private const string AUDIO_TMP_PATH = "audio_element/text";   // audio_component -> audio_element -> text -> TMP
     private const string AUDIO_SOURCE_PATH = "audio_element";     // audio_component -> audio_element -> AudioSource
     private const string DESCRIPTION_TMP_PATH = "description_element/text";           // description_container -> text -> TMP
+    private const string DESCRIPTION_ELEMENT_PATH = "description_element";            // description_container -> description_element (RectTransform)
     private const string VIDEO_BUTTON_TMP_PATH = "main_area/text"; // video/button -> main_area -> text -> TMP
 
     private void Start()
@@ -279,6 +282,22 @@ public class PageController : MonoBehaviour
                 var tmp = GetTmpAtPath(instanceRoot.transform, DESCRIPTION_TMP_PATH);
                 if (tmp != null) tmp.text = item.descriptionText ?? "";
                 else Debug.LogWarning($"[PageController] Description TMP not found at '{DESCRIPTION_TMP_PATH}' on '{instanceRoot.name}'.");
+
+                if (item.descriptionHeightOverride > 0f)
+                {
+                    float h = item.descriptionHeightOverride;
+                    var containerRt = instanceRoot.GetComponent<RectTransform>();
+                    if (containerRt != null)
+                        containerRt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h + 100f);
+
+                    var descElement = FindByPath(instanceRoot.transform, DESCRIPTION_ELEMENT_PATH);
+                    if (descElement != null)
+                    {
+                        var rt = descElement.GetComponent<RectTransform>();
+                        if (rt != null)
+                            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h);
+                    }
+                }
                 break;
             }
 
@@ -595,9 +614,9 @@ public class PageController : MonoBehaviour
                 if (type == ItemType.Video) return (3 * lineH) + pad;  // type + name + videoString
                 if (type == ItemType.Button) return (4 * lineH) + pad;  // type + name + canvasToDisable + canvasToEnable
 
-                // Description: type + big text area
+                // Description: type + big text area + height override
                 float descH = UnityEditor.EditorGUI.GetPropertyHeight(descProp, includeChildren: true);
-                return lineH + descH + pad;
+                return lineH + descH + lineH + pad;
             };
 
             _list.drawElementCallback = (rect, index, isActive, isFocused) =>
@@ -607,6 +626,7 @@ public class PageController : MonoBehaviour
                 var nameProp = element.FindPropertyRelative("displayName");
                 var clipProp = element.FindPropertyRelative("audioClip");
                 var descProp = element.FindPropertyRelative("descriptionText");
+                var descHeightOverrideProp = element.FindPropertyRelative("descriptionHeightOverride");
                 var canvasToDisableProp = element.FindPropertyRelative("canvasToDisable");
                 var canvasToEnableProp = element.FindPropertyRelative("canvasToEnable");
                 var videoStringProp = element.FindPropertyRelative("videoString");
@@ -658,7 +678,9 @@ public class PageController : MonoBehaviour
                 {
                     float descH = UnityEditor.EditorGUI.GetPropertyHeight(descProp, includeChildren: true);
                     var r1 = new Rect(rect.x, rect.y + lineH, rect.width, descH);
+                    var r2 = new Rect(rect.x, rect.y + lineH + descH, rect.width, lineH);
                     UnityEditor.EditorGUI.PropertyField(r1, descProp, new GUIContent("Description"), includeChildren: true);
+                    UnityEditor.EditorGUI.PropertyField(r2, descHeightOverrideProp, new GUIContent("Height Override"));
                 }
             };
         }
@@ -747,6 +769,7 @@ public class PageController : MonoBehaviour
             element.FindPropertyRelative("displayName").stringValue = "";
             element.FindPropertyRelative("audioClip").objectReferenceValue = null;
             element.FindPropertyRelative("descriptionText").stringValue = "";
+            element.FindPropertyRelative("descriptionHeightOverride").floatValue = 0f;
             element.FindPropertyRelative("canvasToDisable").objectReferenceValue = null;
             element.FindPropertyRelative("canvasToEnable").objectReferenceValue = null;
             element.FindPropertyRelative("videoString").stringValue = "";
