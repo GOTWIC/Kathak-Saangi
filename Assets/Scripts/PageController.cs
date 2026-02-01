@@ -266,7 +266,7 @@ public class PageController : MonoBehaviour
                     if (audioClipField != null)
                     {
                         audioClipField.SetValue(audioController, item.audioClip);
-                        Debug.Log($"[PageController] Set audio_controller.audioClip to: {(item.audioClip != null ? item.audioClip.name : "NULL")}");
+                        // Debug.Log($"[PageController] Set audio_controller.audioClip to: {(item.audioClip != null ? item.audioClip.name : "NULL")}");
                     }
                     else
                     {

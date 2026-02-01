@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -19,7 +20,7 @@ public class CarouselController : MonoBehaviour
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private RectTransform content;      // The Content object under Viewport
     [SerializeField] private GameObject cardPrefab;      // Your card prefab
-    [SerializeField] private GameObject mainCanvas;      // The main menu canvas to disable when a card is selected
+    [SerializeField] private GameObject mainCanvas;      // Canvas to disable when a card is selected (passed to GoToPage)
 
     [Header("Cards")]
     [SerializeField] private List<CardContent> cards = new List<CardContent>(); // Fill in Inspector
@@ -140,50 +141,19 @@ public class CarouselController : MonoBehaviour
             Debug.LogWarning($"[CarouselController] Background Image not found on spawned card {card.name}");
         }
 
-        // --- Add Button functionality to the card ---
-        Button cardButton = card.GetComponent<Button>();
-        if (cardButton == null)
-        {
-            // If the card doesn't have a Button component, add one
-            cardButton = card.AddComponent<Button>();
-        }
+        // --- Configure GoToPage on the card (main = disable, linked = enable) ---
+        var goToPage = card.GetComponent<GoToPage>();
+        if (goToPage == null)
+            goToPage = card.AddComponent<GoToPage>();
 
-        // Set up the button click event
-        int cardIndex = spawnedCount; // Capture the index for the lambda
-        cardButton.onClick.RemoveAllListeners();
-        cardButton.onClick.AddListener(() => OnCardSelected(cardIndex));
+        var flags = BindingFlags.NonPublic | BindingFlags.Instance;
+        var canvasToDisableField = typeof(GoToPage).GetField("canvasToDisable", flags);
+        var canvasToEnableField = typeof(GoToPage).GetField("canvasToEnable", flags);
+        if (canvasToDisableField != null)
+            canvasToDisableField.SetValue(goToPage, mainCanvas);
+        if (canvasToEnableField != null)
+            canvasToEnableField.SetValue(goToPage, data.linkedCanvas);
 
         spawnedCount++;
-    }
-
-    private void OnCardSelected(int cardIndex)
-    {
-        if (cardIndex < 0 || cardIndex >= cards.Count)
-        {
-            Debug.LogWarning($"[CarouselController] Invalid card index: {cardIndex}");
-            return;
-        }
-
-        CardContent selectedCard = cards[cardIndex];
-
-        // Enable the linked canvas
-        if (selectedCard.linkedCanvas != null)
-        {
-            selectedCard.linkedCanvas.SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning($"[CarouselController] No linked canvas assigned to card: {selectedCard.name}");
-        }
-
-        // Disable the main canvas
-        if (mainCanvas != null)
-        {
-            mainCanvas.SetActive(false);
-        }
-        else
-        {
-            Debug.LogWarning($"[CarouselController] Main canvas is not assigned!");
-        }
     }
 }
