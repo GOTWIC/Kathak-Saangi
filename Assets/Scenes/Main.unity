@@ -971,6 +971,9 @@ MonoBehaviour:
   direction: 0
   velocity: 10000
   threshold: 6000
+  reverse: 0
+  slideInStartX: 2000
+  respondOnPointerDown: 0
 --- !u!1001 &30503201
 PrefabInstance:
   m_ObjectHideFlags: 0

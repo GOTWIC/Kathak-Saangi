@@ -11,9 +11,9 @@ public class y_offset_correction : MonoBehaviour
         if (rectTransform != null && spacer != null)
         {
             Vector2 anchoredPosition = rectTransform.anchoredPosition;
-            Debug.Log("Spacer height: " + spacer.rect.height);
+            // Debug.Log("Spacer height: " + spacer.rect.height);
             anchoredPosition.y = -spacer.rect.height;
-            Debug.Log("Anchored Position: " + anchoredPosition);
+            // Debug.Log("Anchored Position: " + anchoredPosition);
             rectTransform.anchoredPosition = anchoredPosition;
         }
     }

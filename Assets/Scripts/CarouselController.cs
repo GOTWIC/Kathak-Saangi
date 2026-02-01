@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -19,12 +20,16 @@ public class CarouselController : MonoBehaviour
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private RectTransform content;      // The Content object under Viewport
     [SerializeField] private GameObject cardPrefab;      // Your card prefab
-    [SerializeField] private GameObject mainCanvas;      // The main menu canvas to disable when a card is selected
+    [SerializeField] private GameObject mainCanvas;      // Canvas to disable when a card is selected (passed to GoToPage)
 
     [Header("Cards")]
     [SerializeField] private List<CardContent> cards = new List<CardContent>(); // Fill in Inspector
     [SerializeField] private int initialCards = 3;       // How many to spawn at start
     [SerializeField] private float preloadPixels = 200f; // How close to the right edge before spawning next
+
+    [Header("Performance")]
+    [Tooltip("Enable and immediately disable all linked canvases at start to avoid first-click lag from layout/shader initialization.")]
+    [SerializeField] private bool prewarmCanvases = true;
 
     private int spawnedCount = 0;
 
@@ -43,6 +48,20 @@ public class CarouselController : MonoBehaviour
 
     private void Start()
     {
+        // Pre-warm linked canvases to avoid first-click lag
+        if (prewarmCanvases)
+        {
+            foreach (var card in cards)
+            {
+                if (card.linkedCanvas != null && !card.linkedCanvas.activeSelf)
+                {
+                    card.linkedCanvas.SetActive(true);
+                    Canvas.ForceUpdateCanvases(); // Force layout rebuild now
+                    card.linkedCanvas.SetActive(false);
+                }
+            }
+        }
+
         // Spawn the first few cards so you can actually scroll a bit
         int toSpawn = Mathf.Min(initialCards, cards.Count);
         for (int i = 0; i < toSpawn; i++)
@@ -140,50 +159,19 @@ public class CarouselController : MonoBehaviour
             Debug.LogWarning($"[CarouselController] Background Image not found on spawned card {card.name}");
         }
 
-        // --- Add Button functionality to the card ---
-        Button cardButton = card.GetComponent<Button>();
-        if (cardButton == null)
-        {
-            // If the card doesn't have a Button component, add one
-            cardButton = card.AddComponent<Button>();
-        }
+        // --- Configure GoToPage on the card (main = disable, linked = enable) ---
+        var goToPage = card.GetComponent<GoToPage>();
+        if (goToPage == null)
+            goToPage = card.AddComponent<GoToPage>();
 
-        // Set up the button click event
-        int cardIndex = spawnedCount; // Capture the index for the lambda
-        cardButton.onClick.RemoveAllListeners();
-        cardButton.onClick.AddListener(() => OnCardSelected(cardIndex));
+        var flags = BindingFlags.NonPublic | BindingFlags.Instance;
+        var canvasToDisableField = typeof(GoToPage).GetField("canvasToDisable", flags);
+        var canvasToEnableField = typeof(GoToPage).GetField("canvasToEnable", flags);
+        if (canvasToDisableField != null)
+            canvasToDisableField.SetValue(goToPage, mainCanvas);
+        if (canvasToEnableField != null)
+            canvasToEnableField.SetValue(goToPage, data.linkedCanvas);
 
         spawnedCount++;
-    }
-
-    private void OnCardSelected(int cardIndex)
-    {
-        if (cardIndex < 0 || cardIndex >= cards.Count)
-        {
-            Debug.LogWarning($"[CarouselController] Invalid card index: {cardIndex}");
-            return;
-        }
-
-        CardContent selectedCard = cards[cardIndex];
-
-        // Enable the linked canvas
-        if (selectedCard.linkedCanvas != null)
-        {
-            selectedCard.linkedCanvas.SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning($"[CarouselController] No linked canvas assigned to card: {selectedCard.name}");
-        }
-
-        // Disable the main canvas
-        if (mainCanvas != null)
-        {
-            mainCanvas.SetActive(false);
-        }
-        else
-        {
-            Debug.LogWarning($"[CarouselController] Main canvas is not assigned!");
-        }
     }
 }

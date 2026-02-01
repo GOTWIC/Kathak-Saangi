@@ -24,11 +24,11 @@ public class OpacityChanger : MonoBehaviour
                 Transform main = parent.Find(TARGET_PATH);
                 if (main != null && main.childCount > 0)
                 {
-                    Debug.Log("[OpacityChanger] Found Content.");
-                    Debug.Log($"[OpacityChanger] Found {main.childCount} children.");
-                    Debug.Log("[OpacityChanger] Getting 1st child.");
+                    // Debug.Log("[OpacityChanger] Found Content.");
+                    // Debug.Log($"[OpacityChanger] Found {main.childCount} children.");
+                    // Debug.Log("[OpacityChanger] Getting 1st child.");
                     targetObject = main.GetChild(0).gameObject;
-                    Debug.Log("[OpacityChanger] Found target: " + targetObject.name);
+                    // Debug.Log("[OpacityChanger] Found target: " + targetObject.name);
                 }
             }
         }
