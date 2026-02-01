@@ -30,31 +30,25 @@ public class GoToPage : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        // If this GameObject has the "Back" tag, override canvas references
+        // If this GameObject has the "Back" tag, fill in canvas references only when empty
         if (gameObject.CompareTag("Back"))
         {
-            Debug.Log($"[GoToPage] GameObject '{gameObject.name}' has 'Back' tag. Overriding canvas references...");
-            
-            // Find the topmost Canvas parent
-            canvasToDisable = FindTopmostCanvasParent();
-            if (canvasToDisable != null)
+            if (canvasToDisable == null)
             {
-                Debug.Log($"[GoToPage] Set canvasToDisable to topmost canvas: '{canvasToDisable.name}'");
+                canvasToDisable = FindTopmostCanvasParent();
+                if (canvasToDisable != null)
+                    Debug.Log($"[GoToPage] Set canvasToDisable to topmost canvas: '{canvasToDisable.name}'");
+                else
+                    Debug.LogWarning($"[GoToPage] Could not find topmost Canvas parent for '{gameObject.name}'");
             }
-            else
+
+            if (canvasToEnable == null)
             {
-                Debug.LogWarning($"[GoToPage] Could not find topmost Canvas parent for '{gameObject.name}'");
-            }
-            
-            // Find the Canvas with the "Main" tag
-            canvasToEnable = FindMainCanvas();
-            if (canvasToEnable != null)
-            {
-                Debug.Log($"[GoToPage] Set canvasToEnable to Main canvas: '{canvasToEnable.name}'");
-            }
-            else
-            {
-                Debug.LogWarning($"[GoToPage] Could not find Canvas with 'Main' tag in the scene");
+                canvasToEnable = FindMainCanvas();
+                if (canvasToEnable != null)
+                    Debug.Log($"[GoToPage] Set canvasToEnable to Main canvas: '{canvasToEnable.name}'");
+                else
+                    Debug.LogWarning($"[GoToPage] Could not find Canvas with 'Main' tag in the scene");
             }
         }
     }

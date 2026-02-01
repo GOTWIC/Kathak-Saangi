@@ -155,6 +155,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasToEnable: {fileID: 0}
   canvasToDisable: {fileID: 0}
+  direction: 0
+  velocity: 10000
+  threshold: 3000
+  reverse: 1
+  slideInStartX: 2000
 --- !u!1 &5570561061721231567
 GameObject:
   m_ObjectHideFlags: 0
