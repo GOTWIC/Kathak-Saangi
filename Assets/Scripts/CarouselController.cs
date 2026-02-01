@@ -27,6 +27,10 @@ public class CarouselController : MonoBehaviour
     [SerializeField] private int initialCards = 3;       // How many to spawn at start
     [SerializeField] private float preloadPixels = 200f; // How close to the right edge before spawning next
 
+    [Header("Performance")]
+    [Tooltip("Enable and immediately disable all linked canvases at start to avoid first-click lag from layout/shader initialization.")]
+    [SerializeField] private bool prewarmCanvases = true;
+
     private int spawnedCount = 0;
 
     private void Awake()
@@ -44,6 +48,20 @@ public class CarouselController : MonoBehaviour
 
     private void Start()
     {
+        // Pre-warm linked canvases to avoid first-click lag
+        if (prewarmCanvases)
+        {
+            foreach (var card in cards)
+            {
+                if (card.linkedCanvas != null && !card.linkedCanvas.activeSelf)
+                {
+                    card.linkedCanvas.SetActive(true);
+                    Canvas.ForceUpdateCanvases(); // Force layout rebuild now
+                    card.linkedCanvas.SetActive(false);
+                }
+            }
+        }
+
         // Spawn the first few cards so you can actually scroll a bit
         int toSpawn = Mathf.Min(initialCards, cards.Count);
         for (int i = 0; i < toSpawn; i++)
