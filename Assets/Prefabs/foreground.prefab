@@ -82,6 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasToEnable: {fileID: 0}
   canvasToDisable: {fileID: 0}
+  direction: 1
+  velocity: 10000
+  threshold: 6000
 --- !u!222 &8692799121251772167
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -428,7 +431,6 @@ GameObject:
   - component: {fileID: 8095402553742365983}
   - component: {fileID: 9159273406409862664}
   - component: {fileID: 2953786831824666388}
-  - component: {fileID: 6508269081023298814}
   m_Layer: 5
   m_Name: back_button
   m_TagString: Untagged
@@ -493,20 +495,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6508269081023298814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4927012872785140797}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b543c1cbd2e54758825d97d131f0106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasToEnable: {fileID: 0}
-  canvasToDisable: {fileID: 0}
 --- !u!1 &7906296681358034509
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +506,6 @@ GameObject:
   - component: {fileID: 6019269017645197686}
   - component: {fileID: 2244259679469853582}
   - component: {fileID: 2629163326655938045}
-  - component: {fileID: 940070071277611956}
   m_Layer: 5
   m_Name: back_text
   m_TagString: Untagged
@@ -644,17 +631,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &940070071277611956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7906296681358034509}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b543c1cbd2e54758825d97d131f0106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasToEnable: {fileID: 0}
-  canvasToDisable: {fileID: 0}

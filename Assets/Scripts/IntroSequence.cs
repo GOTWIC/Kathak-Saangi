@@ -9,8 +9,8 @@ public class IntroSequence : MonoBehaviour, IPointerClickHandler
     public CanvasGroup main_menu;   // Second screen
 
     [Header("Splash slide-out (left)")]
-    public float velocity = 10f;     // Units per second
-    public float threshold = -1500f; // Disable splash when X reaches this (off-screen left)
+    public float velocity = 20f;     // Units per second
+    public float threshold = -10f; // Disable splash when X reaches this (off-screen left)
 
     private bool hasStarted = false; // Prevent multiple runs
 
