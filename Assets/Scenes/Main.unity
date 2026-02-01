@@ -41888,6 +41888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 1872226515}
+  initialNormalized: 1
   scrollValue: 1
 --- !u!224 &1872686313 stripped
 RectTransform:
@@ -42992,7 +42993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3368565413924966949, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00012207031
+      value: 25.499878
       objectReference: {fileID: 0}
     - target: {fileID: 4290538659159154736, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_AnchorMax.y

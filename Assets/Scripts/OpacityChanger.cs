@@ -38,7 +38,7 @@ public class OpacityChanger : MonoBehaviour
         float imageY = image.transform.position.y;
         float objectY = targetObject.transform.position.y;
         float diff = imageY - objectY;
-        Debug.Log(diff);
+        //Debug.Log(diff);
 
         float alpha;
         if (diff >= threshold_min)

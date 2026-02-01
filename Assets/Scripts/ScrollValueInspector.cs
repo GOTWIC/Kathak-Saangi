@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 [ExecuteAlways]
 public class ScrollValueInspector : MonoBehaviour
 {
+    // --- Serialized fields ---
     [SerializeField] private ScrollRect scrollRect;
-    [SerializeField] private float scrollValue; // serialized so you can see it
+
+    // Init value you can edit in the Inspector (0 = bottom/left, 1 = top/right)
+    [SerializeField, Range(0f, 1f)] private float initialNormalized = 0.88f;
+
+    // Current value (visible, read-only via custom inspector below)
+    [SerializeField] private float scrollValue;
 
     public float Value => scrollValue;
 
@@ -22,7 +29,6 @@ public class ScrollValueInspector : MonoBehaviour
 
     private void OnValidate()
     {
-        // Convenience: if placed on the Scroll View, auto-grab ScrollRect
         if (scrollRect == null)
             scrollRect = GetComponent<ScrollRect>();
 
@@ -30,11 +36,51 @@ public class ScrollValueInspector : MonoBehaviour
         Refresh(force: true);
     }
 
+    private void Start()
+    {
+        // Apply ONLY on Start (Play Mode)
+        StartCoroutine(ApplyInitialNextFrame());
+    }
+
     private void Update()
     {
-        // In edit mode, events may not fire, so we poll.
+        // Keep inspector updated in Edit Mode (events often don't fire)
         if (!Application.isPlaying)
             Refresh(force: false);
+    }
+
+    private IEnumerator ApplyInitialNextFrame()
+    {
+        // Let layouts/content size settle first
+        yield return null;
+
+        Canvas.ForceUpdateCanvases();
+        ApplyInitialImmediate();
+        Refresh(force: true);
+    }
+
+    private void ApplyInitialImmediate()
+    {
+        if (scrollRect == null) return;
+
+        if (scrollRect.vertical && !scrollRect.horizontal)
+        {
+            scrollRect.verticalNormalizedPosition = initialNormalized;
+        }
+        else if (scrollRect.horizontal && !scrollRect.vertical)
+        {
+            scrollRect.horizontalNormalizedPosition = initialNormalized;
+        }
+        else
+        {
+            // If both are enabled, prefer vertical (typical Scroll View).
+            if (scrollRect.vertical)
+                scrollRect.verticalNormalizedPosition = initialNormalized;
+            else if (scrollRect.horizontal)
+                scrollRect.horizontalNormalizedPosition = initialNormalized;
+        }
+
+        Canvas.ForceUpdateCanvases();
     }
 
     private void Hook()
@@ -67,7 +113,7 @@ public class ScrollValueInspector : MonoBehaviour
             scrollValue = v;
 
 #if UNITY_EDITOR
-            // Helps inspector update in Edit Mode
+            // Ensures Inspector updates in Edit Mode when value changes
             if (!Application.isPlaying)
                 UnityEditor.EditorUtility.SetDirty(this);
 #endif
@@ -76,10 +122,11 @@ public class ScrollValueInspector : MonoBehaviour
 
     private static float GetNormalizedValue(ScrollRect sr)
     {
+        if (sr == null) return 0f;
+
         if (sr.vertical && !sr.horizontal) return sr.verticalNormalizedPosition;
         if (sr.horizontal && !sr.vertical) return sr.horizontalNormalizedPosition;
 
-        // If both enabled, prefer vertical (typical Scroll View).
         if (sr.vertical) return sr.verticalNormalizedPosition;
         if (sr.horizontal) return sr.horizontalNormalizedPosition;
 
@@ -89,14 +136,16 @@ public class ScrollValueInspector : MonoBehaviour
 
 #if UNITY_EDITOR
 [UnityEditor.CustomEditor(typeof(ScrollValueInspector))]
-public class ScrollValueInspectorEditor : UnityEditor.Editor
+public class ScrollValueInspectorEditor_ReadOnlyValue : UnityEditor.Editor
 {
     private UnityEditor.SerializedProperty scrollRectProp;
+    private UnityEditor.SerializedProperty initialNormalizedProp;
     private UnityEditor.SerializedProperty scrollValueProp;
 
     private void OnEnable()
     {
         scrollRectProp = serializedObject.FindProperty("scrollRect");
+        initialNormalizedProp = serializedObject.FindProperty("initialNormalized");
         scrollValueProp = serializedObject.FindProperty("scrollValue");
     }
 
@@ -105,6 +154,7 @@ public class ScrollValueInspectorEditor : UnityEditor.Editor
         serializedObject.Update();
 
         UnityEditor.EditorGUILayout.PropertyField(scrollRectProp);
+        UnityEditor.EditorGUILayout.PropertyField(initialNormalizedProp);
 
         using (new UnityEditor.EditorGUI.DisabledScope(true))
         {
