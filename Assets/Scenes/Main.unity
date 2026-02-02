@@ -3405,11 +3405,11 @@ MonoBehaviour:
     linkedCanvas: {fileID: 1361538222}
   - name: Kathak Parampara Ke Mahanubhav
     description: Life Sketches of Kathak's Greatest Gurus
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    backgroundImage: {fileID: -662492502680858813, guid: 099d8a94ffae14f40a0137e9dbf78903, type: 3}
     linkedCanvas: {fileID: 1761997390}
   - name: Kathak Gharanas
     description: Review the various Gharanas in Kathak
-    backgroundImage: {fileID: -4462151535567603180, guid: c83de05970818428191ecdc1f08b96a2, type: 3}
+    backgroundImage: {fileID: 5274136047101369458, guid: 032dc912330bf403fa18757441950fb0, type: 3}
     linkedCanvas: {fileID: 4752201060207177107}
   - name: Dasa Prana
     description: An article detailing the Dasa Prana, the 10 Vital Elements of Taal
@@ -23185,7 +23185,7 @@ MonoBehaviour:
 
     Gharana'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f2e9a906590974b4e92843d3d318e430, type: 2}
   m_sharedMaterial: {fileID: 5667627813647244551, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -23251,7 +23251,7 @@ MonoBehaviour:
   m_margin: {x: -491.24652, y: -138.42409, z: -478.96436, w: -174.56335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &910831222
@@ -43515,7 +43515,7 @@ MonoBehaviour:
 
     Gharana'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f2e9a906590974b4e92843d3d318e430, type: 2}
   m_sharedMaterial: {fileID: 5667627813647244551, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -43581,7 +43581,7 @@ MonoBehaviour:
   m_margin: {x: -491.24652, y: -138.42409, z: -478.96436, w: -174.56335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1799819188
@@ -43755,7 +43755,7 @@ MonoBehaviour:
 
     Gharana'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f2e9a906590974b4e92843d3d318e430, type: 2}
   m_sharedMaterial: {fileID: 5667627813647244551, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -43763,7 +43763,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4288403199
-  m_fontColor: {r: 1, g: 0.83879024, b: 0.6084906, a: 1}
+  m_fontColor: {r: 1, g: 0.8392157, b: 0.60784316, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -43821,7 +43821,7 @@ MonoBehaviour:
   m_margin: {x: -491.24652, y: -138.42409, z: -478.96436, w: -174.56335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1836762783
@@ -46904,7 +46904,7 @@ MonoBehaviour:
 
     Gharanas'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f2e9a906590974b4e92843d3d318e430, type: 2}
   m_sharedMaterial: {fileID: 5667627813647244551, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -46912,7 +46912,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4288403199
-  m_fontColor: {r: 1, g: 0.83879024, b: 0.6084906, a: 1}
+  m_fontColor: {r: 1, g: 0.8392157, b: 0.60784316, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -46970,7 +46970,7 @@ MonoBehaviour:
   m_margin: {x: -491.24652, y: -138.42409, z: -478.96436, w: -174.56335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1953308572
@@ -49465,7 +49465,7 @@ MonoBehaviour:
 
     Gharana'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f2e9a906590974b4e92843d3d318e430, type: 2}
   m_sharedMaterial: {fileID: 5667627813647244551, guid: 0ed31723c47ee4e03a5ddce0da758800, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -49531,7 +49531,7 @@ MonoBehaviour:
   m_margin: {x: -491.24652, y: -138.42409, z: -478.96436, w: -174.56335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2040932253
