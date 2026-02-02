@@ -28372,9 +28372,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1024
   height: 1024
-  topColor: {r: 0.24705882, g: 0.003921569, b: 0.13725491, a: 1}
+  topColor: {r: 0.18039216, g: 0, b: 0.11764706, a: 1}
   bottomColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-  fileName: wine_grey_2.png
+  fileName: wine_grey.png
 --- !u!1 &1153442144
 GameObject:
   m_ObjectHideFlags: 0
@@ -46154,14 +46154,14 @@ PrefabInstance:
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
-      objectReference: {fileID: 7929030356400059197, guid: c80a1a5a5ee88467c87e0f57bbf96dfa, type: 3}
+      objectReference: {fileID: 8779498087537932851, guid: 925c0f42857d44879aaa6ed684a5c242, type: 3}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.b
-      value: 0.13542634
+      value: 0.11764706
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.g
@@ -46169,12 +46169,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.r
-      value: 0.24528301
+      value: 0.18039216
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_gradient
       value: 
-      objectReference: {fileID: 8242912725141882414, guid: a4117f0b5ca4c4b10b7fb4f6e59bd010, type: 3}
+      objectReference: {fileID: -1115844342631535976, guid: 6b1ec06b5da3e474fbd30424e8bae830, type: 3}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.size
       value: 27
@@ -46626,7 +46626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9178240495890355297, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_Color.b
-      value: 0.21568628
+      value: 0.07058824
       objectReference: {fileID: 0}
     - target: {fileID: 9178240495890355297, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_Color.g
@@ -46634,7 +46634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9178240495890355297, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_Color.r
-      value: 0.39215687
+      value: 0.18039216
       objectReference: {fileID: 0}
     - target: {fileID: 9212016521857108788, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_text
