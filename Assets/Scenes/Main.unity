@@ -3247,8 +3247,8 @@ MonoBehaviour:
   mainCanvas: {fileID: 1019299757}
   cards:
   - name: Riyaz
-    description: Use these practice audios for your daily riyaz of hand-movements,
-      footwork, and circles
+    description: Practice audios for daily riyaz of hand-movements, footwork, and
+      circles
     backgroundImage: {fileID: 7929030356400059197, guid: c80a1a5a5ee88467c87e0f57bbf96dfa, type: 3}
     linkedCanvas: {fileID: 1945124962}
   - name: Kramalaya
@@ -3271,24 +3271,23 @@ MonoBehaviour:
     backgroundImage: {fileID: -513546068271041449, guid: 65db9e804b7ce4765858bcd7945d0a66, type: 3}
     linkedCanvas: {fileID: 1188606426}
   - name: Padhant
-    description: Learn complex and tongue-twisting compositions to improve your recitation
-      skills, including a phrase-by-phrase breakdown
+    description: Learn tongue-twisting compositions to improve your recitation skills.
     backgroundImage: {fileID: -1964769029138863996, guid: d23e6a452f2bc4a83b0203d91ce7d122, type: 3}
     linkedCanvas: {fileID: 888165824}
   - name: Adhar of Kathak
-    description: Essential Concepts and Classical Grammar
+    description: Essential Concepts and Classical Grammar for Classical Dance
     backgroundImage: {fileID: -6125361038814978478, guid: c10acf7d2c303437c94146a2a23a2f8b, type: 3}
     linkedCanvas: {fileID: 8384596970991619957}
   - name: Vistaar in Kathak
     description: Advanced Concepts and Structural Depth
     backgroundImage: {fileID: 5011401186966498728, guid: a45a66fb447ac490db339c8743540551, type: 3}
     linkedCanvas: {fileID: 1030084286}
-  - name: Invocations and Verses
-    description: 
+  - name: Shlokas and Vandanas
+    description: Essential Invocations and Verses
     backgroundImage: {fileID: -7432311533813668187, guid: 057f23e4ee6ce4d01bc3742ee0fc4ffb, type: 3}
     linkedCanvas: {fileID: 1361538222}
-  - name: Kathak Parampara ke Mahanubhav
-    description: 
+  - name: Kathak Parampara Ke Mahanubhav
+    description: Life Sketches of Kathak's Greatest Gurus
     backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
     linkedCanvas: {fileID: 1761997390}
   - name: Kathak Gharanas
