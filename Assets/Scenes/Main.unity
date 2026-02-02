@@ -3277,15 +3277,15 @@ MonoBehaviour:
     linkedCanvas: {fileID: 888165824}
   - name: Adhar of Kathak
     description: Essential Concepts and Classical Grammar
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    backgroundImage: {fileID: -6125361038814978478, guid: c10acf7d2c303437c94146a2a23a2f8b, type: 3}
     linkedCanvas: {fileID: 8384596970991619957}
   - name: Vistaar in Kathak
     description: Advanced Concepts and Structural Depth
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    backgroundImage: {fileID: 5011401186966498728, guid: a45a66fb447ac490db339c8743540551, type: 3}
     linkedCanvas: {fileID: 1030084286}
   - name: Invocations and Verses
     description: 
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    backgroundImage: {fileID: -7432311533813668187, guid: 057f23e4ee6ce4d01bc3742ee0fc4ffb, type: 3}
     linkedCanvas: {fileID: 1361538222}
   - name: Kathak Parampara ke Mahanubhav
     description: 
@@ -3293,7 +3293,7 @@ MonoBehaviour:
     linkedCanvas: {fileID: 1761997390}
   - name: Kathak Gharanas
     description: Review the various Gharanas in Kathak
-    backgroundImage: {fileID: -5371953443636725624, guid: b59620b85582b4025a3d0168af9e0c60, type: 3}
+    backgroundImage: {fileID: -4462151535567603180, guid: c83de05970818428191ecdc1f08b96a2, type: 3}
     linkedCanvas: {fileID: 4752201060207177107}
   - name: Dasa Prana
     description: An article detailing the Dasa Prana, the 10 Vital Elements of Taal
@@ -37652,7 +37652,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dveloped by <link="swagnik.org"><color=#c4004e><u>Swagnik Roychoudhury</u></color></link>.
+  m_text: Dveloped by <link=https://swagnik.org/about/"><color=#c4004e><u>Swagnik
+    Roychoudhury</u></color></link>.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f2e9a906590974b4e92843d3d318e430, type: 2}
   m_sharedMaterial: {fileID: -3763654535155237798, guid: f2e9a906590974b4e92843d3d318e430, type: 2}
