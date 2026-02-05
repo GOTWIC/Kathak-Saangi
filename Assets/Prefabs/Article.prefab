@@ -690,6 +690,7 @@ MonoBehaviour:
   paragraphPrefab: {fileID: 4630965226109158092, guid: 316e30d9acce347f7beaff35a26e0c7a, type: 3}
   dividerPrefab: {fileID: 6064600104453259351, guid: 67770266ead0943ebb3518b4b47baf33, type: 3}
   spacerPrefab: {fileID: 7248239530744831614, guid: 0517daf5dc25b4238ad24672f8221fe6, type: 3}
+  imagePrefab: {fileID: 2287685742120872929, guid: ab7bdb3fdc0a34cbb9a4f4babf4fe6a9, type: 3}
   items: []
   buildOnStart: 1
   clearExistingChildrenBeforeBuild: 1

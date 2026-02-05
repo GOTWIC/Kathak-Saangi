@@ -11,7 +11,8 @@ public class ArticleController : MonoBehaviour
         Subheading,
         Paragraph,
         Divider,
-        Spacer
+        Spacer,
+        Image
     }
 
     [Serializable]
@@ -28,6 +29,13 @@ public class ArticleController : MonoBehaviour
 
         // Only used when type == Spacer
         public float height = 100f;
+
+        // Only used when type == Paragraph
+        public float indent = 0f;
+
+        // Only used when type == Image
+        public Sprite sprite;
+        public float imageWidth = 900f;
     }
 
     // ---------------------------
@@ -42,6 +50,7 @@ public class ArticleController : MonoBehaviour
     [SerializeField] private GameObject paragraphPrefab;
     [SerializeField] private GameObject dividerPrefab;
     [SerializeField] private GameObject spacerPrefab;
+    [SerializeField] private GameObject imagePrefab;
 
     // ---------------------------
     // Data
@@ -134,6 +143,29 @@ public class ArticleController : MonoBehaviour
         AddItemRuntime(ItemType.Spacer, "", spawnImmediately: true);
     }
 
+    public void AddImageRuntime(Sprite sprite = null, float width = 900f)
+    {
+        var item = new ArticleItem { type = ItemType.Image, sprite = sprite, imageWidth = width };
+        items.Add(item);
+
+        if (content == null)
+        {
+            Debug.LogError("[ArticleController] Content is not assigned (cannot spawn). Item was added to list only.");
+            return;
+        }
+
+        var prefab = GetPrefabFor(ItemType.Image);
+        if (prefab == null)
+        {
+            Debug.LogWarning($"[ArticleController] Missing prefab for Image. Item was added to list only.");
+            return;
+        }
+
+        var go = Instantiate(prefab, content, worldPositionStays: false);
+        go.name = $"Image: {items.Count - 1}";
+        ApplyItemBindings(go, item);
+    }
+
     private void AddItemRuntime(ItemType type, string text, bool spawnImmediately)
     {
         var item = new ArticleItem { type = type, text = text ?? "" };
@@ -178,6 +210,7 @@ public class ArticleController : MonoBehaviour
             case ItemType.Paragraph: return paragraphPrefab;
             case ItemType.Divider: return dividerPrefab;
             case ItemType.Spacer: return spacerPrefab;
+            case ItemType.Image: return imagePrefab;
             default: return null;
         }
     }
@@ -196,6 +229,7 @@ public class ArticleController : MonoBehaviour
 
             case ItemType.Paragraph:
                 SetTmpText(instanceRoot.transform, "text", item.text, null, "Paragraph");
+                SetParagraphIndent(instanceRoot, item.indent);
                 break;
 
             case ItemType.Divider:
@@ -204,6 +238,10 @@ public class ArticleController : MonoBehaviour
 
             case ItemType.Spacer:
                 SetSpacerHeight(instanceRoot, item.height);
+                break;
+
+            case ItemType.Image:
+                SetImageSprite(instanceRoot, item.sprite, item.imageWidth);
                 break;
         }
     }
@@ -238,10 +276,64 @@ public class ArticleController : MonoBehaviour
         }
     }
 
+    private void SetParagraphIndent(GameObject instanceRoot, float indent)
+    {
+        var textChild = FindByPath(instanceRoot.transform, "text");
+        if (textChild == null)
+        {
+            Debug.LogWarning($"[ArticleController] Text child not found on '{instanceRoot.name}'. Cannot set paragraph indent.");
+            return;
+        }
+
+        var rectTransform = textChild.GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            // Set width to 1000 - 2*indent
+            var sizeDelta = rectTransform.sizeDelta;
+            sizeDelta.x = 1000f - 2f * indent;
+            rectTransform.sizeDelta = sizeDelta;
+
+            // Set offset to 500 + indent
+            var anchoredPosition = rectTransform.anchoredPosition;
+            anchoredPosition.x = 500f + indent;
+            rectTransform.anchoredPosition = anchoredPosition;
+        }
+        else
+        {
+            Debug.LogWarning($"[ArticleController] RectTransform not found on text child of '{instanceRoot.name}'. Cannot set paragraph indent.");
+        }
+    }
+
+    private void SetImageSprite(GameObject instanceRoot, Sprite sprite, float width)
+    {
+        var image = instanceRoot.GetComponent<UnityEngine.UI.Image>();
+        if (image != null)
+        {
+            image.sprite = sprite;
+        }
+        else
+        {
+            Debug.LogWarning($"[ArticleController] Image component not found on '{instanceRoot.name}'. Cannot set sprite.");
+            return;
+        }
+
+        var imageScaler = instanceRoot.GetComponent<ImageScaler>();
+        if (imageScaler != null)
+        {
+            imageScaler.width = width;
+            imageScaler.set_dim();
+        }
+        else
+        {
+            Debug.LogWarning($"[ArticleController] ImageScaler component not found on '{instanceRoot.name}'. Cannot set dimensions.");
+        }
+    }
+
     private static string GetNiceName(ArticleItem item, int index)
     {
         if (item.type == ItemType.Divider) return $"Divider {index}";
         if (item.type == ItemType.Spacer) return $"Spacer {index}";
+        if (item.type == ItemType.Image) return $"Image {index}";
         return string.IsNullOrWhiteSpace(item.text) ? $"{item.type} {index}" : item.text.Trim();
     }
 
@@ -337,6 +429,30 @@ public class ArticleController : MonoBehaviour
                 if (tmp != null)
                     UnityEditor.Undo.RecordObject(tmp, "Set Text and Font Size");
             }
+            else if (item.type == ItemType.Paragraph)
+            {
+                var textChild = FindByPath(go.transform, "text");
+                if (textChild != null)
+                {
+                    var textRect = textChild.GetComponent<RectTransform>();
+                    if (textRect != null)
+                        UnityEditor.Undo.RecordObject(textRect, "Set Paragraph Indent");
+                }
+            }
+            else if (item.type == ItemType.Image)
+            {
+                var image = go.GetComponent<UnityEngine.UI.Image>();
+                if (image != null)
+                    UnityEditor.Undo.RecordObject(image, "Set Image Sprite");
+                
+                var imageScaler = go.GetComponent<ImageScaler>();
+                if (imageScaler != null)
+                    UnityEditor.Undo.RecordObject(imageScaler, "Set Image Width");
+                
+                var rectTransform = go.GetComponent<RectTransform>();
+                if (rectTransform != null)
+                    UnityEditor.Undo.RecordObject(rectTransform, "Set Image Dimensions");
+            }
             
             ApplyItemBindings(go, item);
 
@@ -351,6 +467,30 @@ public class ArticleController : MonoBehaviour
                 var tmp = go.GetComponent<TMP_Text>();
                 if (tmp != null)
                     UnityEditor.EditorUtility.SetDirty(tmp);
+            }
+            else if (item.type == ItemType.Paragraph)
+            {
+                var textChild = FindByPath(go.transform, "text");
+                if (textChild != null)
+                {
+                    var textRect = textChild.GetComponent<RectTransform>();
+                    if (textRect != null)
+                        UnityEditor.EditorUtility.SetDirty(textRect);
+                }
+            }
+            else if (item.type == ItemType.Image)
+            {
+                var image = go.GetComponent<UnityEngine.UI.Image>();
+                if (image != null)
+                    UnityEditor.EditorUtility.SetDirty(image);
+                
+                var imageScaler = go.GetComponent<ImageScaler>();
+                if (imageScaler != null)
+                    UnityEditor.EditorUtility.SetDirty(imageScaler);
+                
+                var rectTransform = go.GetComponent<RectTransform>();
+                if (rectTransform != null)
+                    UnityEditor.EditorUtility.SetDirty(rectTransform);
             }
 
             UnityEditor.EditorUtility.SetDirty(go);
@@ -431,11 +571,21 @@ public class ArticleController : MonoBehaviour
                     return (2 * lineH) + pad; // type + height
                 }
 
+                if (type == ItemType.Image)
+                {
+                    return (3 * lineH) + pad; // type + sprite + width
+                }
+
                 float textH = UnityEditor.EditorGUI.GetPropertyHeight(textProp, includeChildren: true);
 
                 if (type == ItemType.Heading || type == ItemType.Subheading)
                 {
                     return (3 * lineH) + textH + pad; // type + fontSize + text
+                }
+
+                if (type == ItemType.Paragraph)
+                {
+                    return (2 * lineH) + textH + pad; // type + text + indent
                 }
 
                 return lineH + textH + pad;
@@ -448,6 +598,9 @@ public class ArticleController : MonoBehaviour
                 var textProp = element.FindPropertyRelative("text");
                 var fontSizeProp = element.FindPropertyRelative("fontSize");
                 var heightProp = element.FindPropertyRelative("height");
+                var indentProp = element.FindPropertyRelative("indent");
+                var spriteProp = element.FindPropertyRelative("sprite");
+                var imageWidthProp = element.FindPropertyRelative("imageWidth");
 
                 float lineH = UnityEditor.EditorGUIUtility.singleLineHeight;
                 rect.y += 2f;
@@ -462,10 +615,27 @@ public class ArticleController : MonoBehaviour
                     var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
                     UnityEditor.EditorGUI.PropertyField(r1, heightProp, new GUIContent("Height"));
                 }
+                else if (type == ItemType.Image)
+                {
+                    var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
+                    UnityEditor.EditorGUI.PropertyField(r1, spriteProp, new GUIContent("Sprite"));
+                    
+                    var r2 = new Rect(rect.x, rect.y + 2 * lineH, rect.width, lineH);
+                    UnityEditor.EditorGUI.PropertyField(r2, imageWidthProp, new GUIContent("Width"));
+                }
                 else if (type == ItemType.Heading || type == ItemType.Subheading)
                 {
                     var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
                     UnityEditor.EditorGUI.PropertyField(r1, fontSizeProp, new GUIContent("Font Size"));
+                    
+                    float textH = UnityEditor.EditorGUI.GetPropertyHeight(textProp, includeChildren: true);
+                    var r2 = new Rect(rect.x, rect.y + 2 * lineH, rect.width, textH);
+                    UnityEditor.EditorGUI.PropertyField(r2, textProp, new GUIContent("Text"), includeChildren: true);
+                }
+                else if (type == ItemType.Paragraph)
+                {
+                    var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
+                    UnityEditor.EditorGUI.PropertyField(r1, indentProp, new GUIContent("Indent"));
                     
                     float textH = UnityEditor.EditorGUI.GetPropertyHeight(textProp, includeChildren: true);
                     var r2 = new Rect(rect.x, rect.y + 2 * lineH, rect.width, textH);
@@ -495,6 +665,7 @@ public class ArticleController : MonoBehaviour
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("paragraphPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("dividerPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("spacerPrefab"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("imagePrefab"));
 
             UnityEditor.EditorGUILayout.Space(8);
 
@@ -513,8 +684,12 @@ public class ArticleController : MonoBehaviour
             if (GUILayout.Button("Heading")) AddItem(ItemType.Heading);
             if (GUILayout.Button("Subheading")) AddItem(ItemType.Subheading);
             if (GUILayout.Button("Paragraph")) AddItem(ItemType.Paragraph);
+            UnityEditor.EditorGUILayout.EndHorizontal();
+            
+            UnityEditor.EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("Divider")) AddItem(ItemType.Divider);
             if (GUILayout.Button("Spacer")) AddItem(ItemType.Spacer);
+            if (GUILayout.Button("Image")) AddItem(ItemType.Image);
             UnityEditor.EditorGUILayout.EndHorizontal();
 
             UnityEditor.EditorGUILayout.Space(10);
@@ -583,6 +758,14 @@ public class ArticleController : MonoBehaviour
             {
                 var heightProp = element.FindPropertyRelative("height");
                 heightProp.floatValue = 100f;
+            }
+            else if (type == ItemType.Image)
+            {
+                var spriteProp = element.FindPropertyRelative("sprite");
+                spriteProp.objectReferenceValue = null;
+                
+                var imageWidthProp = element.FindPropertyRelative("imageWidth");
+                imageWidthProp.floatValue = 900f;
             }
 
             serializedObject.ApplyModifiedProperties();
