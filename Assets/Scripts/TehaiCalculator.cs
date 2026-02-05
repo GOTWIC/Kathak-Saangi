@@ -28,8 +28,8 @@ public class TehaiCalculator : MonoBehaviour
     [SerializeField] private TMP_InputField simpleMaatrasInTaalInput;
     [SerializeField] private TMP_InputField simpleAvartaansInput;
 
-    [Header("Inputs - Kamali (1 dropdown)")]
-    [SerializeField] private TMP_Dropdown kamaliMaatrasDropdown;
+    [Header("Inputs - Kamali (tracker reference)")]
+    [SerializeField] private ButtonMaatrasTracker kamaliMaatrasTracker;
 
     [Header("Inputs - Farmaishi (1 field)")]
     [SerializeField] private TMP_InputField farmaishiMaatrasInput;
@@ -90,6 +90,9 @@ public class TehaiCalculator : MonoBehaviour
 #endif
     }
 
+    // Track last kamali value for change detection
+    private int lastKamaliMaatras = -1;
+
     private void OnEnable()
     {
         // Simple inputs
@@ -99,8 +102,11 @@ public class TehaiCalculator : MonoBehaviour
         // Farmaishi input
         if (farmaishiMaatrasInput != null) farmaishiMaatrasInput.onValueChanged.AddListener(OnAnyTextChanged);
 
-        // Kamali dropdown
-        if (kamaliMaatrasDropdown != null) kamaliMaatrasDropdown.onValueChanged.AddListener(OnAnyDropdownChanged);
+        // Kamali tracker - no listener needed, will poll in Update()
+        if (kamaliMaatrasTracker != null)
+        {
+            lastKamaliMaatras = kamaliMaatrasTracker.maatras;
+        }
 
         TryAutoCalculate();
     }
@@ -111,8 +117,20 @@ public class TehaiCalculator : MonoBehaviour
         if (simpleAvartaansInput != null) simpleAvartaansInput.onValueChanged.RemoveListener(OnAnyTextChanged);
 
         if (farmaishiMaatrasInput != null) farmaishiMaatrasInput.onValueChanged.RemoveListener(OnAnyTextChanged);
+    }
 
-        if (kamaliMaatrasDropdown != null) kamaliMaatrasDropdown.onValueChanged.RemoveListener(OnAnyDropdownChanged);
+    private void Update()
+    {
+        // Poll the Kamali tracker for changes (only when in Kamali mode)
+        if (useKamali && kamaliMaatrasTracker != null)
+        {
+            int currentMaatras = kamaliMaatrasTracker.maatras;
+            if (currentMaatras != lastKamaliMaatras)
+            {
+                lastKamaliMaatras = currentMaatras;
+                TryAutoCalculate();
+            }
+        }
     }
 
     // ---------------- Public API ----------------
@@ -144,7 +162,13 @@ public class TehaiCalculator : MonoBehaviour
             }
             case Mode.KamaliChakradhar:
             {
-                if (!TryGetKamaliDropdownTaal(out int taal)) return null;
+                if (!TryGetKamaliTaal(out int taal))
+                {
+                    // If taal is 0 (no button selected), show instruction message
+                    if (kamaliMaatrasTracker != null && kamaliMaatrasTracker.maatras == 0)
+                        return "Please Set Value Above to See Result";
+                    return null;
+                }
                 if (!KamaliMap.ContainsKey(taal)) return null;
                 return CalculateKamaliChakradharString(taal);
             }
@@ -161,11 +185,6 @@ public class TehaiCalculator : MonoBehaviour
     // ---------------- Event handlers ----------------
 
     private void OnAnyTextChanged(string _)
-    {
-        TryAutoCalculate();
-    }
-
-    private void OnAnyDropdownChanged(int _)
     {
         TryAutoCalculate();
     }
@@ -209,27 +228,17 @@ public class TehaiCalculator : MonoBehaviour
         return true;
     }
 
-    private bool TryGetKamaliDropdownTaal(out int taal)
+    private bool TryGetKamaliTaal(out int taal)
     {
         taal = 0;
-        if (kamaliMaatrasDropdown == null) return false;
-        if (kamaliMaatrasDropdown.options == null || kamaliMaatrasDropdown.options.Count == 0) return false;
+        if (kamaliMaatrasTracker == null) return false;
 
-        int idx = Mathf.Clamp(kamaliMaatrasDropdown.value, 0, kamaliMaatrasDropdown.options.Count - 1);
-        string label = kamaliMaatrasDropdown.options[idx].text;
+        // Get the maatras value directly from the tracker
+        taal = kamaliMaatrasTracker.maatras;
 
-        // Prefer numeric label if dropdown options are like "7", "10", ...
-        if (!string.IsNullOrWhiteSpace(label) && int.TryParse(label, out taal))
-            return true;
-
-        // Fallback: assume dropdown is in the supported order
-        if (idx >= 0 && idx < KamaliSupportedTaals.Length)
-        {
-            taal = KamaliSupportedTaals[idx];
-            return true;
-        }
-
-        return false;
+        // Only accept supported taal values (and reject 0)
+        if (taal <= 0) return false;
+        return KamaliMap.ContainsKey(taal);
     }
 
     // ---------------- Calculators (formula-equivalent) ----------------
