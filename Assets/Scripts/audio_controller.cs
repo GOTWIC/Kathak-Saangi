@@ -1,12 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [DisallowMultipleComponent]
-public class audio_controller : MonoBehaviour
+public class audio_controller : MonoBehaviour, IPointerClickHandler
 {
-    [Header("Click Area (audio_element)")]
-    [SerializeField] private Button audioElementButton;   // Put this Button on audio_element
-
     [Header("UI")]
     [SerializeField] private Image playPauseImage;
     [SerializeField] private Sprite playSprite;
@@ -26,10 +24,6 @@ public class audio_controller : MonoBehaviour
 
     private void Awake()
     {
-        // Hook click ONLY on audio_element's Button
-        if (audioElementButton != null)
-            audioElementButton.onClick.AddListener(TogglePlayPause);
-
         // Audio defaults
         if (audioSource != null)
         {
@@ -56,11 +50,13 @@ public class audio_controller : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (audioElementButton != null)
-            audioElementButton.onClick.RemoveListener(TogglePlayPause);
-
         if (progressSlider != null)
             progressSlider.onValueChanged.RemoveListener(OnSliderValueChanged);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        TogglePlayPause();
     }
 
     private void Update()
