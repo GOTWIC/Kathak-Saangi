@@ -4969,6 +4969,10 @@ PrefabInstance:
       value: Octapad
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
       objectReference: {fileID: 7970593409031449545, guid: cd58ca256a57f4e3cb3aaea42b90bd92, type: 3}
@@ -6081,6 +6085,10 @@ PrefabInstance:
       propertyPath: page_name
       value: Ladi and Upaj
       objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
@@ -11845,6 +11853,10 @@ PrefabInstance:
       propertyPath: page_name
       value: Kramalaya
       objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
@@ -45170,6 +45182,10 @@ PrefabInstance:
       value: Padhant
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
       objectReference: {fileID: -1964769029138863996, guid: d23e6a452f2bc4a83b0203d91ce7d122, type: 3}
@@ -55686,6 +55702,10 @@ PrefabInstance:
       propertyPath: page_name
       value: Riyaz
       objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
