@@ -1,0 +1,411 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
+
+public class AudioManager : MonoBehaviour
+{
+    [Header("Download UI")]
+    [Tooltip("Shown when something is missing. Hidden after all downloads finish.")]
+    public GameObject download_dialogue;
+
+    [Tooltip("Serializable progress UI (optional).")]
+    public ProgressUI progressUI;
+
+    [Header("Remote Source")]
+    [Tooltip("Example: https://www.swagnik.org")]
+    public string baseUrl = "https://raw.githubusercontent.com/GOTWIC/Kathak-Saangi/main/Assets/Audio/tracks/";
+
+    [Header("Audio List")]
+    public List<AudioEntry> audios = new List<AudioEntry>
+    {
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_3" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_5" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_6" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_7" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_1_8_T" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_1_8_T_tabla" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_1_4_8_T_tabla" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "kramalaya_1_2_4_T_tabla" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "lu_upaj_1" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "lu_upaj_2" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "lu_lari_comp1_rec" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "lu_lari_comp2_rec" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "lu_lari_comp1_tabla" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "lu_lari_comp2_tabla" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "octapad_comp1" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "octapad_comp2" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "octapad_comp3" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_01" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_02" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_03" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_04" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_05" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_06" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_07" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_08" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_09" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "parhant_10" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_chakkar_1_beat_70_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_chakkar_1_beat_80_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_chakkar_1_beat_90_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_chakkar_2_beat_70_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_chakkar_2_beat_80_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_chakkar_3_beat" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_chakkar_5_beat" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_hastak_2_beat" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_hastak_3_beat" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_hastak_4_beat" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_100_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_150_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_200_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_220_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_250_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_300_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_350_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_400_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar400bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_440_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_taatkar_520_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_takita_takita_dhin_45_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_takita_takita_dhin_50_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_takita_takita_dhin_110_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_takita_takita_dhin_130_bpm" },
+        new AudioEntry { folderName = "Assets/Audio/tracks_app", fileName = "riyaz_takita_takita_dhin_175_bpm" },
+    };
+
+    [Header("Local Storage")]
+    [Tooltip("Subfolder inside Application.persistentDataPath, e.g. AudioCache")]
+    public string localRootFolderName = "AudioCache";
+
+    [Tooltip("If a file exists but is smaller than this, treat it as corrupted and re-download.")]
+    public long minValidBytes = 1024; // 1 KB safety check (tweak or set to 0)
+
+    [Tooltip("Optional: seconds before a request times out (0 = Unity default).")]
+    public int timeoutSeconds = 30;
+
+    private bool _isDownloading;
+
+    /// <summary>Cache of loaded clips by key "folderName|fileName".</summary>
+    private readonly Dictionary<string, AudioClip> _clipCache = new Dictionary<string, AudioClip>();
+
+    // ---------------------------
+    // Public API (as requested)
+    // ---------------------------
+
+    public void download_audios()
+    {
+        if (_isDownloading) return;
+        StartCoroutine(DownloadAudiosCoroutine());
+    }
+
+    public void check_audio_integrity()
+    {
+        bool allPresent = AreAllAudiosPresent();
+
+        if (!allPresent)
+        {
+            if (download_dialogue != null)
+                download_dialogue.SetActive(true);
+
+            download_audios();
+        }
+        // If all present, do nothing.
+    }
+
+    /// <summary>Returns a cached AudioClip for the given track, or null if not yet loaded.</summary>
+    public AudioClip GetClip(string fileName, string folderName = null)
+    {
+        string key = MakeClipCacheKey(folderName, fileName);
+        return _clipCache.TryGetValue(key, out var clip) ? clip : null;
+    }
+
+    /// <summary>Loads the track from disk (or returns cached). Calls onLoaded with the clip when ready.</summary>
+    public void LoadClip(string fileName, string folderName, Action<AudioClip> onLoaded)
+    {
+        if (onLoaded == null) return;
+
+        AudioClip cached = GetClip(fileName, folderName);
+        if (cached != null)
+        {
+            onLoaded(cached);
+            return;
+        }
+
+        StartCoroutine(LoadClipCoroutine(fileName, folderName ?? "", onLoaded));
+    }
+
+    private static string MakeClipCacheKey(string folderName, string fileName)
+    {
+        return (folderName ?? "").Trim() + "|" + (fileName ?? "").Trim();
+    }
+
+    private IEnumerator LoadClipCoroutine(string fileName, string folderName, Action<AudioClip> onLoaded)
+    {
+        string localRoot = Path.Combine(Application.persistentDataPath, localRootFolderName);
+        string localPath = BuildLocalPath(localRoot, folderName, fileName);
+
+        if (!File.Exists(localPath))
+        {
+            Debug.LogWarning($"[AudioManager] GetClip: file not found: {localPath}");
+            onLoaded(null);
+            yield break;
+        }
+
+        // file:/// for absolute paths: Windows C:\... -> file:///C:/... ; Unix /path -> file:///path
+        string uri = localPath.StartsWith("/") ? "file://" + localPath : "file:///" + localPath.Replace('\\', '/');
+        using (var req = UnityWebRequestMultimedia.GetAudioClip(uri, AudioType.MPEG))
+        {
+            yield return req.SendWebRequest();
+
+#if UNITY_2020_2_OR_NEWER
+            if (req.result != UnityWebRequest.Result.Success)
+#else
+            if (req.isNetworkError || req.isHttpError)
+#endif
+            {
+                Debug.LogError($"[AudioManager] Failed to load clip: {uri}\n{req.error}");
+                onLoaded(null);
+                yield break;
+            }
+
+            AudioClip clip = DownloadHandlerAudioClip.GetContent(req);
+            if (clip != null)
+            {
+                string key = MakeClipCacheKey(folderName, fileName);
+                _clipCache[key] = clip;
+            }
+            onLoaded(clip);
+        }
+    }
+
+    // ---------------------------
+    // Core implementation
+    // ---------------------------
+
+    private IEnumerator DownloadAudiosCoroutine()
+    {
+        _isDownloading = true;
+
+        string localRoot = Path.Combine(Application.persistentDataPath, localRootFolderName);
+        Directory.CreateDirectory(localRoot);
+
+        int total = audios != null ? audios.Count : 0;
+        int completed = 0;
+
+        progressUI?.SetProgress(0f, total == 0 ? "No audios configured." : "Preparing downloads...");
+
+        if (total == 0)
+        {
+            FinishDownloads();
+            yield break;
+        }
+
+        for (int i = 0; i < audios.Count; i++)
+        {
+            AudioEntry entry = audios[i];
+            if (entry == null) { completed++; continue; }
+
+            string url = BuildUrl(entry);
+            string localPath = BuildLocalPath(localRoot, entry);
+
+            // Skip if already on disk (and passes size check)
+            if (IsFileValid(localPath))
+            {
+                completed++;
+                float overallSkipProgress = (float)completed / total;
+                progressUI?.SetProgress(overallSkipProgress, $"Already downloaded: {entry.fileName}.mp3");
+                continue;
+            }
+
+            // Ensure folder exists
+            Directory.CreateDirectory(Path.GetDirectoryName(localPath) ?? localRoot);
+
+            // Download to a temp file first, then replace (prevents half-written files if interrupted)
+            string tempPath = localPath + ".tmp";
+            if (File.Exists(tempPath)) SafeDelete(tempPath);
+
+            progressUI?.SetProgress((float)completed / total, $"Downloading: {entry.fileName}.mp3");
+
+            using (UnityWebRequest req = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET))
+            {
+                req.downloadHandler = new DownloadHandlerFile(tempPath, true);
+
+                if (timeoutSeconds > 0)
+                    req.timeout = timeoutSeconds;
+
+                req.SendWebRequest();
+
+                while (!req.isDone)
+                {
+                    float overall = (completed + Mathf.Clamp01(req.downloadProgress)) / total;
+                    progressUI?.SetProgress(
+                        overall,
+                        $"Downloading: {entry.fileName}.mp3  ({Mathf.RoundToInt(req.downloadProgress * 100f)}%)"
+                    );
+                    yield return null;
+                }
+
+#if UNITY_2020_2_OR_NEWER
+                bool ok = req.result == UnityWebRequest.Result.Success;
+#else
+                bool ok = !req.isNetworkError && !req.isHttpError;
+#endif
+
+                if (!ok)
+                {
+                    Debug.LogError($"[AudioManager] Failed: {url}\nError: {req.error}");
+
+                    // Clean up temp file
+                    SafeDelete(tempPath);
+
+                    // Keep dialogue visible so user can retry / handle UI messaging.
+                    _isDownloading = false;
+                    yield break;
+                }
+            }
+
+            // Replace final file
+            SafeDelete(localPath);
+            File.Move(tempPath, localPath);
+
+            // Validate size (optional)
+            if (!IsFileValid(localPath))
+            {
+                Debug.LogError($"[AudioManager] Downloaded file looks invalid (too small): {localPath}");
+                SafeDelete(localPath);
+
+                _isDownloading = false;
+                yield break;
+            }
+
+            completed++;
+            float overallProgress = (float)completed / total;
+            progressUI?.SetProgress(overallProgress, $"Downloaded: {entry.fileName}.mp3");
+        }
+
+        FinishDownloads();
+    }
+
+    private void FinishDownloads()
+    {
+        progressUI?.SetProgress(1f, "Downloads complete.");
+
+        if (download_dialogue != null)
+            download_dialogue.SetActive(false);
+
+        _isDownloading = false;
+    }
+
+    private bool AreAllAudiosPresent()
+    {
+        string localRoot = Path.Combine(Application.persistentDataPath, localRootFolderName);
+        if (audios == null || audios.Count == 0) return true;
+
+        for (int i = 0; i < audios.Count; i++)
+        {
+            var entry = audios[i];
+            if (entry == null) continue;
+
+            string localPath = BuildLocalPath(localRoot, entry);
+            if (!IsFileValid(localPath))
+                return false;
+        }
+        return true;
+    }
+
+    private bool IsFileValid(string path)
+    {
+        if (!File.Exists(path)) return false;
+        if (minValidBytes <= 0) return true;
+
+        try
+        {
+            var info = new FileInfo(path);
+            return info.Length >= minValidBytes;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private void SafeDelete(string path)
+    {
+        try
+        {
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"[AudioManager] Could not delete file: {path}\n{e.Message}");
+        }
+    }
+
+    private string BuildUrl(AudioEntry entry)
+    {
+        // Always download from baseUrl (e.g. .../tracks/) — no folder segment.
+        string b = (baseUrl ?? "").TrimEnd('/');
+        return $"{b}/{entry.fileName}.mp3";
+    }
+
+    private string BuildLocalPath(string localRoot, AudioEntry entry)
+    {
+        return BuildLocalPath(localRoot, entry.folderName, entry.fileName);
+    }
+
+    private static string BuildLocalPath(string localRoot, string folderName, string fileName)
+    {
+        string folder = (folderName ?? "").Trim('/', '\\');
+        string file = (fileName ?? "").Trim();
+
+        if (string.IsNullOrWhiteSpace(folder))
+            return Path.Combine(localRoot, $"{file}.mp3");
+
+        return Path.Combine(localRoot, folder, $"{file}.mp3");
+    }
+
+    // ---------------------------
+    // Data + UI helper classes
+    // ---------------------------
+
+    [Serializable]
+    public class AudioEntry
+    {
+        [Tooltip("Remote folder under baseUrl. Example: 'sfx' or 'music'. Can be empty.")]
+        public string folderName;
+
+        [Tooltip("File name WITHOUT extension. Example: 'click_01' (script appends .mp3).")]
+        public string fileName;
+    }
+
+    [Serializable]
+    public class ProgressUI
+    {
+        [Tooltip("Optional Slider used as a progress bar. Set Min=0, Max=1.")]
+        public Slider progressBar;
+
+        [Tooltip("Optional TMP text for status.")]
+        public TMP_Text statusText;
+
+        public void SetProgress(float normalized01, string status)
+        {
+            if (progressBar != null)
+                progressBar.value = Mathf.Clamp01(normalized01);
+
+            if (statusText != null)
+                statusText.text = status ?? "";
+        }
+    }
+
+    private void Start()
+    {
+        Debug.Log("Persistent path: " + Application.persistentDataPath);
+        check_audio_integrity();
+    }
+}

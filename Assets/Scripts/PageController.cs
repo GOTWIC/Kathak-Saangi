@@ -24,8 +24,11 @@ public class PageController : MonoBehaviour
         // Used for Header + Audio + Video + Button
         public string displayName;
 
-        // Only used when type == Audio
-        public AudioClip audioClip;
+        // Only used when type == Audio: track id (matches AudioManager's folderName/fileName)
+        [Tooltip("Folder name (e.g. Assets/Audio/tracks_app). Leave empty to use default.")]
+        public string audioFolderName = "Assets/Audio/tracks_app";
+        [Tooltip("File name without extension (e.g. kramalaya_3).")]
+        public string audioFileName;
 
         // Only used when type == Description
         [TextArea(2, 8)]
@@ -46,6 +49,8 @@ public class PageController : MonoBehaviour
     // ---------------------------
     [Header("Scene References")]
     [SerializeField] private Transform content;
+    [Tooltip("Required for Audio items: provides downloaded clips by fileName/folderName.")]
+    [SerializeField] private AudioManager audioManager;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject headerPrefab;
@@ -251,26 +256,40 @@ public class PageController : MonoBehaviour
                 if (tmp != null) tmp.text = item.displayName ?? "";
                 else Debug.LogWarning($"[PageController] Audio TMP not found at '{AUDIO_TMP_PATH}' on '{instanceRoot.name}'.");
 
-                // Set audio clip on the audio_controller component
                 var audioController = instanceRoot.GetComponent<audio_controller>();
                 if (audioController == null)
                 {
                     Debug.LogWarning($"[PageController] audio_controller component not found on '{instanceRoot.name}'.");
                 }
-                else
+                else if (audioManager == null)
                 {
-                    // Use reflection to set the private serialized audioClip field
-                    var audioClipField = typeof(audio_controller).GetField("audioClip", 
-                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
-                    if (audioClipField != null)
+                    Debug.LogWarning("[PageController] AudioManager not assigned; cannot resolve audio track.");
+                }
+                    else
                     {
-                        audioClipField.SetValue(audioController, item.audioClip);
-                        // Debug.Log($"[PageController] Set audio_controller.audioClip to: {(item.audioClip != null ? item.audioClip.name : "NULL")}");
+                        string fileName = item.audioFileName ?? "";
+                        string folderName = string.IsNullOrWhiteSpace(item.audioFolderName)
+                            ? "Assets/Audio/tracks_app"
+                            : item.audioFolderName.Trim();
+                    if (string.IsNullOrWhiteSpace(fileName))
+                    {
+                        Debug.LogWarning("[PageController] Audio item has no audioFileName set.");
                     }
                     else
                     {
-                        Debug.LogError($"[PageController] Failed to find audioClip field on audio_controller via reflection!");
+                        AudioClip clip = audioManager.GetClip(fileName, folderName);
+                        if (clip != null)
+                        {
+                            SetAudioControllerClip(audioController, clip);
+                        }
+                        else
+                        {
+                            audioManager.LoadClip(fileName, folderName, loadedClip =>
+                            {
+                                if (loadedClip != null)
+                                    SetAudioControllerClip(audioController, loadedClip);
+                            });
+                        }
                     }
                 }
 
@@ -419,6 +438,15 @@ public class PageController : MonoBehaviour
     {
         var t = FindByPath(root, path);
         return t != null ? t.GetComponent<TMP_Text>() : null;
+    }
+
+    private static void SetAudioControllerClip(audio_controller controller, AudioClip clip)
+    {
+        if (controller == null) return;
+        var audioClipField = typeof(audio_controller).GetField("audioClip",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        if (audioClipField != null)
+            audioClipField.SetValue(controller, clip);
     }
 
     private Image GetImageAtRootPath(string pathFromRoot)
@@ -609,7 +637,7 @@ public class PageController : MonoBehaviour
 
                 var type = (ItemType)typeProp.enumValueIndex;
                 if (type == ItemType.Header) return (2 * lineH) + pad; // type + name
-                if (type == ItemType.Audio) return (3 * lineH) + pad;  // type + name + clip
+                if (type == ItemType.Audio) return (4 * lineH) + pad;  // type + name + folder + fileName
                 if (type == ItemType.Spacer) return lineH + pad;       // type only
                 if (type == ItemType.Video) return (3 * lineH) + pad;  // type + name + videoString
                 if (type == ItemType.Button) return (4 * lineH) + pad;  // type + name + canvasToDisable + canvasToEnable
@@ -624,7 +652,8 @@ public class PageController : MonoBehaviour
                 var element = _list.serializedProperty.GetArrayElementAtIndex(index);
                 var typeProp = element.FindPropertyRelative("type");
                 var nameProp = element.FindPropertyRelative("displayName");
-                var clipProp = element.FindPropertyRelative("audioClip");
+                var audioFolderNameProp = element.FindPropertyRelative("audioFolderName");
+                var audioFileNameProp = element.FindPropertyRelative("audioFileName");
                 var descProp = element.FindPropertyRelative("descriptionText");
                 var descHeightOverrideProp = element.FindPropertyRelative("descriptionHeightOverride");
                 var canvasToDisableProp = element.FindPropertyRelative("canvasToDisable");
@@ -648,9 +677,11 @@ public class PageController : MonoBehaviour
                 {
                     var r1 = new Rect(rect.x, rect.y + lineH, rect.width, lineH);
                     var r2 = new Rect(rect.x, rect.y + 2 * lineH, rect.width, lineH);
+                    var r3 = new Rect(rect.x, rect.y + 3 * lineH, rect.width, lineH);
 
                     UnityEditor.EditorGUI.PropertyField(r1, nameProp, new GUIContent("Name"));
-                    UnityEditor.EditorGUI.PropertyField(r2, clipProp, new GUIContent("Audio Clip"));
+                    UnityEditor.EditorGUI.PropertyField(r2, audioFolderNameProp, new GUIContent("Audio Folder"));
+                    UnityEditor.EditorGUI.PropertyField(r3, audioFileNameProp, new GUIContent("Audio File Name"));
                 }
                 else if (type == ItemType.Spacer)
                 {
@@ -691,6 +722,7 @@ public class PageController : MonoBehaviour
 
             // Scene refs / prefabs
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("content"));
+            UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("audioManager"));
             UnityEditor.EditorGUILayout.Space(4);
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("headerPrefab"));
             UnityEditor.EditorGUILayout.PropertyField(serializedObject.FindProperty("audioPrefab"));
@@ -767,7 +799,8 @@ public class PageController : MonoBehaviour
             var element = itemsProp.GetArrayElementAtIndex(idx);
             element.FindPropertyRelative("type").enumValueIndex = (int)type;
             element.FindPropertyRelative("displayName").stringValue = "";
-            element.FindPropertyRelative("audioClip").objectReferenceValue = null;
+            element.FindPropertyRelative("audioFolderName").stringValue = "Assets/Audio/tracks_app";
+            element.FindPropertyRelative("audioFileName").stringValue = "";
             element.FindPropertyRelative("descriptionText").stringValue = "";
             element.FindPropertyRelative("descriptionHeightOverride").floatValue = 0f;
             element.FindPropertyRelative("canvasToDisable").objectReferenceValue = null;
