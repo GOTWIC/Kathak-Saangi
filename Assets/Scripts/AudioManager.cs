@@ -218,7 +218,7 @@ public class AudioManager : MonoBehaviour
             {
                 completed++;
                 float overallSkipProgress = (float)completed / total;
-                progressUI?.SetProgress(overallSkipProgress, $"Already downloaded: {entry.fileName}.mp3");
+                progressUI?.SetProgress(overallSkipProgress, $"{completed}/{total}");
                 continue;
             }
 
@@ -229,7 +229,7 @@ public class AudioManager : MonoBehaviour
             string tempPath = localPath + ".tmp";
             if (File.Exists(tempPath)) SafeDelete(tempPath);
 
-            progressUI?.SetProgress((float)completed / total, $"Downloading: {entry.fileName}.mp3");
+            progressUI?.SetProgress((float)completed / total, $"{completed + 1}/{total}");
 
             using (UnityWebRequest req = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET))
             {
@@ -243,10 +243,7 @@ public class AudioManager : MonoBehaviour
                 while (!req.isDone)
                 {
                     float overall = (completed + Mathf.Clamp01(req.downloadProgress)) / total;
-                    progressUI?.SetProgress(
-                        overall,
-                        $"Downloading: {entry.fileName}.mp3  ({Mathf.RoundToInt(req.downloadProgress * 100f)}%)"
-                    );
+                    progressUI?.SetProgress(overall, $"{completed + 1}/{total}");
                     yield return null;
                 }
 
@@ -285,7 +282,7 @@ public class AudioManager : MonoBehaviour
 
             completed++;
             float overallProgress = (float)completed / total;
-            progressUI?.SetProgress(overallProgress, $"Downloaded: {entry.fileName}.mp3");
+            progressUI?.SetProgress(overallProgress, $"{completed}/{total}");
         }
 
         FinishDownloads();
