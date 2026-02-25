@@ -160,6 +160,12 @@ public class AudioManager : MonoBehaviour
         string uri = localPath.StartsWith("/") ? "file://" + localPath : "file:///" + localPath.Replace('\\', '/');
         using (var req = UnityWebRequestMultimedia.GetAudioClip(uri, AudioType.MPEG))
         {
+            // Streaming: decode on the fly from disk instead of loading entire clip into memory.
+            // Similar to Unity's "Streaming" load type — faster to start, lower memory.
+            var dh = req.downloadHandler as DownloadHandlerAudioClip;
+            if (dh != null)
+                dh.streamAudio = true;
+
             yield return req.SendWebRequest();
 
 #if UNITY_2020_2_OR_NEWER

@@ -4969,13 +4969,13 @@ PrefabInstance:
       value: Octapad
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 860078352}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
       objectReference: {fileID: 7970593409031449545, guid: cd58ca256a57f4e3cb3aaea42b90bd92, type: 3}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.b
       value: 0
@@ -5053,6 +5053,18 @@ PrefabInstance:
       value: Composition 3
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[3].audioFileName
+      value: octapad_comp1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[4].audioFileName
+      value: octapad_comp2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[5].audioFileName
+      value: octapad_comp3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[1].descriptionText
       value: Custom compositions created via the octapad for kathakars' own choreographies.
       objectReference: {fileID: 0}
@@ -5061,24 +5073,12 @@ PrefabInstance:
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[3].audioFileName
-      value: octapad_comp1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[4].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[4].audioFileName
-      value: octapad_comp2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[5].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[5].audioFileName
-      value: octapad_comp3
       objectReference: {fileID: 0}
     - target: {fileID: 5995151173653133501, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6086,13 +6086,13 @@ PrefabInstance:
       value: Ladi and Upaj
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 860078352}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
       objectReference: {fileID: -856677336747928097, guid: 3828a08ba66d94d68b3dac81af6e2013, type: 3}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.b
       value: 0.39215687
@@ -6206,6 +6206,30 @@ PrefabInstance:
       value: Example Upaj 2
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[2].audioFileName
+      value: lu_lari_comp1_tabla
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[3].audioFileName
+      value: lu_lari_comp1_rec
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[4].audioFileName
+      value: lu_lari_comp2_tabla
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[5].audioFileName
+      value: lu_lari_comp2_rec
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[8].audioFileName
+      value: lu_upaj_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[9].audioFileName
+      value: lu_upaj_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[1].descriptionText
       value: Ladi literally means a sequence of rhythmic variations. Beginning with
         a theme, different patterns of that theme proceed through associated avartans
@@ -6218,32 +6242,16 @@ PrefabInstance:
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[2].audioFileName
-      value: lu_lari_comp1_tabla
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[3].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[3].audioFileName
-      value: lu_lari_comp1_rec
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[4].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[4].audioFileName
-      value: lu_lari_comp2_tabla
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[5].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[5].audioFileName
-      value: lu_lari_comp2_rec
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[7].descriptionText
@@ -6263,16 +6271,8 @@ PrefabInstance:
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[8].audioFileName
-      value: lu_upaj_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[9].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[9].audioFileName
-      value: lu_upaj_2
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[1].descriptionHeightOverride
@@ -11854,13 +11854,13 @@ PrefabInstance:
       value: Kramalaya
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 860078352}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
       objectReference: {fileID: 8786692205131216369, guid: b671e410497c7465ab4cb10ce0a0469d, type: 3}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.b
       value: 0.50980395
@@ -11998,68 +11998,68 @@ PrefabInstance:
       value: 'Tabla: 1 to 8, Tehai'
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[1].audioFolderName
-      value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[1].audioFileName
       value: kramalaya_1_2_4_T_tabla
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[3].audioFolderName
-      value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[3].audioFileName
       value: kramalaya_3
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[4].audioFolderName
-      value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[4].audioFileName
       value: kramalaya_1_4_8_T_tabla
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[6].audioFolderName
-      value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[6].audioFileName
       value: kramalaya_5
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[7].audioFolderName
-      value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[7].audioFileName
       value: kramalaya_6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[8].audioFolderName
-      value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[8].audioFileName
       value: kramalaya_7
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[9].audioFolderName
-      value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[9].audioFileName
       value: kramalaya_1_8_T
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[10].audioFolderName
+      propertyPath: items.Array.data[10].audioFileName
+      value: kramalaya_1_8_T_tabla
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[1].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[10].audioFileName
-      value: kramalaya_1_8_T_tabla
+      propertyPath: items.Array.data[3].audioFolderName
+      value: Assets/Audio/tracks_app
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[4].audioFolderName
+      value: Assets/Audio/tracks_app
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[6].audioFolderName
+      value: Assets/Audio/tracks_app
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[7].audioFolderName
+      value: Assets/Audio/tracks_app
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[8].audioFolderName
+      value: Assets/Audio/tracks_app
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[9].audioFolderName
+      value: Assets/Audio/tracks_app
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[10].audioFolderName
+      value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5995151173653133501, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_AnchorMax.y
@@ -22984,7 +22984,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.7254902, g: 0.5882353, b: 0.39215687, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -25550,7 +25550,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.7254902, g: 0.5882353, b: 0.39215687, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -36258,7 +36258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7254902, g: 0.5882353, b: 0.39215687, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -45182,13 +45182,13 @@ PrefabInstance:
       value: Padhant
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 860078352}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
       objectReference: {fileID: -1964769029138863996, guid: d23e6a452f2bc4a83b0203d91ce7d122, type: 3}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: buildOnStart
       value: 1
@@ -45354,6 +45354,46 @@ PrefabInstance:
       value: Recitation 10
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[3].audioFileName
+      value: parhant_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[4].audioFileName
+      value: parhant_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[5].audioFileName
+      value: parhant_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[6].audioFileName
+      value: parhant_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[7].audioFileName
+      value: parhant_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[8].audioFileName
+      value: parhant_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[9].audioFileName
+      value: parhant_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[10].audioFileName
+      value: parhant_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[11].audioFileName
+      value: parhant_09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[12].audioFileName
+      value: parhant_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[1].descriptionText
       value: Compositions to help you improve your recitation skills and pronounciation
         of common Kathak and Tabla Bols.
@@ -45363,80 +45403,40 @@ PrefabInstance:
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[3].audioFileName
-      value: parhant_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[4].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[4].audioFileName
-      value: parhant_02
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[5].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[5].audioFileName
-      value: parhant_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[6].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[6].audioFileName
-      value: parhant_04
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[7].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[7].audioFileName
-      value: parhant_05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[8].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[8].audioFileName
-      value: parhant_06
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[9].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[9].audioFileName
-      value: parhant_07
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[10].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[10].audioFileName
-      value: parhant_08
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[11].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[11].audioFileName
-      value: parhant_09
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[12].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[12].audioFileName
-      value: parhant_10
       objectReference: {fileID: 0}
     - target: {fileID: 5995151173653133501, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_AnchorMax.y
@@ -49461,7 +49461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.22745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.99215686}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -50644,7 +50644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.92941177}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.99215686}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -55703,13 +55703,13 @@ PrefabInstance:
       value: Riyaz
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 860078352}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_image
       value: 
       objectReference: {fileID: 8779498087537932851, guid: 925c0f42857d44879aaa6ed684a5c242, type: 3}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 860078352}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: page_color.a
       value: 1
@@ -56087,6 +56087,106 @@ PrefabInstance:
       value: 5 Beat
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[3].audioFileName
+      value: riyaz_hastak_2_beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[4].audioFileName
+      value: riyaz_hastak_3_beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[5].audioFileName
+      value: riyaz_hastak_4_beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[7].audioFileName
+      value: riyaz_taatkar_100_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[8].audioFileName
+      value: riyaz_taatkar_150_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[9].audioFileName
+      value: riyaz_taatkar_200_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[10].audioFileName
+      value: riyaz_taatkar_220_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[11].audioFileName
+      value: riyaz_taatkar_250_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[12].audioFileName
+      value: riyaz_taatkar_300_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[13].audioFileName
+      value: riyaz_taatkar_350_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[14].audioFileName
+      value: riyaz_taatkar_400_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[15].audioFileName
+      value: riyaz_taatkar_440_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[16].audioFileName
+      value: riyaz_taatkar_520_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[18].audioFileName
+      value: riyaz_takita_takita_dhin_45_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[19].audioFileName
+      value: riyaz_takita_takita_dhin_50_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[20].audioFileName
+      value: riyaz_takita_takita_dhin_110_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[21].audioFileName
+      value: riyaz_takita_takita_dhin_130_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[22].audioFileName
+      value: riyaz_takita_takita_dhin_175_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[24].audioFileName
+      value: riyaz_chakkar_1_beat_70_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[25].audioFileName
+      value: riyaz_chakkar_1_beat_80_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[26].audioFileName
+      value: riyaz_chakkar_1_beat_90_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[27].audioFileName
+      value: riyaz_chakkar_2_beat_70_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[28].audioFileName
+      value: riyaz_chakkar_2_beat_80_bpm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[29].audioFileName
+      value: riyaz_chakkar_3_beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
+      propertyPath: items.Array.data[30].audioFileName
+      value: riyaz_chakkar_5_beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[1].descriptionText
       value: '"Use these practice audios for your daily riyaz of hand-movements,
         footwork, and circles.'
@@ -56096,200 +56196,100 @@ PrefabInstance:
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[3].audioFileName
-      value: riyaz_hastak_2_beat
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[4].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[4].audioFileName
-      value: riyaz_hastak_3_beat
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[5].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[5].audioFileName
-      value: riyaz_hastak_4_beat
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[7].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[7].audioFileName
-      value: riyaz_taatkar_100_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[8].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[8].audioFileName
-      value: riyaz_taatkar_150_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[9].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[9].audioFileName
-      value: riyaz_taatkar_200_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[10].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[10].audioFileName
-      value: riyaz_taatkar_220_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[11].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[11].audioFileName
-      value: riyaz_taatkar_250_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[12].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[12].audioFileName
-      value: riyaz_taatkar_300_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[13].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[13].audioFileName
-      value: riyaz_taatkar_350_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[14].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[14].audioFileName
-      value: riyaz_taatkar_400_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[15].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[15].audioFileName
-      value: riyaz_taatkar_440_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[16].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[16].audioFileName
-      value: riyaz_taatkar_520_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[18].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[18].audioFileName
-      value: riyaz_takita_takita_dhin_45_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[19].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[19].audioFileName
-      value: riyaz_takita_takita_dhin_50_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[20].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[20].audioFileName
-      value: riyaz_takita_takita_dhin_110_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[21].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[21].audioFileName
-      value: riyaz_takita_takita_dhin_130_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[22].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[22].audioFileName
-      value: riyaz_takita_takita_dhin_175_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[24].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[24].audioFileName
-      value: riyaz_chakkar_1_beat_70_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[25].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[25].audioFileName
-      value: riyaz_chakkar_1_beat_80_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[26].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[26].audioFileName
-      value: riyaz_chakkar_1_beat_90_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[27].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[27].audioFileName
-      value: riyaz_chakkar_2_beat_70_bpm
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[28].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[28].audioFileName
-      value: riyaz_chakkar_2_beat_80_bpm
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[29].audioFolderName
       value: Assets/Audio/tracks_app
       objectReference: {fileID: 0}
     - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[29].audioFileName
-      value: riyaz_chakkar_3_beat
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: items.Array.data[30].audioFolderName
       value: Assets/Audio/tracks_app
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884056710426590124, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
-      propertyPath: items.Array.data[30].audioFileName
-      value: riyaz_chakkar_5_beat
       objectReference: {fileID: 0}
     - target: {fileID: 5995151173653133501, guid: 99ec488e0143c49339384deebeb4e632, type: 3}
       propertyPath: m_AnchorMax.y
