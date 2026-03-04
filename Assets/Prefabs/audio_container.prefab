@@ -274,6 +274,8 @@ MonoBehaviour:
   progressSlider: {fileID: 723174194643000461}
   audioSource: {fileID: 774561295439634104}
   audioClip: {fileID: 0}
+  trackName: 
+  trackFolderName: Assets/Audio/tracks_app
 --- !u!114 &4483841268305544475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +490,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1300, y: 120}
+  m_SizeDelta: {x: 400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5299236788784175134
 MonoBehaviour:
