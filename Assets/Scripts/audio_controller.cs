@@ -20,7 +20,47 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
+    [Header("Fallback Load")]
+    [SerializeField] private string trackName;
+    [SerializeField] private string trackFolderName = "Assets/Audio/tracks_app";
+
+    private AudioManager _audioManager;
+    private bool _clipLoadRequested;
+    private float _retryAfterTime;
+
     private bool isScrubbing;
+
+    private static readonly System.Collections.Generic.List<audio_controller> s_allInstances = new System.Collections.Generic.List<audio_controller>();
+
+    private void OnEnable()
+    {
+        if (!s_allInstances.Contains(this))
+            s_allInstances.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        s_allInstances.Remove(this);
+    }
+
+    /// <summary>Stops playback and updates UI to paused state. Used when another track starts so only one plays at a time.</summary>
+    public void StopPlayback()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            SetPlayingUI(false);
+        }
+    }
+
+    public void SetTrack(string fileName, string folderName, AudioManager manager)
+    {
+        trackName = fileName;
+        trackFolderName = string.IsNullOrWhiteSpace(folderName) ? "Assets/Audio/tracks_app" : folderName.Trim();
+        _audioManager = manager;
+        _clipLoadRequested = false;
+        _retryAfterTime = 0f;
+    }
 
     private void Awake()
     {
@@ -61,6 +101,29 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
+        // Fallback: if the clip was never assigned, use trackName to load it.
+        // Retries every 5 seconds in case the file wasn't on disk yet (still downloading).
+        if (audioClip == null && !_clipLoadRequested
+            && !string.IsNullOrWhiteSpace(trackName)
+            && _audioManager != null
+            && Time.time >= _retryAfterTime)
+        {
+            _clipLoadRequested = true;
+            _audioManager.LoadClip(trackName, trackFolderName, clip =>
+            {
+                if (clip != null)
+                {
+                    audioClip = clip;
+                }
+                else
+                {
+                    // File not available yet; allow another attempt after a delay.
+                    _clipLoadRequested = false;
+                    _retryAfterTime = Time.time + 5f;
+                }
+            });
+        }
+
         if (audioSource == null || audioSource.clip == null || progressSlider == null) return;
 
         // Finished -> reset UI
@@ -100,6 +163,13 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
         else
         {
             if (audioSource.clip == null) return;
+            // Stop all other audio controllers so only this one plays
+            for (int i = s_allInstances.Count - 1; i >= 0; i--)
+            {
+                var other = s_allInstances[i];
+                if (other != null && other != this)
+                    other.StopPlayback();
+            }
             audioSource.Play();
             SetPlayingUI(true);
         }

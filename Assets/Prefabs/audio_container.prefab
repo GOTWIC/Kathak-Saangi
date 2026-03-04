@@ -273,7 +273,7 @@ MonoBehaviour:
   progressBarRoot: {fileID: 3732970637063548778}
   progressSlider: {fileID: 723174194643000461}
   audioSource: {fileID: 774561295439634104}
-  audioClip: {fileID: 8300000, guid: 87792e6dd1f8f42d78dc6e79161cc830, type: 3}
+  audioClip: {fileID: 0}
 --- !u!114 &4483841268305544475
 MonoBehaviour:
   m_ObjectHideFlags: 0

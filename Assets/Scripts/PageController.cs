@@ -277,6 +277,10 @@ public class PageController : MonoBehaviour
                     }
                     else
                     {
+                        // Always register the track so audio_controller can fall back to
+                        // loading the clip itself (via Update) if neither path below delivers one.
+                        audioController.SetTrack(fileName, folderName, audioManager);
+
                         AudioClip clip = audioManager.GetClip(fileName, folderName);
                         if (clip != null)
                         {
