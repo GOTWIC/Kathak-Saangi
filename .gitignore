@@ -9,6 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/.utmp/
+/android_build/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -61,4 +63,6 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+.utmp/
 
