@@ -32254,7 +32254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[16].text
-      value: Lord Krishno Vandana
+      value: Lord Krishna Vandana
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[16].type
@@ -32262,16 +32262,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[17].text
-      value: "Bhaje vrajaika mau7751 danam samasta pu257 pa khau7751 danam,\nSvabhakta
-        chitta ra'f1janam sadaiv Nandau8209 nandanam.\nSupiccha guchchha mastakam,
-        su363 nu257 d veu7751 u hastakam,\nAnau7749 ga rau7749 ga su257 garam namaami
-        Krishna nu257 garam.\n\nThis eightu8209 verse hymn (Krishn Ashtakam) describes
-        Krishno as the delight of Vraja, remover of sins, beloved of devotees, adorned
-        with peacock feathers, and the one who plays the flute, evoking his joyful
-        and compassionate nature.  \nIn essence, chanting or meditating on this shloka
-        is not just praise; it'92s a practical spiritual tool. It purifies the mind,
-        awakens love for the divine, and guides the devotee toward a state of blissful
-        awareness and surrender.\n"
+      value: "Bhaje vrajaika-ma\u1E47\u1E0Dana\u1E41 samasta-p\u0101pa-kha\u1E47\u1E0Danam,\nSvabhakta-citta-ra\xF1jana\u1E41
+        sadaiva Nanda-nandanam.\nSupiccha-guccha-mastaka\u1E41, sun\u0101da-ve\u1E47u-hastakam,\nAna\u1E45ga-ra\u1E45ga-s\u0101gara\u1E41
+        nam\u0101mi K\u1E5B\u1E63\u1E47a-n\u0101garam.\n\nThis eight-verse hymn (Krishna
+        Ashtakam) describes Krishna as the delight of Vraja, the remover of sins,
+        the beloved of devotees, adorned with peacock feathers, and the one who plays
+        the flute, evoking his joyful and compassionate nature.\n\nIn essence, chanting
+        or meditating on this shloka is not just praise; it\u2019s a practical spiritual
+        tool. It purifies the mind, awakens love for the divine, and guides the devotee
+        toward a state of blissful awareness and surrender."
       objectReference: {fileID: 0}
     - target: {fileID: 8645173432203703576, guid: 14a9b7db9e7bf4fb683ffbafe7aeff81, type: 3}
       propertyPath: items.Array.data[17].type
