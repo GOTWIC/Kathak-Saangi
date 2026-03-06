@@ -3,9 +3,11 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [DisallowMultipleComponent]
-public class audio_controller : MonoBehaviour, IPointerClickHandler
+public class audio_controller : MonoBehaviour
 {
     [Header("UI")]
+    [Tooltip("Child to receive play/pause clicks (e.g. audio_element). EventTrigger is added at runtime.")]
+    [SerializeField] private GameObject clickTargetChild;
     [SerializeField] private Image playPauseImage;
     [SerializeField] private Sprite playSprite;
     [SerializeField] private Sprite pauseSprite;
@@ -80,6 +82,15 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
             progressSlider.onValueChanged.AddListener(OnSliderValueChanged);
         }
 
+        // Wire pointer click on the click-target child only (e.g. audio_element)
+        if (clickTargetChild != null)
+        {
+            var trigger = clickTargetChild.GetComponent<EventTrigger>() ?? clickTargetChild.AddComponent<EventTrigger>();
+            var entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+            entry.callback.AddListener(_ => TogglePlayPause());
+            trigger.triggers.Add(entry);
+        }
+
         SetPlayingUI(false);
     }
 
@@ -92,11 +103,6 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
     {
         if (progressSlider != null)
             progressSlider.onValueChanged.RemoveListener(OnSliderValueChanged);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        TogglePlayPause();
     }
 
     private void Update()
@@ -188,11 +194,7 @@ public class audio_controller : MonoBehaviour, IPointerClickHandler
     {
         if (audioSource == null || audioSource.clip == null) return;
 
-        // Seek only when the user is interacting (drag/touch),
-        // or when BeginScrub/EndScrub is used.
-        bool treatAsUserScrub = isScrubbing || Input.GetMouseButton(0) || Input.touchCount > 0;
-        if (!treatAsUserScrub) return;
-
+        // Seek: programmatic updates use SetValueWithoutNotify, so value changes here are from user interaction (drag/touch).
         float newTime = Mathf.Clamp01(value01) * audioSource.clip.length;
         audioSource.time = Mathf.Clamp(newTime, 0f, audioSource.clip.length);
     }

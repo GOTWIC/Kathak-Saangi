@@ -8,6 +8,10 @@ public class SetAspectRatio : MonoBehaviour
     [SerializeField] private float portraitAspect = 0.5f;
     [SerializeField] private float landscapeAspect = 2f;
 
+    [Header("Debug (read-only)")]
+    [Tooltip("True when the sprite is taller than wide; false when wider than tall.")]
+    public bool isPortrait;
+
     private Image _image;
     private AspectRatioFitter _fitter;
 
@@ -62,7 +66,7 @@ public class SetAspectRatio : MonoBehaviour
         float h = sprite.rect.height;
 
         // If square, treat as landscape by default.
-        bool isPortrait = h > w;
+        isPortrait = h > w;
 
         _fitter.aspectRatio = isPortrait ? portraitAspect : landscapeAspect;
     }

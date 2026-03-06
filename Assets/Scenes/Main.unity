@@ -34854,6 +34854,7 @@ GameObject:
   - component: {fileID: 1152273335}
   - component: {fileID: 1152273338}
   - component: {fileID: 1152273339}
+  - component: {fileID: 1152273340}
   m_Layer: 0
   m_Name: App
   m_TagString: Untagged
@@ -34935,6 +34936,18 @@ MonoBehaviour:
   topColor: {r: 0.18039216, g: 0, b: 0.11764706, a: 1}
   bottomColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
   fileName: wine_grey.png
+--- !u!114 &1152273340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152273334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd9ebbd6de504b039ab507513663a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IOSAudioSessionSetup
 --- !u!1 &1153442144
 GameObject:
   m_ObjectHideFlags: 0
