@@ -70,6 +70,7 @@ public class audio_controller : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.playOnAwake = false;
+            audioSource.ignoreListenerPause = true;
             if (audioClip != null) audioSource.clip = audioClip;
         }
 
