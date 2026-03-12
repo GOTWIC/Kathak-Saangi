@@ -17,8 +17,8 @@ public class AudioManager : MonoBehaviour
     public ProgressUI progressUI;
 
     [Header("Remote Source")]
-    [Tooltip("Example: https://www.swagnik.org")]
-    public string baseUrl = "https://raw.githubusercontent.com/GOTWIC/Kathak-Saangi/main/Assets/Audio/tracks/";
+    private string baseUrl = "https://pub-6ac8e01331fb4368a4d78b0912387db8.r2.dev/tracks_cloudfare/";
+    private string fallbackBaseUrl = "https://raw.githubusercontent.com/GOTWIC/Kathak-Saangi/main/Assets/Audio/tracks/";
 
     [Header("Audio List")]
     public List<AudioEntry> audios = new List<AudioEntry>
@@ -89,6 +89,9 @@ public class AudioManager : MonoBehaviour
     public int timeoutSeconds = 30;
 
     private bool _isDownloading;
+
+    private readonly List<AudioEntry> _laterList = new List<AudioEntry>();
+    private Coroutine _backgroundRetryCoroutine;
 
     /// <summary>Cache of loaded clips by key "folderName|fileName".</summary>
     private readonly Dictionary<string, AudioClip> _clipCache = new Dictionary<string, AudioClip>();
@@ -196,6 +199,7 @@ public class AudioManager : MonoBehaviour
     private IEnumerator DownloadAudiosCoroutine()
     {
         _isDownloading = true;
+        _laterList.Clear();
 
         string localRoot = Path.Combine(Application.persistentDataPath, localRootFolderName);
         Directory.CreateDirectory(localRoot);
@@ -216,82 +220,199 @@ public class AudioManager : MonoBehaviour
             AudioEntry entry = audios[i];
             if (entry == null) { completed++; continue; }
 
-            string url = BuildUrl(entry);
             string localPath = BuildLocalPath(localRoot, entry);
 
-            // Skip if already on disk (and passes size check)
             if (IsFileValid(localPath))
             {
                 completed++;
-                float overallSkipProgress = (float)completed / total;
-                progressUI?.SetProgress(overallSkipProgress, $"{completed}/{total}");
+                progressUI?.SetProgress((float)completed / total, $"{completed}/{total}");
                 continue;
             }
 
-            // Ensure folder exists
             Directory.CreateDirectory(Path.GetDirectoryName(localPath) ?? localRoot);
 
-            // Download to a temp file first, then replace (prevents half-written files if interrupted)
             string tempPath = localPath + ".tmp";
             if (File.Exists(tempPath)) SafeDelete(tempPath);
 
             progressUI?.SetProgress((float)completed / total, $"{completed + 1}/{total}");
 
-            using (UnityWebRequest req = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET))
+            bool success = false;
+            string primaryUrl = BuildUrl(entry, useFallback: false);
+            Debug.Log($"[AudioManager] Downloading {entry.fileName} from Cloudflare: {primaryUrl}");
+            yield return StartCoroutine(TryDownloadSingle(primaryUrl, tempPath, localPath,
+                (result) => success = result,
+                (progress) => progressUI?.SetProgress((completed + progress) / total, $"{completed + 1}/{total}")));
+
+            if (!success)
             {
-                req.downloadHandler = new DownloadHandlerFile(tempPath, true);
-
-                if (timeoutSeconds > 0)
-                    req.timeout = timeoutSeconds;
-
-                req.SendWebRequest();
-
-                while (!req.isDone)
-                {
-                    float overall = (completed + Mathf.Clamp01(req.downloadProgress)) / total;
-                    progressUI?.SetProgress(overall, $"{completed + 1}/{total}");
-                    yield return null;
-                }
-
-#if UNITY_2020_2_OR_NEWER
-                bool ok = req.result == UnityWebRequest.Result.Success;
-#else
-                bool ok = !req.isNetworkError && !req.isHttpError;
-#endif
-
-                if (!ok)
-                {
-                    Debug.LogError($"[AudioManager] Failed: {url}\nError: {req.error}");
-
-                    // Clean up temp file
-                    SafeDelete(tempPath);
-
-                    // Keep dialogue visible so user can retry / handle UI messaging.
-                    _isDownloading = false;
-                    yield break;
-                }
+                string fallbackUrl = BuildUrl(entry, useFallback: true);
+                Debug.LogWarning($"[AudioManager] Cloudflare failed for {entry.fileName}, retrying with GitHub: {fallbackUrl}");
+                SafeDelete(tempPath);
+                yield return StartCoroutine(TryDownloadSingle(fallbackUrl, tempPath, localPath,
+                    (result) => success = result,
+                    (progress) => progressUI?.SetProgress((completed + progress) / total, $"{completed + 1}/{total}")));
             }
 
-            // Replace final file
-            SafeDelete(localPath);
-            File.Move(tempPath, localPath);
-
-            // Validate size (optional)
-            if (!IsFileValid(localPath))
+            if (!success)
             {
-                Debug.LogError($"[AudioManager] Downloaded file looks invalid (too small): {localPath}");
-                SafeDelete(localPath);
-
-                _isDownloading = false;
-                yield break;
+                Debug.LogError($"[AudioManager] Both sources failed for {entry.fileName}. Putting in later list.");
+                SafeDelete(tempPath);
+                _laterList.Add(entry);
+                continue;
             }
+
+            Debug.Log($"[AudioManager] Successfully downloaded {entry.fileName}.");
 
             completed++;
-            float overallProgress = (float)completed / total;
-            progressUI?.SetProgress(overallProgress, $"{completed}/{total}");
+            progressUI?.SetProgress((float)completed / total, $"{completed}/{total}");
         }
 
-        FinishDownloads();
+        _isDownloading = false;
+
+        if (_laterList.Count > 0)
+        {
+            Debug.LogWarning($"[AudioManager] {_laterList.Count} file(s) could not be downloaded. Retrying in background.");
+            StartCoroutine(FadeOutDialogue());
+            _backgroundRetryCoroutine = StartCoroutine(BackgroundRetryCoroutine());
+        }
+        else
+        {
+            FinishDownloads();
+        }
+    }
+
+    /// <summary>
+    /// Attempts to download a single file from <paramref name="url"/> to <paramref name="localPath"/>
+    /// via a temp file. Reports download progress [0,1] via <paramref name="onProgress"/>.
+    /// Calls <paramref name="onResult"/> with true on success, false on any failure.
+    /// </summary>
+    private IEnumerator TryDownloadSingle(string url, string tempPath, string localPath,
+        Action<bool> onResult, Action<float> onProgress = null)
+    {
+        Debug.Log($"[AudioManager] Requesting: {url}");
+        using (UnityWebRequest req = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET))
+        {
+            req.downloadHandler = new DownloadHandlerFile(tempPath, true);
+
+            if (timeoutSeconds > 0)
+                req.timeout = timeoutSeconds;
+
+            req.SendWebRequest();
+
+            while (!req.isDone)
+            {
+                onProgress?.Invoke(Mathf.Clamp01(req.downloadProgress));
+                yield return null;
+            }
+
+#if UNITY_2020_2_OR_NEWER
+            bool ok = req.result == UnityWebRequest.Result.Success;
+#else
+            bool ok = !req.isNetworkError && !req.isHttpError;
+#endif
+
+            if (!ok)
+            {
+                Debug.LogError($"[AudioManager] Download failed: {url}\nError: {req.error}");
+                SafeDelete(tempPath);
+                onResult(false);
+                yield break;
+            }
+        }
+
+        SafeDelete(localPath);
+        File.Move(tempPath, localPath);
+
+        if (!IsFileValid(localPath))
+        {
+            Debug.LogError($"[AudioManager] Downloaded file too small, treating as invalid: {localPath}");
+            SafeDelete(localPath);
+            onResult(false);
+            yield break;
+        }
+
+        onResult(true);
+    }
+
+    private IEnumerator BackgroundRetryCoroutine()
+    {
+        while (_laterList.Count > 0)
+        {
+            yield return new WaitForSeconds(16f);
+
+            string localRoot = Path.Combine(Application.persistentDataPath, localRootFolderName);
+            var toRetry = new List<AudioEntry>(_laterList);
+
+            foreach (AudioEntry entry in toRetry)
+            {
+                string localPath = BuildLocalPath(localRoot, entry);
+
+                if (IsFileValid(localPath))
+                {
+                    _laterList.Remove(entry);
+                    continue;
+                }
+
+                Directory.CreateDirectory(Path.GetDirectoryName(localPath) ?? localRoot);
+                string tempPath = localPath + ".tmp";
+                SafeDelete(tempPath);
+
+                bool success = false;
+                string primaryUrl = BuildUrl(entry, useFallback: false);
+                Debug.Log($"[AudioManager] Background retry: downloading {entry.fileName} from Cloudflare: {primaryUrl}");
+                yield return StartCoroutine(TryDownloadSingle(primaryUrl, tempPath, localPath,
+                    (result) => success = result));
+
+                if (!success)
+                {
+                    SafeDelete(tempPath);
+                    string fallbackUrl = BuildUrl(entry, useFallback: true);
+                    Debug.LogWarning($"[AudioManager] Background retry: Cloudflare failed for {entry.fileName}, trying GitHub: {fallbackUrl}");
+                    yield return StartCoroutine(TryDownloadSingle(fallbackUrl, tempPath, localPath,
+                        (result) => success = result));
+                }
+
+                if (success)
+                {
+                    Debug.Log($"[AudioManager] Background retry succeeded for {entry.fileName}.");
+                    _laterList.Remove(entry);
+                }
+                else
+                {
+                    Debug.LogWarning($"[AudioManager] Background retry still failing for {entry.fileName}. Will try again in 16s.");
+                }
+            }
+        }
+
+        Debug.Log("[AudioManager] Background retry queue cleared.");
+        _backgroundRetryCoroutine = null;
+    }
+
+    private IEnumerator FadeOutDialogue()
+    {
+        if (download_dialogue == null) yield break;
+
+        var cg = download_dialogue.GetComponent<CanvasGroup>();
+        if (cg == null)
+        {
+            // No CanvasGroup — just hide immediately.
+            download_dialogue.SetActive(false);
+            yield break;
+        }
+
+        float duration = 0.5f;
+        float elapsed = 0f;
+        float startAlpha = cg.alpha;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(startAlpha, 0f, elapsed / duration);
+            yield return null;
+        }
+
+        cg.alpha = 0f;
+        download_dialogue.SetActive(false);
     }
 
     private void FinishDownloads()
@@ -350,10 +471,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private string BuildUrl(AudioEntry entry)
+    private string BuildUrl(AudioEntry entry, bool useFallback = false)
     {
-        // Always download from baseUrl (e.g. .../tracks/) — no folder segment.
-        string b = (baseUrl ?? "").TrimEnd('/');
+        string b = useFallback
+            ? (fallbackBaseUrl ?? "").TrimEnd('/')
+            : (baseUrl ?? "").TrimEnd('/');
         return $"{b}/{entry.fileName}.mp3";
     }
 

@@ -26166,7 +26166,6 @@ MonoBehaviour:
   progressUI:
     progressBar: {fileID: 380538817}
     statusText: {fileID: 749166001}
-  baseUrl: https://raw.githubusercontent.com/GOTWIC/Kathak-Saangi/main/Assets/Audio/tracks/
   audios:
   - folderName: Assets/Audio/tracks_app
     fileName: kramalaya_3
