@@ -288,10 +288,11 @@ public class PageController : MonoBehaviour
                         }
                         else
                         {
+                            var controllerForThisItem = audioController;
                             audioManager.LoadClip(fileName, folderName, loadedClip =>
                             {
                                 if (loadedClip != null)
-                                    SetAudioControllerClip(audioController, loadedClip);
+                                    SetAudioControllerClip(controllerForThisItem, loadedClip);
                             });
                         }
                     }

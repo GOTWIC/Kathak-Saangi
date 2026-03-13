@@ -120,6 +120,13 @@ public class AudioManager : MonoBehaviour
         // If all present, do nothing.
     }
 
+    /// <summary>Returns the full local file path for a track (for debugging / file-exists checks).</summary>
+    public string GetLocalPathForTrack(string fileName, string folderName = null)
+    {
+        string localRoot = Path.Combine(Application.persistentDataPath, localRootFolderName);
+        return BuildLocalPath(localRoot, folderName ?? "", fileName ?? "");
+    }
+
     /// <summary>Returns a cached AudioClip for the given track, or null if not yet loaded.</summary>
     public AudioClip GetClip(string fileName, string folderName = null)
     {
