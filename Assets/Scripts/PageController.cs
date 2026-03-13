@@ -284,14 +284,14 @@ public class PageController : MonoBehaviour
                         AudioClip clip = audioManager.GetClip(fileName, folderName);
                         if (clip != null)
                         {
-                            SetAudioControllerClip(audioController, clip);
+                            audioController.AssignClip(clip);
                         }
                         else
                         {
                             audioManager.LoadClip(fileName, folderName, loadedClip =>
                             {
                                 if (loadedClip != null)
-                                    SetAudioControllerClip(audioController, loadedClip);
+                                    audioController.AssignClip(loadedClip);
                             });
                         }
                     }
@@ -442,15 +442,6 @@ public class PageController : MonoBehaviour
     {
         var t = FindByPath(root, path);
         return t != null ? t.GetComponent<TMP_Text>() : null;
-    }
-
-    private static void SetAudioControllerClip(audio_controller controller, AudioClip clip)
-    {
-        if (controller == null) return;
-        var audioClipField = typeof(audio_controller).GetField("audioClip",
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        if (audioClipField != null)
-            audioClipField.SetValue(controller, clip);
     }
 
     private Image GetImageAtRootPath(string pathFromRoot)

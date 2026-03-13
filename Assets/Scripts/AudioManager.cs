@@ -96,6 +96,9 @@ public class AudioManager : MonoBehaviour
     /// <summary>Cache of loaded clips by key "folderName|fileName".</summary>
     private readonly Dictionary<string, AudioClip> _clipCache = new Dictionary<string, AudioClip>();
 
+    /// <summary>Callbacks waiting on a clip that is currently being loaded. Prevents duplicate in-flight coroutines.</summary>
+    private readonly Dictionary<string, List<Action<AudioClip>>> _pendingCallbacks = new Dictionary<string, List<Action<AudioClip>>>();
+
     // ---------------------------
     // Public API (as requested)
     // ---------------------------
@@ -134,7 +137,8 @@ public class AudioManager : MonoBehaviour
         return _clipCache.TryGetValue(key, out var clip) ? clip : null;
     }
 
-    /// <summary>Loads the track from disk (or returns cached). Calls onLoaded with the clip when ready.</summary>
+    /// <summary>Loads the track from disk (or returns cached). Calls onLoaded with the clip when ready.
+    /// If the same clip is already being loaded, queues the callback instead of spawning a duplicate coroutine.</summary>
     public void LoadClip(string fileName, string folderName, Action<AudioClip> onLoaded)
     {
         if (onLoaded == null) return;
@@ -146,7 +150,17 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        StartCoroutine(LoadClipCoroutine(fileName, folderName ?? "", onLoaded));
+        string key = MakeClipCacheKey(folderName, fileName);
+
+        if (_pendingCallbacks.TryGetValue(key, out var existing))
+        {
+            // Load already in flight — queue this callback; coroutine will dispatch it when done
+            existing.Add(onLoaded);
+            return;
+        }
+
+        _pendingCallbacks[key] = new List<Action<AudioClip>> { onLoaded };
+        StartCoroutine(LoadClipCoroutine(fileName, folderName ?? "", key));
     }
 
     private static string MakeClipCacheKey(string folderName, string fileName)
@@ -154,7 +168,7 @@ public class AudioManager : MonoBehaviour
         return (folderName ?? "").Trim() + "|" + (fileName ?? "").Trim();
     }
 
-    private IEnumerator LoadClipCoroutine(string fileName, string folderName, Action<AudioClip> onLoaded)
+    private IEnumerator LoadClipCoroutine(string fileName, string folderName, string key)
     {
         string localRoot = Path.Combine(Application.persistentDataPath, localRootFolderName);
         string localPath = BuildLocalPath(localRoot, folderName, fileName);
@@ -162,7 +176,7 @@ public class AudioManager : MonoBehaviour
         if (!File.Exists(localPath))
         {
             Debug.LogWarning($"[AudioManager] GetClip: file not found: {localPath}");
-            onLoaded(null);
+            DispatchPendingCallbacks(key, null);
             yield break;
         }
 
@@ -185,18 +199,24 @@ public class AudioManager : MonoBehaviour
 #endif
             {
                 Debug.LogError($"[AudioManager] Failed to load clip: {uri}\n{req.error}");
-                onLoaded(null);
+                DispatchPendingCallbacks(key, null);
                 yield break;
             }
 
             AudioClip clip = DownloadHandlerAudioClip.GetContent(req);
             if (clip != null)
-            {
-                string key = MakeClipCacheKey(folderName, fileName);
                 _clipCache[key] = clip;
-            }
-            onLoaded(clip);
+
+            DispatchPendingCallbacks(key, clip);
         }
+    }
+
+    private void DispatchPendingCallbacks(string key, AudioClip clip)
+    {
+        if (!_pendingCallbacks.TryGetValue(key, out var callbacks)) return;
+        _pendingCallbacks.Remove(key);
+        foreach (var cb in callbacks)
+            cb?.Invoke(clip);
     }
 
     // ---------------------------

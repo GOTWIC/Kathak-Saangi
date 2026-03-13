@@ -30,6 +30,7 @@ public class audio_controller : MonoBehaviour
     private AudioManager _audioManager;
     private bool _clipLoadRequested;
     private float _retryAfterTime;
+    private bool _pendingPlay;
 
     private bool isScrubbing;
 
@@ -61,8 +62,24 @@ public class audio_controller : MonoBehaviour
         trackName = fileName;
         trackFolderName = string.IsNullOrWhiteSpace(folderName) ? "Assets/Audio/tracks_app" : folderName.Trim();
         _audioManager = manager;
-        _clipLoadRequested = false;
+        _clipLoadRequested = true; // PageController handles loading; suppress duplicate load from Update()
         _retryAfterTime = 0f;
+        _pendingPlay = false;
+    }
+
+    /// <summary>Assigns a loaded clip to both the field and the AudioSource. Plays immediately if the user already pressed play.</summary>
+    public void AssignClip(AudioClip clip)
+    {
+        if (clip == null) return;
+        audioClip = clip;
+        if (audioSource != null)
+            audioSource.clip = clip;
+
+        if (_pendingPlay)
+        {
+            _pendingPlay = false;
+            ExecutePlay();
+        }
     }
 
     private void Awake()
@@ -121,7 +138,7 @@ public class audio_controller : MonoBehaviour
             {
                 if (clip != null)
                 {
-                    audioClip = clip;
+                    AssignClip(clip);
                 }
                 else
                 {
@@ -159,18 +176,18 @@ public class audio_controller : MonoBehaviour
     {
         if (audioSource == null) return;
 
-        // Ensure clip set
+        // Ensure clip is synced to the AudioSource in case it arrived after last check
         if (audioClip != null && audioSource.clip != audioClip)
             audioSource.clip = audioClip;
 
         if (audioSource.isPlaying)
         {
+            _pendingPlay = false;
             audioSource.Pause();
             SetPlayingUI(false);
         }
         else
         {
-            // Debug: one-line status when play is pressed (for Xcode console)
             string path = _audioManager != null ? _audioManager.GetLocalPathForTrack(trackName, trackFolderName) : "(no manager)";
             bool fileExists = !string.IsNullOrEmpty(path) && path != "(no manager)" && File.Exists(path);
             bool hasClip = audioClip != null;
@@ -178,17 +195,28 @@ public class audio_controller : MonoBehaviour
             string status = hasClip && sourceHasClip ? "OK" : (fileExists ? "file exists, clip missing" : "file missing");
             Debug.Log($"[Audio Play] name=\"{trackName}\" path={path} fileExists={fileExists} clipAssigned={hasClip} sourceClip={sourceHasClip} status={status} loading={_clipLoadRequested}");
 
-            if (audioSource.clip == null) return;
-            // Stop all other audio controllers so only this one plays
-            for (int i = s_allInstances.Count - 1; i >= 0; i--)
+            if (audioSource.clip == null)
             {
-                var other = s_allInstances[i];
-                if (other != null && other != this)
-                    other.StopPlayback();
+                // Clip is still loading; remember intent and play the moment it arrives
+                _pendingPlay = true;
+                return;
             }
-            audioSource.Play();
-            SetPlayingUI(true);
+
+            ExecutePlay();
         }
+    }
+
+    private void ExecutePlay()
+    {
+        // Stop all other controllers so only one track plays at a time
+        for (int i = s_allInstances.Count - 1; i >= 0; i--)
+        {
+            var other = s_allInstances[i];
+            if (other != null && other != this)
+                other.StopPlayback();
+        }
+        audioSource.Play();
+        SetPlayingUI(true);
     }
 
     private void SetPlayingUI(bool playing)
