@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -169,6 +170,14 @@ public class audio_controller : MonoBehaviour
         }
         else
         {
+            // Debug: one-line status when play is pressed (for Xcode console)
+            string path = _audioManager != null ? _audioManager.GetLocalPathForTrack(trackName, trackFolderName) : "(no manager)";
+            bool fileExists = !string.IsNullOrEmpty(path) && path != "(no manager)" && File.Exists(path);
+            bool hasClip = audioClip != null;
+            bool sourceHasClip = audioSource.clip != null;
+            string status = hasClip && sourceHasClip ? "OK" : (fileExists ? "file exists, clip missing" : "file missing");
+            Debug.Log($"[Audio Play] name=\"{trackName}\" path={path} fileExists={fileExists} clipAssigned={hasClip} sourceClip={sourceHasClip} status={status} loading={_clipLoadRequested}");
+
             if (audioSource.clip == null) return;
             // Stop all other audio controllers so only this one plays
             for (int i = s_allInstances.Count - 1; i >= 0; i--)
