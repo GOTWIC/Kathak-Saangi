@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -23,13 +22,6 @@ public class audio_controller : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
-    [Header("Fallback Load")]
-    [SerializeField] private string trackName;
-    [SerializeField] private string trackFolderName = "Assets/Audio/tracks_app";
-
-    private AudioManager _audioManager;
-    private bool _clipLoadRequested;
-    private float _retryAfterTime;
     private bool _pendingPlay;
 
     private bool isScrubbing;
@@ -57,17 +49,7 @@ public class audio_controller : MonoBehaviour
         }
     }
 
-    public void SetTrack(string fileName, string folderName, AudioManager manager)
-    {
-        trackName = fileName;
-        trackFolderName = string.IsNullOrWhiteSpace(folderName) ? "Assets/Audio/tracks_app" : folderName.Trim();
-        _audioManager = manager;
-        _clipLoadRequested = true; // PageController handles loading; suppress duplicate load from Update()
-        _retryAfterTime = 0f;
-        _pendingPlay = false;
-    }
-
-    /// <summary>Assigns a loaded clip to both the field and the AudioSource. Plays immediately if the user already pressed play.</summary>
+    /// <summary>Assigns a clip to both the field and the AudioSource. Plays immediately if the user already pressed play.</summary>
     public void AssignClip(AudioClip clip)
     {
         if (clip == null) return;
@@ -126,29 +108,6 @@ public class audio_controller : MonoBehaviour
 
     private void Update()
     {
-        // Fallback: if the clip was never assigned, use trackName to load it.
-        // Retries every 5 seconds in case the file wasn't on disk yet (still downloading).
-        if (audioClip == null && !_clipLoadRequested
-            && !string.IsNullOrWhiteSpace(trackName)
-            && _audioManager != null
-            && Time.time >= _retryAfterTime)
-        {
-            _clipLoadRequested = true;
-            _audioManager.LoadClip(trackName, trackFolderName, clip =>
-            {
-                if (clip != null)
-                {
-                    AssignClip(clip);
-                }
-                else
-                {
-                    // File not available yet; allow another attempt after a delay.
-                    _clipLoadRequested = false;
-                    _retryAfterTime = Time.time + 5f;
-                }
-            });
-        }
-
         if (audioSource == null || audioSource.clip == null || progressSlider == null) return;
 
         // Finished -> reset UI
@@ -188,16 +147,8 @@ public class audio_controller : MonoBehaviour
         }
         else
         {
-            string path = _audioManager != null ? _audioManager.GetLocalPathForTrack(trackName, trackFolderName) : "(no manager)";
-            bool fileExists = !string.IsNullOrEmpty(path) && path != "(no manager)" && File.Exists(path);
-            bool hasClip = audioClip != null;
-            bool sourceHasClip = audioSource.clip != null;
-            string status = hasClip && sourceHasClip ? "OK" : (fileExists ? "file exists, clip missing" : "file missing");
-            Debug.Log($"[Audio Play] name=\"{trackName}\" path={path} fileExists={fileExists} clipAssigned={hasClip} sourceClip={sourceHasClip} status={status} loading={_clipLoadRequested}");
-
             if (audioSource.clip == null)
             {
-                // Clip is still loading; remember intent and play the moment it arrives
                 _pendingPlay = true;
                 return;
             }
